@@ -27,17 +27,17 @@ export const UserProjectPermissionDetail = (props: IUserProjectPermissionDetailP
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <Translate contentKey="localizeusApp.userProjectPermission.refUser">Ref User</Translate>
+            <Translate contentKey="localizeusApp.userProjectPermission.user">User</Translate>
           </dt>
-          <dd>{userProjectPermissionEntity.refUserId ? userProjectPermissionEntity.refUserId : ''}</dd>
+          <dd>{userProjectPermissionEntity.userId ? userProjectPermissionEntity.userId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.userProjectPermission.refProject">Ref Project</Translate>
+            <Translate contentKey="localizeusApp.userProjectPermission.project">Project</Translate>
           </dt>
-          <dd>{userProjectPermissionEntity.refProjectId ? userProjectPermissionEntity.refProjectId : ''}</dd>
+          <dd>{userProjectPermissionEntity.projectId ? userProjectPermissionEntity.projectId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.userProjectPermission.refUserPermission">Ref User Permission</Translate>
+            <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
           </dt>
-          <dd>{userProjectPermissionEntity.refUserPermissionId ? userProjectPermissionEntity.refUserPermissionId : ''}</dd>
+          <dd>{userProjectPermissionEntity.userPermissionId ? userProjectPermissionEntity.userPermissionId : ''}</dd>
         </dl>
         <Button tag={Link} to="/user-project-permission" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

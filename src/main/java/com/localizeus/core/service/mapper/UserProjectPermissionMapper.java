@@ -12,14 +12,14 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {UserMapper.class, ProjectMapper.class, UserPermissionMapper.class})
 public interface UserProjectPermissionMapper extends EntityMapper<UserProjectPermissionDTO, UserProjectPermission> {
 
-    @Mapping(source = "refUser.id", target = "refUserId")
-    @Mapping(source = "refProject.id", target = "refProjectId")
-    @Mapping(source = "refUserPermission.id", target = "refUserPermissionId")
+    @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "project.id", target = "projectId")
+    @Mapping(source = "userPermission.id", target = "userPermissionId")
     UserProjectPermissionDTO toDto(UserProjectPermission userProjectPermission);
 
-    @Mapping(source = "refUserId", target = "refUser")
-    @Mapping(source = "refProjectId", target = "refProject")
-    @Mapping(source = "refUserPermissionId", target = "refUserPermission")
+    @Mapping(source = "userId", target = "user")
+    @Mapping(source = "projectId", target = "project")
+    @Mapping(source = "userPermissionId", target = "userPermission")
     UserProjectPermission toEntity(UserProjectPermissionDTO userProjectPermissionDTO);
 
     default UserProjectPermission fromId(Long id) {

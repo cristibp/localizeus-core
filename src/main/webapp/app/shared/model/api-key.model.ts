@@ -5,7 +5,7 @@ export interface IApiKey {
   value?: string;
   startDate?: string;
   endDate?: string;
-  refUserId?: number;
+  userId?: number;
 }
 
 export const defaultValue: Readonly<IApiKey> = {};

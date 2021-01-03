@@ -16,9 +16,9 @@
       "detail": {
         "title": "User Project Permission"
       },
-      "refUser": "Ref User",
-      "refProject": "Ref Project",
-      "refUserPermission": "Ref User Permission"
+      "user": "User",
+      "project": "Project",
+      "userPermission": "User Permission"
     }
   }
 }

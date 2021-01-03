@@ -21,9 +21,9 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IUserProjectPermissionUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateProps) => {
-  const [refUserId, setRefUserId] = useState('0');
-  const [refProjectId, setRefProjectId] = useState('0');
-  const [refUserPermissionId, setRefUserPermissionId] = useState('0');
+  const [userId, setUserId] = useState('0');
+  const [projectId, setProjectId] = useState('0');
+  const [userPermissionId, setUserPermissionId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { userProjectPermissionEntity, users, projects, userPermissions, loading, updating } = props;
@@ -91,10 +91,10 @@ export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateP
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label for="user-project-permission-refUser">
-                  <Translate contentKey="localizeusApp.userProjectPermission.refUser">Ref User</Translate>
+                <Label for="user-project-permission-user">
+                  <Translate contentKey="localizeusApp.userProjectPermission.user">User</Translate>
                 </Label>
-                <AvInput id="user-project-permission-refUser" type="select" className="form-control" name="refUserId">
+                <AvInput id="user-project-permission-user" type="select" className="form-control" name="userId">
                   <option value="" key="0" />
                   {users
                     ? users.map(otherEntity => (
@@ -106,10 +106,10 @@ export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateP
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="user-project-permission-refProject">
-                  <Translate contentKey="localizeusApp.userProjectPermission.refProject">Ref Project</Translate>
+                <Label for="user-project-permission-project">
+                  <Translate contentKey="localizeusApp.userProjectPermission.project">Project</Translate>
                 </Label>
-                <AvInput id="user-project-permission-refProject" type="select" className="form-control" name="refProjectId">
+                <AvInput id="user-project-permission-project" type="select" className="form-control" name="projectId">
                   <option value="" key="0" />
                   {projects
                     ? projects.map(otherEntity => (
@@ -121,10 +121,10 @@ export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateP
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="user-project-permission-refUserPermission">
-                  <Translate contentKey="localizeusApp.userProjectPermission.refUserPermission">Ref User Permission</Translate>
+                <Label for="user-project-permission-userPermission">
+                  <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
                 </Label>
-                <AvInput id="user-project-permission-refUserPermission" type="select" className="form-control" name="refUserPermissionId">
+                <AvInput id="user-project-permission-userPermission" type="select" className="form-control" name="userPermissionId">
                   <option value="" key="0" />
                   {userPermissions
                     ? userPermissions.map(otherEntity => (

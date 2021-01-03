@@ -19,8 +19,8 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface ITranslationUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const TranslationUpdate = (props: ITranslationUpdateProps) => {
-  const [refTranslationKeyId, setRefTranslationKeyId] = useState('0');
-  const [refLanguageId, setRefLanguageId] = useState('0');
+  const [translationKeyId, setTranslationKeyId] = useState('0');
+  const [languageId, setLanguageId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { translationEntity, translationKeys, languages, loading, updating } = props;
@@ -91,10 +91,10 @@ export const TranslationUpdate = (props: ITranslationUpdateProps) => {
                 <AvField id="translation-value" type="text" name="value" />
               </AvGroup>
               <AvGroup>
-                <Label for="translation-refTranslationKey">
-                  <Translate contentKey="localizeusApp.translation.refTranslationKey">Ref Translation Key</Translate>
+                <Label for="translation-translationKey">
+                  <Translate contentKey="localizeusApp.translation.translationKey">Translation Key</Translate>
                 </Label>
-                <AvInput id="translation-refTranslationKey" type="select" className="form-control" name="refTranslationKeyId">
+                <AvInput id="translation-translationKey" type="select" className="form-control" name="translationKeyId">
                   <option value="" key="0" />
                   {translationKeys
                     ? translationKeys.map(otherEntity => (
@@ -106,10 +106,10 @@ export const TranslationUpdate = (props: ITranslationUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="translation-refLanguage">
-                  <Translate contentKey="localizeusApp.translation.refLanguage">Ref Language</Translate>
+                <Label for="translation-language">
+                  <Translate contentKey="localizeusApp.translation.language">Language</Translate>
                 </Label>
-                <AvInput id="translation-refLanguage" type="select" className="form-control" name="refLanguageId">
+                <AvInput id="translation-language" type="select" className="form-control" name="languageId">
                   <option value="" key="0" />
                   {languages
                     ? languages.map(otherEntity => (

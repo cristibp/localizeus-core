@@ -19,8 +19,8 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IServiceSubscriptionUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ServiceSubscriptionUpdate = (props: IServiceSubscriptionUpdateProps) => {
-  const [refCompanyId, setRefCompanyId] = useState('0');
-  const [refPlanId, setRefPlanId] = useState('0');
+  const [companyId, setCompanyId] = useState('0');
+  const [planId, setPlanId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { serviceSubscriptionEntity, companies, plans, loading, updating } = props;
@@ -116,10 +116,10 @@ export const ServiceSubscriptionUpdate = (props: IServiceSubscriptionUpdateProps
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="service-subscription-refCompany">
-                  <Translate contentKey="localizeusApp.serviceSubscription.refCompany">Ref Company</Translate>
+                <Label for="service-subscription-company">
+                  <Translate contentKey="localizeusApp.serviceSubscription.company">Company</Translate>
                 </Label>
-                <AvInput id="service-subscription-refCompany" type="select" className="form-control" name="refCompanyId">
+                <AvInput id="service-subscription-company" type="select" className="form-control" name="companyId">
                   <option value="" key="0" />
                   {companies
                     ? companies.map(otherEntity => (
@@ -131,10 +131,10 @@ export const ServiceSubscriptionUpdate = (props: IServiceSubscriptionUpdateProps
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="service-subscription-refPlan">
-                  <Translate contentKey="localizeusApp.serviceSubscription.refPlan">Ref Plan</Translate>
+                <Label for="service-subscription-plan">
+                  <Translate contentKey="localizeusApp.serviceSubscription.plan">Plan</Translate>
                 </Label>
-                <AvInput id="service-subscription-refPlan" type="select" className="form-control" name="refPlanId">
+                <AvInput id="service-subscription-plan" type="select" className="form-control" name="planId">
                   <option value="" key="0" />
                   {plans
                     ? plans.map(otherEntity => (

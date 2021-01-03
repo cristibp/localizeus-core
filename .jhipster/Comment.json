@@ -11,7 +11,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "translationKey",
       "otherEntityRelationshipName": "comment",
-      "relationshipName": "refTranslationKey",
+      "relationshipName": "translationKey",
       "otherEntityField": "id"
     }
   ],

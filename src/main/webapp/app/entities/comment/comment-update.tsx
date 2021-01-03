@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface ICommentUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const CommentUpdate = (props: ICommentUpdateProps) => {
-  const [refTranslationKeyId, setRefTranslationKeyId] = useState('0');
+  const [translationKeyId, setTranslationKeyId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { commentEntity, translationKeys, loading, updating } = props;
@@ -85,10 +85,10 @@ export const CommentUpdate = (props: ICommentUpdateProps) => {
                 <AvField id="comment-value" type="text" name="value" />
               </AvGroup>
               <AvGroup>
-                <Label for="comment-refTranslationKey">
-                  <Translate contentKey="localizeusApp.comment.refTranslationKey">Ref Translation Key</Translate>
+                <Label for="comment-translationKey">
+                  <Translate contentKey="localizeusApp.comment.translationKey">Translation Key</Translate>
                 </Label>
-                <AvInput id="comment-refTranslationKey" type="select" className="form-control" name="refTranslationKeyId">
+                <AvInput id="comment-translationKey" type="select" className="form-control" name="translationKeyId">
                   <option value="" key="0" />
                   {translationKeys
                     ? translationKeys.map(otherEntity => (

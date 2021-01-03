@@ -18,7 +18,7 @@
       },
       "name": "Name",
       "fallbackValue": "Fallback Value",
-      "refProject": "Ref Project"
+      "project": "Project"
     }
   }
 }

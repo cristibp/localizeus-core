@@ -24,15 +24,15 @@ public class UserProjectPermission implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userProjectPermissions", allowSetters = true)
-    private User refUser;
+    private User user;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userProjectPermissions", allowSetters = true)
-    private Project refProject;
+    private Project project;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userProjectPermissions", allowSetters = true)
-    private UserPermission refUserPermission;
+    private UserPermission userPermission;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -43,43 +43,43 @@ public class UserProjectPermission implements Serializable {
         this.id = id;
     }
 
-    public User getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public UserProjectPermission refUser(User user) {
-        this.refUser = user;
+    public UserProjectPermission user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setRefUser(User user) {
-        this.refUser = user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Project getRefProject() {
-        return refProject;
+    public Project getProject() {
+        return project;
     }
 
-    public UserProjectPermission refProject(Project project) {
-        this.refProject = project;
+    public UserProjectPermission project(Project project) {
+        this.project = project;
         return this;
     }
 
-    public void setRefProject(Project project) {
-        this.refProject = project;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
-    public UserPermission getRefUserPermission() {
-        return refUserPermission;
+    public UserPermission getUserPermission() {
+        return userPermission;
     }
 
-    public UserProjectPermission refUserPermission(UserPermission userPermission) {
-        this.refUserPermission = userPermission;
+    public UserProjectPermission userPermission(UserPermission userPermission) {
+        this.userPermission = userPermission;
         return this;
     }
 
-    public void setRefUserPermission(UserPermission userPermission) {
-        this.refUserPermission = userPermission;
+    public void setUserPermission(UserPermission userPermission) {
+        this.userPermission = userPermission;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

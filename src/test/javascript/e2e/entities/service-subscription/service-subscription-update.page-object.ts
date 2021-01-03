@@ -10,8 +10,8 @@ export default class ServiceSubscriptionUpdatePage {
   startInput: ElementFinder = element(by.css('input#service-subscription-start'));
   endInput: ElementFinder = element(by.css('input#service-subscription-end'));
   paymentTypeSelect: ElementFinder = element(by.css('select#service-subscription-paymentType'));
-  refCompanySelect: ElementFinder = element(by.css('select#service-subscription-refCompany'));
-  refPlanSelect: ElementFinder = element(by.css('select#service-subscription-refPlan'));
+  companySelect: ElementFinder = element(by.css('select#service-subscription-company'));
+  planSelect: ElementFinder = element(by.css('select#service-subscription-plan'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -44,36 +44,36 @@ export default class ServiceSubscriptionUpdatePage {
   async paymentTypeSelectLastOption() {
     await this.paymentTypeSelect.all(by.tagName('option')).last().click();
   }
-  async refCompanySelectLastOption() {
-    await this.refCompanySelect.all(by.tagName('option')).last().click();
+  async companySelectLastOption() {
+    await this.companySelect.all(by.tagName('option')).last().click();
   }
 
-  async refCompanySelectOption(option) {
-    await this.refCompanySelect.sendKeys(option);
+  async companySelectOption(option) {
+    await this.companySelect.sendKeys(option);
   }
 
-  getRefCompanySelect() {
-    return this.refCompanySelect;
+  getCompanySelect() {
+    return this.companySelect;
   }
 
-  async getRefCompanySelectedOption() {
-    return this.refCompanySelect.element(by.css('option:checked')).getText();
+  async getCompanySelectedOption() {
+    return this.companySelect.element(by.css('option:checked')).getText();
   }
 
-  async refPlanSelectLastOption() {
-    await this.refPlanSelect.all(by.tagName('option')).last().click();
+  async planSelectLastOption() {
+    await this.planSelect.all(by.tagName('option')).last().click();
   }
 
-  async refPlanSelectOption(option) {
-    await this.refPlanSelect.sendKeys(option);
+  async planSelectOption(option) {
+    await this.planSelect.sendKeys(option);
   }
 
-  getRefPlanSelect() {
-    return this.refPlanSelect;
+  getPlanSelect() {
+    return this.planSelect;
   }
 
-  async getRefPlanSelectedOption() {
-    return this.refPlanSelect.element(by.css('option:checked')).getText();
+  async getPlanSelectedOption() {
+    return this.planSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -97,8 +97,8 @@ export default class ServiceSubscriptionUpdatePage {
     expect(await this.getEndInput()).to.eq('2001-01-01');
     await waitUntilDisplayed(this.saveButton);
     await this.paymentTypeSelectLastOption();
-    await this.refCompanySelectLastOption();
-    await this.refPlanSelectLastOption();
+    await this.companySelectLastOption();
+    await this.planSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

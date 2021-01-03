@@ -30,11 +30,11 @@ public class UserPermission implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userPermissions", allowSetters = true)
-    private User refUser;
+    private User user;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userPermissions", allowSetters = true)
-    private Project refProject;
+    private Project project;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -58,30 +58,30 @@ public class UserPermission implements Serializable {
         this.type = type;
     }
 
-    public User getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public UserPermission refUser(User user) {
-        this.refUser = user;
+    public UserPermission user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setRefUser(User user) {
-        this.refUser = user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Project getRefProject() {
-        return refProject;
+    public Project getProject() {
+        return project;
     }
 
-    public UserPermission refProject(Project project) {
-        this.refProject = project;
+    public UserPermission project(Project project) {
+        this.project = project;
         return this;
     }
 
-    public void setRefProject(Project project) {
-        this.refProject = project;
+    public void setProject(Project project) {
+        this.project = project;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -27,7 +27,7 @@ public class KeyLabel implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "keyLabels", allowSetters = true)
-    private TranslationKey refTranslationKey;
+    private TranslationKey translationKey;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,17 +51,17 @@ public class KeyLabel implements Serializable {
         this.value = value;
     }
 
-    public TranslationKey getRefTranslationKey() {
-        return refTranslationKey;
+    public TranslationKey getTranslationKey() {
+        return translationKey;
     }
 
-    public KeyLabel refTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public KeyLabel translationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
         return this;
     }
 
-    public void setRefTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public void setTranslationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -10,9 +10,9 @@ export default class ProjectHistoryUpdatePage {
   actionSelect: ElementFinder = element(by.css('select#project-history-action'));
   oldValueInput: ElementFinder = element(by.css('input#project-history-oldValue'));
   newValueInput: ElementFinder = element(by.css('input#project-history-newValue'));
-  refUserSelect: ElementFinder = element(by.css('select#project-history-refUser'));
-  refTranslationKeySelect: ElementFinder = element(by.css('select#project-history-refTranslationKey'));
-  refTranslationSelect: ElementFinder = element(by.css('select#project-history-refTranslation'));
+  userSelect: ElementFinder = element(by.css('select#project-history-user'));
+  translationKeySelect: ElementFinder = element(by.css('select#project-history-translationKey'));
+  translationSelect: ElementFinder = element(by.css('select#project-history-translation'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -45,52 +45,52 @@ export default class ProjectHistoryUpdatePage {
     return this.newValueInput.getAttribute('value');
   }
 
-  async refUserSelectLastOption() {
-    await this.refUserSelect.all(by.tagName('option')).last().click();
+  async userSelectLastOption() {
+    await this.userSelect.all(by.tagName('option')).last().click();
   }
 
-  async refUserSelectOption(option) {
-    await this.refUserSelect.sendKeys(option);
+  async userSelectOption(option) {
+    await this.userSelect.sendKeys(option);
   }
 
-  getRefUserSelect() {
-    return this.refUserSelect;
+  getUserSelect() {
+    return this.userSelect;
   }
 
-  async getRefUserSelectedOption() {
-    return this.refUserSelect.element(by.css('option:checked')).getText();
+  async getUserSelectedOption() {
+    return this.userSelect.element(by.css('option:checked')).getText();
   }
 
-  async refTranslationKeySelectLastOption() {
-    await this.refTranslationKeySelect.all(by.tagName('option')).last().click();
+  async translationKeySelectLastOption() {
+    await this.translationKeySelect.all(by.tagName('option')).last().click();
   }
 
-  async refTranslationKeySelectOption(option) {
-    await this.refTranslationKeySelect.sendKeys(option);
+  async translationKeySelectOption(option) {
+    await this.translationKeySelect.sendKeys(option);
   }
 
-  getRefTranslationKeySelect() {
-    return this.refTranslationKeySelect;
+  getTranslationKeySelect() {
+    return this.translationKeySelect;
   }
 
-  async getRefTranslationKeySelectedOption() {
-    return this.refTranslationKeySelect.element(by.css('option:checked')).getText();
+  async getTranslationKeySelectedOption() {
+    return this.translationKeySelect.element(by.css('option:checked')).getText();
   }
 
-  async refTranslationSelectLastOption() {
-    await this.refTranslationSelect.all(by.tagName('option')).last().click();
+  async translationSelectLastOption() {
+    await this.translationSelect.all(by.tagName('option')).last().click();
   }
 
-  async refTranslationSelectOption(option) {
-    await this.refTranslationSelect.sendKeys(option);
+  async translationSelectOption(option) {
+    await this.translationSelect.sendKeys(option);
   }
 
-  getRefTranslationSelect() {
-    return this.refTranslationSelect;
+  getTranslationSelect() {
+    return this.translationSelect;
   }
 
-  async getRefTranslationSelectedOption() {
-    return this.refTranslationSelect.element(by.css('option:checked')).getText();
+  async getTranslationSelectedOption() {
+    return this.translationSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -114,9 +114,9 @@ export default class ProjectHistoryUpdatePage {
     await waitUntilDisplayed(this.saveButton);
     await this.setNewValueInput('newValue');
     expect(await this.getNewValueInput()).to.match(/newValue/);
-    await this.refUserSelectLastOption();
-    await this.refTranslationKeySelectLastOption();
-    await this.refTranslationSelectLastOption();
+    await this.userSelectLastOption();
+    await this.translationKeySelectLastOption();
+    await this.translationSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

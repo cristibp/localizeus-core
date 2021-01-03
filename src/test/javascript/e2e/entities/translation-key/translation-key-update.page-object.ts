@@ -9,7 +9,7 @@ export default class TranslationKeyUpdatePage {
   cancelButton: ElementFinder = element(by.id('cancel-save'));
   nameInput: ElementFinder = element(by.css('input#translation-key-name'));
   fallbackValueInput: ElementFinder = element(by.css('input#translation-key-fallbackValue'));
-  refProjectSelect: ElementFinder = element(by.css('select#translation-key-refProject'));
+  projectSelect: ElementFinder = element(by.css('select#translation-key-project'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -31,20 +31,20 @@ export default class TranslationKeyUpdatePage {
     return this.fallbackValueInput.getAttribute('value');
   }
 
-  async refProjectSelectLastOption() {
-    await this.refProjectSelect.all(by.tagName('option')).last().click();
+  async projectSelectLastOption() {
+    await this.projectSelect.all(by.tagName('option')).last().click();
   }
 
-  async refProjectSelectOption(option) {
-    await this.refProjectSelect.sendKeys(option);
+  async projectSelectOption(option) {
+    await this.projectSelect.sendKeys(option);
   }
 
-  getRefProjectSelect() {
-    return this.refProjectSelect;
+  getProjectSelect() {
+    return this.projectSelect;
   }
 
-  async getRefProjectSelectedOption() {
-    return this.refProjectSelect.element(by.css('option:checked')).getText();
+  async getProjectSelectedOption() {
+    return this.projectSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -66,7 +66,7 @@ export default class TranslationKeyUpdatePage {
     await waitUntilDisplayed(this.saveButton);
     await this.setFallbackValueInput('fallbackValue');
     expect(await this.getFallbackValueInput()).to.match(/fallbackValue/);
-    await this.refProjectSelectLastOption();
+    await this.projectSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

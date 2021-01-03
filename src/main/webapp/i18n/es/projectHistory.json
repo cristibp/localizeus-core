@@ -19,9 +19,9 @@
       "action": "Action",
       "oldValue": "Old Value",
       "newValue": "New Value",
-      "refUser": "Ref User",
-      "refTranslationKey": "Ref Translation Key",
-      "refTranslation": "Ref Translation"
+      "user": "User",
+      "translationKey": "Translation Key",
+      "translation": "Translation"
     }
   }
 }

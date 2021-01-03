@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IApiKeyUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ApiKeyUpdate = (props: IApiKeyUpdateProps) => {
-  const [refUserId, setRefUserId] = useState('0');
+  const [userId, setUserId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { apiKeyEntity, users, loading, updating } = props;
@@ -99,10 +99,10 @@ export const ApiKeyUpdate = (props: IApiKeyUpdateProps) => {
                 <AvField id="api-key-endDate" type="date" className="form-control" name="endDate" />
               </AvGroup>
               <AvGroup>
-                <Label for="api-key-refUser">
-                  <Translate contentKey="localizeusApp.apiKey.refUser">Ref User</Translate>
+                <Label for="api-key-user">
+                  <Translate contentKey="localizeusApp.apiKey.user">User</Translate>
                 </Label>
-                <AvInput id="api-key-refUser" type="select" className="form-control" name="refUserId">
+                <AvInput id="api-key-user" type="select" className="form-control" name="userId">
                   <option value="" key="0" />
                   {users
                     ? users.map(otherEntity => (

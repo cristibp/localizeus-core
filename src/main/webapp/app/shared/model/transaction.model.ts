@@ -7,7 +7,7 @@ export interface ITransaction {
   date?: string;
   status?: string;
   type?: TransactionType;
-  refServiceSubscriptionId?: number;
+  serviceSubscriptionId?: number;
 }
 
 export const defaultValue: Readonly<ITransaction> = {};

@@ -30,7 +30,7 @@ public class TranslationKey implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "translationKeys", allowSetters = true)
-    private Project refProject;
+    private Project project;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -67,17 +67,17 @@ public class TranslationKey implements Serializable {
         this.fallbackValue = fallbackValue;
     }
 
-    public Project getRefProject() {
-        return refProject;
+    public Project getProject() {
+        return project;
     }
 
-    public TranslationKey refProject(Project project) {
-        this.refProject = project;
+    public TranslationKey project(Project project) {
+        this.project = project;
         return this;
     }
 
-    public void setRefProject(Project project) {
-        this.refProject = project;
+    public void setProject(Project project) {
+        this.project = project;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

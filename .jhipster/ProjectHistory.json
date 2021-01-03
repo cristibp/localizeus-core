@@ -20,21 +20,21 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
       "otherEntityRelationshipName": "projectHistory",
-      "relationshipName": "refUser",
+      "relationshipName": "user",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "translationKey",
       "otherEntityRelationshipName": "projectHistory",
-      "relationshipName": "refTranslationKey",
+      "relationshipName": "translationKey",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "translation",
       "otherEntityRelationshipName": "projectHistory",
-      "relationshipName": "refTranslation",
+      "relationshipName": "translation",
       "otherEntityField": "id"
     }
   ],

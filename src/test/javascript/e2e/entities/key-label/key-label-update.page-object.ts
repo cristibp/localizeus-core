@@ -8,7 +8,7 @@ export default class KeyLabelUpdatePage {
   saveButton: ElementFinder = element(by.id('save-entity'));
   cancelButton: ElementFinder = element(by.id('cancel-save'));
   valueInput: ElementFinder = element(by.css('input#key-label-value'));
-  refTranslationKeySelect: ElementFinder = element(by.css('select#key-label-refTranslationKey'));
+  translationKeySelect: ElementFinder = element(by.css('select#key-label-translationKey'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -22,20 +22,20 @@ export default class KeyLabelUpdatePage {
     return this.valueInput.getAttribute('value');
   }
 
-  async refTranslationKeySelectLastOption() {
-    await this.refTranslationKeySelect.all(by.tagName('option')).last().click();
+  async translationKeySelectLastOption() {
+    await this.translationKeySelect.all(by.tagName('option')).last().click();
   }
 
-  async refTranslationKeySelectOption(option) {
-    await this.refTranslationKeySelect.sendKeys(option);
+  async translationKeySelectOption(option) {
+    await this.translationKeySelect.sendKeys(option);
   }
 
-  getRefTranslationKeySelect() {
-    return this.refTranslationKeySelect;
+  getTranslationKeySelect() {
+    return this.translationKeySelect;
   }
 
-  async getRefTranslationKeySelectedOption() {
-    return this.refTranslationKeySelect.element(by.css('option:checked')).getText();
+  async getTranslationKeySelectedOption() {
+    return this.translationKeySelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -54,7 +54,7 @@ export default class KeyLabelUpdatePage {
     await waitUntilDisplayed(this.saveButton);
     await this.setValueInput('value');
     expect(await this.getValueInput()).to.match(/value/);
-    await this.refTranslationKeySelectLastOption();
+    await this.translationKeySelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

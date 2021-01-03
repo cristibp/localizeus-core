@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface ITranslationKeyUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const TranslationKeyUpdate = (props: ITranslationKeyUpdateProps) => {
-  const [refProjectId, setRefProjectId] = useState('0');
+  const [projectId, setProjectId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { translationKeyEntity, projects, loading, updating } = props;
@@ -93,10 +93,10 @@ export const TranslationKeyUpdate = (props: ITranslationKeyUpdateProps) => {
                 <AvField id="translation-key-fallbackValue" type="text" name="fallbackValue" />
               </AvGroup>
               <AvGroup>
-                <Label for="translation-key-refProject">
-                  <Translate contentKey="localizeusApp.translationKey.refProject">Ref Project</Translate>
+                <Label for="translation-key-project">
+                  <Translate contentKey="localizeusApp.translationKey.project">Project</Translate>
                 </Label>
-                <AvInput id="translation-key-refProject" type="select" className="form-control" name="refProjectId">
+                <AvInput id="translation-key-project" type="select" className="form-control" name="projectId">
                   <option value="" key="0" />
                   {projects
                     ? projects.map(otherEntity => (

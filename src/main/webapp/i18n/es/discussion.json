@@ -17,7 +17,7 @@
         "title": "Discussion"
       },
       "value": "Value",
-      "refProject": "Ref Project"
+      "project": "Project"
     }
   }
 }

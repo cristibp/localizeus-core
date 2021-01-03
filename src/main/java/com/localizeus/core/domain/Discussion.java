@@ -27,7 +27,7 @@ public class Discussion implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "discussions", allowSetters = true)
-    private Project refProject;
+    private Project project;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,17 +51,17 @@ public class Discussion implements Serializable {
         this.value = value;
     }
 
-    public Project getRefProject() {
-        return refProject;
+    public Project getProject() {
+        return project;
     }
 
-    public Discussion refProject(Project project) {
-        this.refProject = project;
+    public Discussion project(Project project) {
+        this.project = project;
         return this;
     }
 
-    public void setRefProject(Project project) {
-        this.refProject = project;
+    public void setProject(Project project) {
+        this.project = project;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

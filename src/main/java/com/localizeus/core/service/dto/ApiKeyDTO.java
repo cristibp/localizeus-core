@@ -17,7 +17,7 @@ public class ApiKeyDTO implements Serializable {
     private LocalDate endDate;
 
 
-    private Long refUserId;
+    private Long userId;
     
     public Long getId() {
         return id;
@@ -51,12 +51,12 @@ public class ApiKeyDTO implements Serializable {
         this.endDate = endDate;
     }
 
-    public Long getRefUserId() {
-        return refUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRefUserId(Long userId) {
-        this.refUserId = userId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class ApiKeyDTO implements Serializable {
             ", value='" + getValue() + "'" +
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
-            ", refUserId=" + getRefUserId() +
+            ", userId=" + getUserId() +
             "}";
     }
 }

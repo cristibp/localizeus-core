@@ -19,7 +19,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
       "otherEntityRelationshipName": "apiKey",
-      "relationshipName": "refUser",
+      "relationshipName": "user",
       "otherEntityField": "id"
     }
   ],

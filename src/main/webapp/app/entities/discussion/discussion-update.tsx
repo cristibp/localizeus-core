@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IDiscussionUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const DiscussionUpdate = (props: IDiscussionUpdateProps) => {
-  const [refProjectId, setRefProjectId] = useState('0');
+  const [projectId, setProjectId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { discussionEntity, projects, loading, updating } = props;
@@ -85,10 +85,10 @@ export const DiscussionUpdate = (props: IDiscussionUpdateProps) => {
                 <AvField id="discussion-value" type="text" name="value" />
               </AvGroup>
               <AvGroup>
-                <Label for="discussion-refProject">
-                  <Translate contentKey="localizeusApp.discussion.refProject">Ref Project</Translate>
+                <Label for="discussion-project">
+                  <Translate contentKey="localizeusApp.discussion.project">Project</Translate>
                 </Label>
-                <AvInput id="discussion-refProject" type="select" className="form-control" name="refProjectId">
+                <AvInput id="discussion-project" type="select" className="form-control" name="projectId">
                   <option value="" key="0" />
                   {projects
                     ? projects.map(otherEntity => (

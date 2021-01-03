@@ -37,11 +37,11 @@ public class ServiceSubscription implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "serviceSubscriptions", allowSetters = true)
-    private Company refCompany;
+    private Company company;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "serviceSubscriptions", allowSetters = true)
-    private Plan refPlan;
+    private Plan plan;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -91,30 +91,30 @@ public class ServiceSubscription implements Serializable {
         this.paymentType = paymentType;
     }
 
-    public Company getRefCompany() {
-        return refCompany;
+    public Company getCompany() {
+        return company;
     }
 
-    public ServiceSubscription refCompany(Company company) {
-        this.refCompany = company;
+    public ServiceSubscription company(Company company) {
+        this.company = company;
         return this;
     }
 
-    public void setRefCompany(Company company) {
-        this.refCompany = company;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
-    public Plan getRefPlan() {
-        return refPlan;
+    public Plan getPlan() {
+        return plan;
     }
 
-    public ServiceSubscription refPlan(Plan plan) {
-        this.refPlan = plan;
+    public ServiceSubscription plan(Plan plan) {
+        this.plan = plan;
         return this;
     }
 
-    public void setRefPlan(Plan plan) {
-        this.refPlan = plan;
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

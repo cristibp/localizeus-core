@@ -25,10 +25,10 @@
             <column name="payment_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="ref_company_id" type="bigint">
+            <column name="company_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ref_plan_id" type="bigint">
+            <column name="plan_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

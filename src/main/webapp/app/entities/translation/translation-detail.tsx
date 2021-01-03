@@ -32,13 +32,13 @@ export const TranslationDetail = (props: ITranslationDetailProps) => {
           </dt>
           <dd>{translationEntity.value}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.translation.refTranslationKey">Ref Translation Key</Translate>
+            <Translate contentKey="localizeusApp.translation.translationKey">Translation Key</Translate>
           </dt>
-          <dd>{translationEntity.refTranslationKeyId ? translationEntity.refTranslationKeyId : ''}</dd>
+          <dd>{translationEntity.translationKeyId ? translationEntity.translationKeyId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.translation.refLanguage">Ref Language</Translate>
+            <Translate contentKey="localizeusApp.translation.language">Language</Translate>
           </dt>
-          <dd>{translationEntity.refLanguageId ? translationEntity.refLanguageId : ''}</dd>
+          <dd>{translationEntity.languageId ? translationEntity.languageId : ''}</dd>
         </dl>
         <Button tag={Link} to="/translation" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

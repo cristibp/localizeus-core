@@ -13,9 +13,9 @@ public class UserPermissionDTO implements Serializable {
     private PermissionType type;
 
 
-    private Long refUserId;
+    private Long userId;
 
-    private Long refProjectId;
+    private Long projectId;
     
     public Long getId() {
         return id;
@@ -33,20 +33,20 @@ public class UserPermissionDTO implements Serializable {
         this.type = type;
     }
 
-    public Long getRefUserId() {
-        return refUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRefUserId(Long userId) {
-        this.refUserId = userId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getRefProjectId() {
-        return refProjectId;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public void setRefProjectId(Long projectId) {
-        this.refProjectId = projectId;
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     @Override
@@ -72,8 +72,8 @@ public class UserPermissionDTO implements Serializable {
         return "UserPermissionDTO{" +
             "id=" + getId() +
             ", type='" + getType() + "'" +
-            ", refUserId=" + getRefUserId() +
-            ", refProjectId=" + getRefProjectId() +
+            ", userId=" + getUserId() +
+            ", projectId=" + getProjectId() +
             "}";
     }
 }

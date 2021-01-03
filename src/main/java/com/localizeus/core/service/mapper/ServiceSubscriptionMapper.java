@@ -12,12 +12,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {CompanyMapper.class, PlanMapper.class})
 public interface ServiceSubscriptionMapper extends EntityMapper<ServiceSubscriptionDTO, ServiceSubscription> {
 
-    @Mapping(source = "refCompany.id", target = "refCompanyId")
-    @Mapping(source = "refPlan.id", target = "refPlanId")
+    @Mapping(source = "company.id", target = "companyId")
+    @Mapping(source = "plan.id", target = "planId")
     ServiceSubscriptionDTO toDto(ServiceSubscription serviceSubscription);
 
-    @Mapping(source = "refCompanyId", target = "refCompany")
-    @Mapping(source = "refPlanId", target = "refPlan")
+    @Mapping(source = "companyId", target = "company")
+    @Mapping(source = "planId", target = "plan")
     ServiceSubscription toEntity(ServiceSubscriptionDTO serviceSubscriptionDTO);
 
     default ServiceSubscription fromId(Long id) {

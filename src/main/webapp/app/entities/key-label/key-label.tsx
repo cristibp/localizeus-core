@@ -87,8 +87,7 @@ export const KeyLabel = (props: IKeyLabelProps) => {
                   <Translate contentKey="localizeusApp.keyLabel.value">Value</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.keyLabel.refTranslationKey">Ref Translation Key</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.keyLabel.translationKey">Translation Key</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -103,8 +102,8 @@ export const KeyLabel = (props: IKeyLabelProps) => {
                   </td>
                   <td>{keyLabel.value}</td>
                   <td>
-                    {keyLabel.refTranslationKeyId ? (
-                      <Link to={`translation-key/${keyLabel.refTranslationKeyId}`}>{keyLabel.refTranslationKeyId}</Link>
+                    {keyLabel.translationKeyId ? (
+                      <Link to={`translation-key/${keyLabel.translationKeyId}`}>{keyLabel.translationKeyId}</Link>
                     ) : (
                       ''
                     )}

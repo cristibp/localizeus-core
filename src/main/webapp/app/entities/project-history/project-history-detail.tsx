@@ -44,17 +44,17 @@ export const ProjectHistoryDetail = (props: IProjectHistoryDetailProps) => {
           </dt>
           <dd>{projectHistoryEntity.newValue}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.projectHistory.refUser">Ref User</Translate>
+            <Translate contentKey="localizeusApp.projectHistory.user">User</Translate>
           </dt>
-          <dd>{projectHistoryEntity.refUserId ? projectHistoryEntity.refUserId : ''}</dd>
+          <dd>{projectHistoryEntity.userId ? projectHistoryEntity.userId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.projectHistory.refTranslationKey">Ref Translation Key</Translate>
+            <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>
           </dt>
-          <dd>{projectHistoryEntity.refTranslationKeyId ? projectHistoryEntity.refTranslationKeyId : ''}</dd>
+          <dd>{projectHistoryEntity.translationKeyId ? projectHistoryEntity.translationKeyId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.projectHistory.refTranslation">Ref Translation</Translate>
+            <Translate contentKey="localizeusApp.projectHistory.translation">Translation</Translate>
           </dt>
-          <dd>{projectHistoryEntity.refTranslationId ? projectHistoryEntity.refTranslationId : ''}</dd>
+          <dd>{projectHistoryEntity.translationId ? projectHistoryEntity.translationId : ''}</dd>
         </dl>
         <Button tag={Link} to="/project-history" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

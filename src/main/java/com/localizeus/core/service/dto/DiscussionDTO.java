@@ -12,7 +12,7 @@ public class DiscussionDTO implements Serializable {
     private String value;
 
 
-    private Long refProjectId;
+    private Long projectId;
     
     public Long getId() {
         return id;
@@ -30,12 +30,12 @@ public class DiscussionDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getRefProjectId() {
-        return refProjectId;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public void setRefProjectId(Long projectId) {
-        this.refProjectId = projectId;
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class DiscussionDTO implements Serializable {
         return "DiscussionDTO{" +
             "id=" + getId() +
             ", value='" + getValue() + "'" +
-            ", refProjectId=" + getRefProjectId() +
+            ", projectId=" + getProjectId() +
             "}";
     }
 }

@@ -52,9 +52,9 @@ export const TransactionDetail = (props: ITransactionDetailProps) => {
           </dt>
           <dd>{transactionEntity.type}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.transaction.refServiceSubscription">Ref Service Subscription</Translate>
+            <Translate contentKey="localizeusApp.transaction.serviceSubscription">Service Subscription</Translate>
           </dt>
-          <dd>{transactionEntity.refServiceSubscriptionId ? transactionEntity.refServiceSubscriptionId : ''}</dd>
+          <dd>{transactionEntity.serviceSubscriptionId ? transactionEntity.serviceSubscriptionId : ''}</dd>
         </dl>
         <Button tag={Link} to="/transaction" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

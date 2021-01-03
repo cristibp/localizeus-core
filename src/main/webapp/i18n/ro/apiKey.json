@@ -19,7 +19,7 @@
       "value": "Value",
       "startDate": "Start Date",
       "endDate": "End Date",
-      "refUser": "Ref User"
+      "user": "User"
     }
   }
 }

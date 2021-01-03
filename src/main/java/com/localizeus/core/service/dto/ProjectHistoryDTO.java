@@ -17,11 +17,11 @@ public class ProjectHistoryDTO implements Serializable {
     private String newValue;
 
 
-    private Long refUserId;
+    private Long userId;
 
-    private Long refTranslationKeyId;
+    private Long translationKeyId;
 
-    private Long refTranslationId;
+    private Long translationId;
     
     public Long getId() {
         return id;
@@ -55,28 +55,28 @@ public class ProjectHistoryDTO implements Serializable {
         this.newValue = newValue;
     }
 
-    public Long getRefUserId() {
-        return refUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRefUserId(Long userId) {
-        this.refUserId = userId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getRefTranslationKeyId() {
-        return refTranslationKeyId;
+    public Long getTranslationKeyId() {
+        return translationKeyId;
     }
 
-    public void setRefTranslationKeyId(Long translationKeyId) {
-        this.refTranslationKeyId = translationKeyId;
+    public void setTranslationKeyId(Long translationKeyId) {
+        this.translationKeyId = translationKeyId;
     }
 
-    public Long getRefTranslationId() {
-        return refTranslationId;
+    public Long getTranslationId() {
+        return translationId;
     }
 
-    public void setRefTranslationId(Long translationId) {
-        this.refTranslationId = translationId;
+    public void setTranslationId(Long translationId) {
+        this.translationId = translationId;
     }
 
     @Override
@@ -104,9 +104,9 @@ public class ProjectHistoryDTO implements Serializable {
             ", action='" + getAction() + "'" +
             ", oldValue='" + getOldValue() + "'" +
             ", newValue='" + getNewValue() + "'" +
-            ", refUserId=" + getRefUserId() +
-            ", refTranslationKeyId=" + getRefTranslationKeyId() +
-            ", refTranslationId=" + getRefTranslationId() +
+            ", userId=" + getUserId() +
+            ", translationKeyId=" + getTranslationKeyId() +
+            ", translationId=" + getTranslationId() +
             "}";
     }
 }

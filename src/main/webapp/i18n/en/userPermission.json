@@ -17,8 +17,8 @@
         "title": "User Permission"
       },
       "type": "Type",
-      "refUser": "Ref User",
-      "refProject": "Ref Project"
+      "user": "User",
+      "project": "Project"
     }
   }
 }

@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface UserProjectPermissionRepository extends JpaRepository<UserProjectPermission, Long> {
 
-    @Query("select userProjectPermission from UserProjectPermission userProjectPermission where userProjectPermission.refUser.login = ?#{principal.username}")
-    List<UserProjectPermission> findByRefUserIsCurrentUser();
+    @Query("select userProjectPermission from UserProjectPermission userProjectPermission where userProjectPermission.user.login = ?#{principal.username}")
+    List<UserProjectPermission> findByUserIsCurrentUser();
 }

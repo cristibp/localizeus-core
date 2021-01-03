@@ -25,13 +25,13 @@
             <column name="new_value" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="ref_user_id" type="bigint">
+            <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ref_translation_key_id" type="bigint">
+            <column name="translation_key_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ref_translation_id" type="bigint">
+            <column name="translation_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

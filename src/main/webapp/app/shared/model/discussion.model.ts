@@ -1,7 +1,7 @@
 export interface IDiscussion {
   id?: number;
   value?: string;
-  refProjectId?: number;
+  projectId?: number;
 }
 
 export const defaultValue: Readonly<IDiscussion> = {};

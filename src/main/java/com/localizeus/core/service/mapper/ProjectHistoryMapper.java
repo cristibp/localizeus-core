@@ -12,14 +12,14 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {UserMapper.class, TranslationKeyMapper.class, TranslationMapper.class})
 public interface ProjectHistoryMapper extends EntityMapper<ProjectHistoryDTO, ProjectHistory> {
 
-    @Mapping(source = "refUser.id", target = "refUserId")
-    @Mapping(source = "refTranslationKey.id", target = "refTranslationKeyId")
-    @Mapping(source = "refTranslation.id", target = "refTranslationId")
+    @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "translationKey.id", target = "translationKeyId")
+    @Mapping(source = "translation.id", target = "translationId")
     ProjectHistoryDTO toDto(ProjectHistory projectHistory);
 
-    @Mapping(source = "refUserId", target = "refUser")
-    @Mapping(source = "refTranslationKeyId", target = "refTranslationKey")
-    @Mapping(source = "refTranslationId", target = "refTranslation")
+    @Mapping(source = "userId", target = "user")
+    @Mapping(source = "translationKeyId", target = "translationKey")
+    @Mapping(source = "translationId", target = "translation")
     ProjectHistory toEntity(ProjectHistoryDTO projectHistoryDTO);
 
     default ProjectHistory fromId(Long id) {
