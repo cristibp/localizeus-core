@@ -1,0 +1,26 @@
+{
+  "localizeusApp": {
+    "serviceSubscription": {
+      "home": {
+        "title": "Service Subscriptions",
+        "createLabel": "Creeare o nouă entitate Service Subscription",
+        "createOrEditLabel": "Creeare sau editare Service Subscription",
+        "notFound": "No Service Subscriptions found"
+      },
+      "created": "A fost creată o nouă entitate Service Subscription cu identificatorul {{ param }}",
+      "updated": "Service Subscription cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Service Subscription cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Service Subscription {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Subscription"
+      },
+      "start": "Start",
+      "end": "End",
+      "paymentType": "Payment Type",
+      "refCompany": "Ref Company",
+      "refPlan": "Ref Plan"
+    }
+  }
+}

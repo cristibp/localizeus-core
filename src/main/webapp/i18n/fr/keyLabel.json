@@ -1,0 +1,23 @@
+{
+  "localizeusApp": {
+    "keyLabel": {
+      "home": {
+        "title": "KeyLabels",
+        "createLabel": "Créer un nouveau Key Label",
+        "createOrEditLabel": "Créer ou éditer un Key Label",
+        "notFound": "Aucun Key Label trouvé"
+      },
+      "created": "Un nouveau Key Label a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Key Label avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Key Label avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Key Label {{ id }} ?"
+      },
+      "detail": {
+        "title": "Key Label"
+      },
+      "value": "Value",
+      "refTranslationKey": "Ref Translation Key"
+    }
+  }
+}

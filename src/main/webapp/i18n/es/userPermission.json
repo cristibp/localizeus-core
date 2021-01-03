@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "userPermission": {
+      "home": {
+        "title": "User Permissions",
+        "createLabel": "Crear nuevo User Permission",
+        "createOrEditLabel": "Crear o editar User Permission",
+        "notFound": "Ningún User Permissions encontrado"
+      },
+      "created": "Un nuevo User Permission ha sido creado con el identificador {{ param }}",
+      "updated": "Un User Permission ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un User Permission ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar User Permission {{ id }}?"
+      },
+      "detail": {
+        "title": "User Permission"
+      },
+      "type": "Type",
+      "refUser": "Ref User",
+      "refProject": "Ref Project"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "userProjectPermission": {
+      "home": {
+        "title": "UserProjectPermissions",
+        "createLabel": "Créer un nouveau User Project Permission",
+        "createOrEditLabel": "Créer ou éditer un User Project Permission",
+        "notFound": "Aucun User Project Permission trouvé"
+      },
+      "created": "Un nouveau User Project Permission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le User Project Permission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le User Project Permission avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le User Project Permission {{ id }} ?"
+      },
+      "detail": {
+        "title": "User Project Permission"
+      },
+      "refUser": "Ref User",
+      "refProject": "Ref Project",
+      "refUserPermission": "Ref User Permission"
+    }
+  }
+}

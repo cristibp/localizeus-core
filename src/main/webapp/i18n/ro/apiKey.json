@@ -1,0 +1,25 @@
+{
+  "localizeusApp": {
+    "apiKey": {
+      "home": {
+        "title": "Api Keys",
+        "createLabel": "Creeare o nouă entitate Api Key",
+        "createOrEditLabel": "Creeare sau editare Api Key",
+        "notFound": "No Api Keys found"
+      },
+      "created": "A fost creată o nouă entitate Api Key cu identificatorul {{ param }}",
+      "updated": "Api Key cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Api Key cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Api Key {{ id }}?"
+      },
+      "detail": {
+        "title": "Api Key"
+      },
+      "value": "Value",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "refUser": "Ref User"
+    }
+  }
+}

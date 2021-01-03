@@ -1,0 +1,23 @@
+{
+  "localizeusApp": {
+    "keyLabel": {
+      "home": {
+        "title": "Key Labels",
+        "createLabel": "Creeare o nouă entitate Key Label",
+        "createOrEditLabel": "Creeare sau editare Key Label",
+        "notFound": "No Key Labels found"
+      },
+      "created": "A fost creată o nouă entitate Key Label cu identificatorul {{ param }}",
+      "updated": "Key Label cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Key Label cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Key Label {{ id }}?"
+      },
+      "detail": {
+        "title": "Key Label"
+      },
+      "value": "Value",
+      "refTranslationKey": "Ref Translation Key"
+    }
+  }
+}

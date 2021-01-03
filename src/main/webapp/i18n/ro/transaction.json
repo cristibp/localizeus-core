@@ -1,0 +1,26 @@
+{
+  "localizeusApp": {
+    "transaction": {
+      "home": {
+        "title": "Transactions",
+        "createLabel": "Creeare o nouă entitate Transaction",
+        "createOrEditLabel": "Creeare sau editare Transaction",
+        "notFound": "No Transactions found"
+      },
+      "created": "A fost creată o nouă entitate Transaction cu identificatorul {{ param }}",
+      "updated": "Transaction cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Transaction cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Transaction"
+      },
+      "amountInCents": "Amount In Cents",
+      "date": "Date",
+      "status": "Status",
+      "type": "Type",
+      "refServiceSubscription": "Ref Service Subscription"
+    }
+  }
+}

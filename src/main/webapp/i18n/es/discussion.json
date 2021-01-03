@@ -1,0 +1,23 @@
+{
+  "localizeusApp": {
+    "discussion": {
+      "home": {
+        "title": "Discussions",
+        "createLabel": "Crear nuevo Discussion",
+        "createOrEditLabel": "Crear o editar Discussion",
+        "notFound": "Ningún Discussions encontrado"
+      },
+      "created": "Un nuevo Discussion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Discussion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Discussion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Discussion {{ id }}?"
+      },
+      "detail": {
+        "title": "Discussion"
+      },
+      "value": "Value",
+      "refProject": "Ref Project"
+    }
+  }
+}

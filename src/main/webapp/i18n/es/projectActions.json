@@ -1,0 +1,10 @@
+{
+  "localizeusApp": {
+    "ProjectActions": {
+      "null": "",
+      "ADD": "ADD",
+      "DELETE": "DELETE",
+      "UPDATE": "UPDATE"
+    }
+  }
+}

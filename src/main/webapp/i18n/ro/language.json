@@ -1,0 +1,22 @@
+{
+  "localizeusApp": {
+    "language": {
+      "home": {
+        "title": "Languages",
+        "createLabel": "Creeare o nouă entitate Language",
+        "createOrEditLabel": "Creeare sau editare Language",
+        "notFound": "No Languages found"
+      },
+      "created": "A fost creată o nouă entitate Language cu identificatorul {{ param }}",
+      "updated": "Language cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Language cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Language {{ id }}?"
+      },
+      "detail": {
+        "title": "Language"
+      },
+      "languageName": "Language Name"
+    }
+  }
+}
