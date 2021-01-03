@@ -102,7 +102,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-	Transaction{serviceSubscription} to ServiceSubscription
+	Transaction{servicesubscription} to ServiceSubscription
 }
 
 relationship ManyToOne {
@@ -118,7 +118,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-	ProjectHistory{translationKey} to TranslationKey
+	ProjectHistory{translationkey} to TranslationKey
 }
 
 relationship ManyToOne {
@@ -126,7 +126,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-  	Translation{translationKey} to TranslationKey
+  	Translation{translationkey} to TranslationKey
 }
     
 relationship ManyToOne {
@@ -134,7 +134,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-  	Comment{translationKey} to TranslationKey
+  	Comment{translationkey} to TranslationKey
 }
 
 relationship ManyToOne {
@@ -146,7 +146,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-	KeyLabel{translationKey} to TranslationKey
+	KeyLabel{translationkey} to TranslationKey
 }
 
 relationship ManyToOne{
@@ -160,7 +160,7 @@ relationship ManyToOne{
 relationship ManyToOne {
 	UserProjectPermission{user} to User
     UserProjectPermission{project} to Project
-    UserProjectPermission{userPermission} to UserPermission
+    UserProjectPermission{userpermission} to UserPermission
 }
 
 // Set pagination options
