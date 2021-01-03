@@ -1,0 +1,9 @@
+{
+  "localizeusApp": {
+    "TransactionType": {
+      "null": "",
+      "IN": "IN",
+      "OUT": "OUT"
+    }
+  }
+}

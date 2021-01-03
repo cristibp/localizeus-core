@@ -1,0 +1,27 @@
+{
+  "localizeusApp": {
+    "projectHistory": {
+      "home": {
+        "title": "Project Histories",
+        "createLabel": "Creeare o nouă entitate Project History",
+        "createOrEditLabel": "Creeare sau editare Project History",
+        "notFound": "No Project Histories found"
+      },
+      "created": "A fost creată o nouă entitate Project History cu identificatorul {{ param }}",
+      "updated": "Project History cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Project History cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Project History {{ id }}?"
+      },
+      "detail": {
+        "title": "Project History"
+      },
+      "action": "Action",
+      "oldValue": "Old Value",
+      "newValue": "New Value",
+      "refUser": "Ref User",
+      "refTranslationKey": "Ref Translation Key",
+      "refTranslation": "Ref Translation"
+    }
+  }
+}

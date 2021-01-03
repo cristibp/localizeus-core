@@ -1,0 +1,23 @@
+{
+  "localizeusApp": {
+    "discussion": {
+      "home": {
+        "title": "Discussions",
+        "createLabel": "Creeare o nouă entitate Discussion",
+        "createOrEditLabel": "Creeare sau editare Discussion",
+        "notFound": "No Discussions found"
+      },
+      "created": "A fost creată o nouă entitate Discussion cu identificatorul {{ param }}",
+      "updated": "Discussion cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Discussion cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Discussion {{ id }}?"
+      },
+      "detail": {
+        "title": "Discussion"
+      },
+      "value": "Value",
+      "refProject": "Ref Project"
+    }
+  }
+}

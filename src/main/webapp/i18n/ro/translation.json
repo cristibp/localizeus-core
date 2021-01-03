@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "translation": {
+      "home": {
+        "title": "Translations",
+        "createLabel": "Creeare o nouă entitate Translation",
+        "createOrEditLabel": "Creeare sau editare Translation",
+        "notFound": "No Translations found"
+      },
+      "created": "A fost creată o nouă entitate Translation cu identificatorul {{ param }}",
+      "updated": "Translation cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Translation cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Translation {{ id }}?"
+      },
+      "detail": {
+        "title": "Translation"
+      },
+      "value": "Value",
+      "refTranslationKey": "Ref Translation Key",
+      "refLanguage": "Ref Language"
+    }
+  }
+}

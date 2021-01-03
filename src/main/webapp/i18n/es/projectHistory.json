@@ -1,0 +1,27 @@
+{
+  "localizeusApp": {
+    "projectHistory": {
+      "home": {
+        "title": "Project Histories",
+        "createLabel": "Crear nuevo Project History",
+        "createOrEditLabel": "Crear o editar Project History",
+        "notFound": "Ningún Project Histories encontrado"
+      },
+      "created": "Un nuevo Project History ha sido creado con el identificador {{ param }}",
+      "updated": "Un Project History ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Project History ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Project History {{ id }}?"
+      },
+      "detail": {
+        "title": "Project History"
+      },
+      "action": "Action",
+      "oldValue": "Old Value",
+      "newValue": "New Value",
+      "refUser": "Ref User",
+      "refTranslationKey": "Ref Translation Key",
+      "refTranslation": "Ref Translation"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "translationKey": {
+      "home": {
+        "title": "Translation Keys",
+        "createLabel": "Creeare o nouă entitate Translation Key",
+        "createOrEditLabel": "Creeare sau editare Translation Key",
+        "notFound": "No Translation Keys found"
+      },
+      "created": "A fost creată o nouă entitate Translation Key cu identificatorul {{ param }}",
+      "updated": "Translation Key cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Translation Key cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Translation Key {{ id }}?"
+      },
+      "detail": {
+        "title": "Translation Key"
+      },
+      "name": "Name",
+      "fallbackValue": "Fallback Value",
+      "refProject": "Ref Project"
+    }
+  }
+}

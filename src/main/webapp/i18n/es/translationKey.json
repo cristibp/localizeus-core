@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "translationKey": {
+      "home": {
+        "title": "Translation Keys",
+        "createLabel": "Crear nuevo Translation Key",
+        "createOrEditLabel": "Crear o editar Translation Key",
+        "notFound": "Ningún Translation Keys encontrado"
+      },
+      "created": "Un nuevo Translation Key ha sido creado con el identificador {{ param }}",
+      "updated": "Un Translation Key ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Translation Key ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Translation Key {{ id }}?"
+      },
+      "detail": {
+        "title": "Translation Key"
+      },
+      "name": "Name",
+      "fallbackValue": "Fallback Value",
+      "refProject": "Ref Project"
+    }
+  }
+}

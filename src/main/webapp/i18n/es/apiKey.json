@@ -1,0 +1,25 @@
+{
+  "localizeusApp": {
+    "apiKey": {
+      "home": {
+        "title": "Api Keys",
+        "createLabel": "Crear nuevo Api Key",
+        "createOrEditLabel": "Crear o editar Api Key",
+        "notFound": "Ningún Api Keys encontrado"
+      },
+      "created": "Un nuevo Api Key ha sido creado con el identificador {{ param }}",
+      "updated": "Un Api Key ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Api Key ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Api Key {{ id }}?"
+      },
+      "detail": {
+        "title": "Api Key"
+      },
+      "value": "Value",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "refUser": "Ref User"
+    }
+  }
+}

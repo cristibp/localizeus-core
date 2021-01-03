@@ -1,0 +1,26 @@
+{
+  "localizeusApp": {
+    "plan": {
+      "home": {
+        "title": "Plans",
+        "createLabel": "Creeare o nouă entitate Plan",
+        "createOrEditLabel": "Creeare sau editare Plan",
+        "notFound": "No Plans found"
+      },
+      "created": "A fost creată o nouă entitate Plan cu identificatorul {{ param }}",
+      "updated": "Plan cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Plan cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan"
+      },
+      "name": "Name",
+      "costInCents": "Cost In Cents",
+      "keyLimit": "Key Limit",
+      "callsLimit": "Calls Limit",
+      "type": "Type"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "localizeusApp": {
+    "serviceSubscription": {
+      "home": {
+        "title": "ServiceSubscriptions",
+        "createLabel": "Créer un nouveau Service Subscription",
+        "createOrEditLabel": "Créer ou éditer un Service Subscription",
+        "notFound": "Aucun Service Subscription trouvé"
+      },
+      "created": "Un nouveau Service Subscription a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Service Subscription avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Service Subscription avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Service Subscription {{ id }} ?"
+      },
+      "detail": {
+        "title": "Service Subscription"
+      },
+      "start": "Start",
+      "end": "End",
+      "paymentType": "Payment Type",
+      "refCompany": "Ref Company",
+      "refPlan": "Ref Plan"
+    }
+  }
+}

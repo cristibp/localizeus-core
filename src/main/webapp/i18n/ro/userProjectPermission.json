@@ -1,0 +1,24 @@
+{
+  "localizeusApp": {
+    "userProjectPermission": {
+      "home": {
+        "title": "User Project Permissions",
+        "createLabel": "Creeare o nouă entitate User Project Permission",
+        "createOrEditLabel": "Creeare sau editare User Project Permission",
+        "notFound": "No User Project Permissions found"
+      },
+      "created": "A fost creată o nouă entitate User Project Permission cu identificatorul {{ param }}",
+      "updated": "User Project Permission cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "User Project Permission cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți User Project Permission {{ id }}?"
+      },
+      "detail": {
+        "title": "User Project Permission"
+      },
+      "refUser": "Ref User",
+      "refProject": "Ref Project",
+      "refUserPermission": "Ref User Permission"
+    }
+  }
+}
