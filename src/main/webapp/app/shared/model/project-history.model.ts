@@ -6,7 +6,7 @@ export interface IProjectHistory {
   oldValue?: string;
   newValue?: string;
   userId?: number;
-  translationKeyId?: number;
+  translationkeyId?: number;
   translationId?: number;
 }
 

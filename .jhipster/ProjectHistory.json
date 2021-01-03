@@ -27,7 +27,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "translationKey",
       "otherEntityRelationshipName": "projectHistory",
-      "relationshipName": "translationKey",
+      "relationshipName": "translationkey",
       "otherEntityField": "id"
     },
     {

@@ -48,9 +48,9 @@ export const ProjectHistoryDetail = (props: IProjectHistoryDetailProps) => {
           </dt>
           <dd>{projectHistoryEntity.userId ? projectHistoryEntity.userId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>
+            <Translate contentKey="localizeusApp.projectHistory.translationkey">Translationkey</Translate>
           </dt>
-          <dd>{projectHistoryEntity.translationKeyId ? projectHistoryEntity.translationKeyId : ''}</dd>
+          <dd>{projectHistoryEntity.translationkeyId ? projectHistoryEntity.translationkeyId : ''}</dd>
           <dt>
             <Translate contentKey="localizeusApp.projectHistory.translation">Translation</Translate>
           </dt>

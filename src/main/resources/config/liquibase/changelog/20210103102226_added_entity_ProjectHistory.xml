@@ -28,7 +28,7 @@
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="translation_key_id" type="bigint">
+            <column name="translationkey_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="translation_id" type="bigint">

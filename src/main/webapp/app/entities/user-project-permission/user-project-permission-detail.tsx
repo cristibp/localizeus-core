@@ -35,9 +35,9 @@ export const UserProjectPermissionDetail = (props: IUserProjectPermissionDetailP
           </dt>
           <dd>{userProjectPermissionEntity.projectId ? userProjectPermissionEntity.projectId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
+            <Translate contentKey="localizeusApp.userProjectPermission.userpermission">Userpermission</Translate>
           </dt>
-          <dd>{userProjectPermissionEntity.userPermissionId ? userProjectPermissionEntity.userPermissionId : ''}</dd>
+          <dd>{userProjectPermissionEntity.userpermissionId ? userProjectPermissionEntity.userpermissionId : ''}</dd>
         </dl>
         <Button tag={Link} to="/user-project-permission" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

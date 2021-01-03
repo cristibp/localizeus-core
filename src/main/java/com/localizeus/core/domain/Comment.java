@@ -27,7 +27,7 @@ public class Comment implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "comments", allowSetters = true)
-    private TranslationKey translationKey;
+    private TranslationKey translationkey;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,17 +51,17 @@ public class Comment implements Serializable {
         this.value = value;
     }
 
-    public TranslationKey getTranslationKey() {
-        return translationKey;
+    public TranslationKey getTranslationkey() {
+        return translationkey;
     }
 
-    public Comment translationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public Comment translationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
         return this;
     }
 
-    public void setTranslationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public void setTranslationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

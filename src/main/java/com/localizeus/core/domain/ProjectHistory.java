@@ -40,7 +40,7 @@ public class ProjectHistory implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "projectHistories", allowSetters = true)
-    private TranslationKey translationKey;
+    private TranslationKey translationkey;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "projectHistories", allowSetters = true)
@@ -107,17 +107,17 @@ public class ProjectHistory implements Serializable {
         this.user = user;
     }
 
-    public TranslationKey getTranslationKey() {
-        return translationKey;
+    public TranslationKey getTranslationkey() {
+        return translationkey;
     }
 
-    public ProjectHistory translationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public ProjectHistory translationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
         return this;
     }
 
-    public void setTranslationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public void setTranslationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
     }
 
     public Translation getTranslation() {

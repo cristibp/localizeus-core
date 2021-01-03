@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TranslationKeyMapper.class})
 public interface CommentMapper extends EntityMapper<CommentDTO, Comment> {
 
-    @Mapping(source = "translationKey.id", target = "translationKeyId")
+    @Mapping(source = "translationkey.id", target = "translationkeyId")
     CommentDTO toDto(Comment comment);
 
-    @Mapping(source = "translationKeyId", target = "translationKey")
+    @Mapping(source = "translationkeyId", target = "translationkey")
     Comment toEntity(CommentDTO commentDTO);
 
     default Comment fromId(Long id) {

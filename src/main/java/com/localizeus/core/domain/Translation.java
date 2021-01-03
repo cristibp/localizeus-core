@@ -27,7 +27,7 @@ public class Translation implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "translations", allowSetters = true)
-    private TranslationKey translationKey;
+    private TranslationKey translationkey;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "translations", allowSetters = true)
@@ -55,17 +55,17 @@ public class Translation implements Serializable {
         this.value = value;
     }
 
-    public TranslationKey getTranslationKey() {
-        return translationKey;
+    public TranslationKey getTranslationkey() {
+        return translationkey;
     }
 
-    public Translation translationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public Translation translationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
         return this;
     }
 
-    public void setTranslationKey(TranslationKey translationKey) {
-        this.translationKey = translationKey;
+    public void setTranslationkey(TranslationKey translationKey) {
+        this.translationkey = translationKey;
     }
 
     public Language getLanguage() {

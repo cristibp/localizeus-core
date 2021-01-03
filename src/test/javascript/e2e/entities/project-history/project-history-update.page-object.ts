@@ -11,7 +11,7 @@ export default class ProjectHistoryUpdatePage {
   oldValueInput: ElementFinder = element(by.css('input#project-history-oldValue'));
   newValueInput: ElementFinder = element(by.css('input#project-history-newValue'));
   userSelect: ElementFinder = element(by.css('select#project-history-user'));
-  translationKeySelect: ElementFinder = element(by.css('select#project-history-translationKey'));
+  translationkeySelect: ElementFinder = element(by.css('select#project-history-translationkey'));
   translationSelect: ElementFinder = element(by.css('select#project-history-translation'));
 
   getPageTitle() {
@@ -61,20 +61,20 @@ export default class ProjectHistoryUpdatePage {
     return this.userSelect.element(by.css('option:checked')).getText();
   }
 
-  async translationKeySelectLastOption() {
-    await this.translationKeySelect.all(by.tagName('option')).last().click();
+  async translationkeySelectLastOption() {
+    await this.translationkeySelect.all(by.tagName('option')).last().click();
   }
 
-  async translationKeySelectOption(option) {
-    await this.translationKeySelect.sendKeys(option);
+  async translationkeySelectOption(option) {
+    await this.translationkeySelect.sendKeys(option);
   }
 
-  getTranslationKeySelect() {
-    return this.translationKeySelect;
+  getTranslationkeySelect() {
+    return this.translationkeySelect;
   }
 
-  async getTranslationKeySelectedOption() {
-    return this.translationKeySelect.element(by.css('option:checked')).getText();
+  async getTranslationkeySelectedOption() {
+    return this.translationkeySelect.element(by.css('option:checked')).getText();
   }
 
   async translationSelectLastOption() {
@@ -115,7 +115,7 @@ export default class ProjectHistoryUpdatePage {
     await this.setNewValueInput('newValue');
     expect(await this.getNewValueInput()).to.match(/newValue/);
     await this.userSelectLastOption();
-    await this.translationKeySelectLastOption();
+    await this.translationkeySelectLastOption();
     await this.translationSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);

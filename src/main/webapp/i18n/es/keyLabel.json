@@ -17,7 +17,7 @@
         "title": "Key Label"
       },
       "value": "Value",
-      "translationKey": "Translation Key"
+      "translationkey": "Translationkey"
     }
   }
 }

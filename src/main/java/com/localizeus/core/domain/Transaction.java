@@ -40,7 +40,7 @@ public class Transaction implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "transactions", allowSetters = true)
-    private ServiceSubscription serviceSubscription;
+    private ServiceSubscription servicesubscription;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -103,17 +103,17 @@ public class Transaction implements Serializable {
         this.type = type;
     }
 
-    public ServiceSubscription getServiceSubscription() {
-        return serviceSubscription;
+    public ServiceSubscription getServicesubscription() {
+        return servicesubscription;
     }
 
-    public Transaction serviceSubscription(ServiceSubscription serviceSubscription) {
-        this.serviceSubscription = serviceSubscription;
+    public Transaction servicesubscription(ServiceSubscription serviceSubscription) {
+        this.servicesubscription = serviceSubscription;
         return this;
     }
 
-    public void setServiceSubscription(ServiceSubscription serviceSubscription) {
-        this.serviceSubscription = serviceSubscription;
+    public void setServicesubscription(ServiceSubscription serviceSubscription) {
+        this.servicesubscription = serviceSubscription;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

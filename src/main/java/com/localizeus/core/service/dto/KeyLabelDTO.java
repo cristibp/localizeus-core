@@ -12,7 +12,7 @@ public class KeyLabelDTO implements Serializable {
     private String value;
 
 
-    private Long translationKeyId;
+    private Long translationkeyId;
     
     public Long getId() {
         return id;
@@ -30,12 +30,12 @@ public class KeyLabelDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getTranslationKeyId() {
-        return translationKeyId;
+    public Long getTranslationkeyId() {
+        return translationkeyId;
     }
 
-    public void setTranslationKeyId(Long translationKeyId) {
-        this.translationKeyId = translationKeyId;
+    public void setTranslationkeyId(Long translationKeyId) {
+        this.translationkeyId = translationKeyId;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class KeyLabelDTO implements Serializable {
         return "KeyLabelDTO{" +
             "id=" + getId() +
             ", value='" + getValue() + "'" +
-            ", translationKeyId=" + getTranslationKeyId() +
+            ", translationkeyId=" + getTranslationkeyId() +
             "}";
     }
 }

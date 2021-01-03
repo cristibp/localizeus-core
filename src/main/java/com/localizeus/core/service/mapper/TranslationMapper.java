@@ -12,11 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TranslationKeyMapper.class, LanguageMapper.class})
 public interface TranslationMapper extends EntityMapper<TranslationDTO, Translation> {
 
-    @Mapping(source = "translationKey.id", target = "translationKeyId")
+    @Mapping(source = "translationkey.id", target = "translationkeyId")
     @Mapping(source = "language.id", target = "languageId")
     TranslationDTO toDto(Translation translation);
 
-    @Mapping(source = "translationKeyId", target = "translationKey")
+    @Mapping(source = "translationkeyId", target = "translationkey")
     @Mapping(source = "languageId", target = "language")
     Translation toEntity(TranslationDTO translationDTO);
 

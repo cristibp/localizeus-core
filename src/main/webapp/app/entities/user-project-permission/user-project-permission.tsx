@@ -43,7 +43,7 @@ export const UserProjectPermission = (props: IUserProjectPermissionProps) => {
                   <Translate contentKey="localizeusApp.userProjectPermission.project">Project</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
+                  <Translate contentKey="localizeusApp.userProjectPermission.userpermission">Userpermission</Translate>
                 </th>
                 <th />
               </tr>
@@ -65,8 +65,8 @@ export const UserProjectPermission = (props: IUserProjectPermissionProps) => {
                     )}
                   </td>
                   <td>
-                    {userProjectPermission.userPermissionId ? (
-                      <Link to={`user-permission/${userProjectPermission.userPermissionId}`}>{userProjectPermission.userPermissionId}</Link>
+                    {userProjectPermission.userpermissionId ? (
+                      <Link to={`user-permission/${userProjectPermission.userpermissionId}`}>{userProjectPermission.userpermissionId}</Link>
                     ) : (
                       ''
                     )}

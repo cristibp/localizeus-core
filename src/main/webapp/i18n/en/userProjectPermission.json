@@ -18,7 +18,7 @@
       },
       "user": "User",
       "project": "Project",
-      "userPermission": "User Permission"
+      "userpermission": "Userpermission"
     }
   }
 }

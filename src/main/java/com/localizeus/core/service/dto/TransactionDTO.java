@@ -20,7 +20,7 @@ public class TransactionDTO implements Serializable {
     private TransactionType type;
 
 
-    private Long serviceSubscriptionId;
+    private Long servicesubscriptionId;
     
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class TransactionDTO implements Serializable {
         this.type = type;
     }
 
-    public Long getServiceSubscriptionId() {
-        return serviceSubscriptionId;
+    public Long getServicesubscriptionId() {
+        return servicesubscriptionId;
     }
 
-    public void setServiceSubscriptionId(Long serviceSubscriptionId) {
-        this.serviceSubscriptionId = serviceSubscriptionId;
+    public void setServicesubscriptionId(Long serviceSubscriptionId) {
+        this.servicesubscriptionId = serviceSubscriptionId;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class TransactionDTO implements Serializable {
             ", date='" + getDate() + "'" +
             ", status='" + getStatus() + "'" +
             ", type='" + getType() + "'" +
-            ", serviceSubscriptionId=" + getServiceSubscriptionId() +
+            ", servicesubscriptionId=" + getServicesubscriptionId() +
             "}";
     }
 }

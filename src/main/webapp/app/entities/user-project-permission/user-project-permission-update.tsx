@@ -23,7 +23,7 @@ export interface IUserProjectPermissionUpdateProps extends StateProps, DispatchP
 export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateProps) => {
   const [userId, setUserId] = useState('0');
   const [projectId, setProjectId] = useState('0');
-  const [userPermissionId, setUserPermissionId] = useState('0');
+  const [userpermissionId, setUserpermissionId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { userProjectPermissionEntity, users, projects, userPermissions, loading, updating } = props;
@@ -121,10 +121,10 @@ export const UserProjectPermissionUpdate = (props: IUserProjectPermissionUpdateP
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="user-project-permission-userPermission">
-                  <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
+                <Label for="user-project-permission-userpermission">
+                  <Translate contentKey="localizeusApp.userProjectPermission.userpermission">Userpermission</Translate>
                 </Label>
-                <AvInput id="user-project-permission-userPermission" type="select" className="form-control" name="userPermissionId">
+                <AvInput id="user-project-permission-userpermission" type="select" className="form-control" name="userpermissionId">
                   <option value="" key="0" />
                   {userPermissions
                     ? userPermissions.map(otherEntity => (

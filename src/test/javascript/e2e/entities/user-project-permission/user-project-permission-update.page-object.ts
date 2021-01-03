@@ -9,7 +9,7 @@ export default class UserProjectPermissionUpdatePage {
   cancelButton: ElementFinder = element(by.id('cancel-save'));
   userSelect: ElementFinder = element(by.css('select#user-project-permission-user'));
   projectSelect: ElementFinder = element(by.css('select#user-project-permission-project'));
-  userPermissionSelect: ElementFinder = element(by.css('select#user-project-permission-userPermission'));
+  userpermissionSelect: ElementFinder = element(by.css('select#user-project-permission-userpermission'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -47,20 +47,20 @@ export default class UserProjectPermissionUpdatePage {
     return this.projectSelect.element(by.css('option:checked')).getText();
   }
 
-  async userPermissionSelectLastOption() {
-    await this.userPermissionSelect.all(by.tagName('option')).last().click();
+  async userpermissionSelectLastOption() {
+    await this.userpermissionSelect.all(by.tagName('option')).last().click();
   }
 
-  async userPermissionSelectOption(option) {
-    await this.userPermissionSelect.sendKeys(option);
+  async userpermissionSelectOption(option) {
+    await this.userpermissionSelect.sendKeys(option);
   }
 
-  getUserPermissionSelect() {
-    return this.userPermissionSelect;
+  getUserpermissionSelect() {
+    return this.userpermissionSelect;
   }
 
-  async getUserPermissionSelectedOption() {
-    return this.userPermissionSelect.element(by.css('option:checked')).getText();
+  async getUserpermissionSelectedOption() {
+    return this.userpermissionSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -78,7 +78,7 @@ export default class UserProjectPermissionUpdatePage {
   async enterData() {
     await this.userSelectLastOption();
     await this.projectSelectLastOption();
-    await this.userPermissionSelectLastOption();
+    await this.userpermissionSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

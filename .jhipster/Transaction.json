@@ -24,7 +24,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "serviceSubscription",
       "otherEntityRelationshipName": "transaction",
-      "relationshipName": "serviceSubscription",
+      "relationshipName": "servicesubscription",
       "otherEntityField": "id"
     }
   ],
