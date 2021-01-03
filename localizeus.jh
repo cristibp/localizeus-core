@@ -98,69 +98,69 @@ enum ProjectActions {
 }
 
 relationship ManyToOne {
-	ServiceSubscription{refCompany} to Company
+	ServiceSubscription{company} to Company
 }
 
 relationship ManyToOne {
-	Transaction{refServiceSubscription} to ServiceSubscription
+	Transaction{serviceSubscription} to ServiceSubscription
 }
 
 relationship ManyToOne {
-	ServiceSubscription{refPlan} to Plan
+	ServiceSubscription{plan} to Plan
 }
 
 relationship ManyToOne {
-	ApiKey{refUser} to User
+	ApiKey{user} to User
 }
 
 relationship ManyToOne {
-	ProjectHistory{refUser} to User
+	ProjectHistory{user} to User
 }
 
 relationship ManyToOne {
-	ProjectHistory{refTranslationKey} to TranslationKey
+	ProjectHistory{translationKey} to TranslationKey
 }
 
 relationship ManyToOne {
-	ProjectHistory{refTranslation} to Translation
+	ProjectHistory{translation} to Translation
 }
 
 relationship ManyToOne {
-  	Translation{refTranslationKey} to TranslationKey
+  	Translation{translationKey} to TranslationKey
 }
     
 relationship ManyToOne {
-  	Translation{refLanguage} to Language
+  	Translation{language} to Language
 }
 
 relationship ManyToOne {
-  	Comment{refTranslationKey} to TranslationKey
+  	Comment{translationKey} to TranslationKey
 }
 
 relationship ManyToOne {
-  	Discussion{refProject} to Project
+  	Discussion{project} to Project
 }
 
 relationship ManyToOne {
-  	TranslationKey{refProject} to Project
+  	TranslationKey{project} to Project
 }
 
 relationship ManyToOne {
-	KeyLabel{refTranslationKey} to TranslationKey
+	KeyLabel{translationKey} to TranslationKey
 }
 
 relationship ManyToOne{
-	UserPermission{refUser} to User
+	UserPermission{user} to User
 }
 
 relationship ManyToOne{
-	UserPermission{refProject} to Project
+	UserPermission{project} to Project
 }
 
 relationship ManyToOne {
-	UserProjectPermission{refUser} to User
-    UserProjectPermission{refProject} to Project
-    UserProjectPermission{refUserPermission} to UserPermission
+	UserProjectPermission{user} to User
+    UserProjectPermission{project} to Project
+    UserProjectPermission{userPermission} to UserPermission
 }
 
 // Set pagination options
