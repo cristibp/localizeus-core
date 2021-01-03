@@ -18,9 +18,9 @@ public class ServiceSubscriptionDTO implements Serializable {
     private Periodicity paymentType;
 
 
-    private Long refCompanyId;
+    private Long companyId;
 
-    private Long refPlanId;
+    private Long planId;
     
     public Long getId() {
         return id;
@@ -54,20 +54,20 @@ public class ServiceSubscriptionDTO implements Serializable {
         this.paymentType = paymentType;
     }
 
-    public Long getRefCompanyId() {
-        return refCompanyId;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setRefCompanyId(Long companyId) {
-        this.refCompanyId = companyId;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
-    public Long getRefPlanId() {
-        return refPlanId;
+    public Long getPlanId() {
+        return planId;
     }
 
-    public void setRefPlanId(Long planId) {
-        this.refPlanId = planId;
+    public void setPlanId(Long planId) {
+        this.planId = planId;
     }
 
     @Override
@@ -95,8 +95,8 @@ public class ServiceSubscriptionDTO implements Serializable {
             ", start='" + getStart() + "'" +
             ", end='" + getEnd() + "'" +
             ", paymentType='" + getPaymentType() + "'" +
-            ", refCompanyId=" + getRefCompanyId() +
-            ", refPlanId=" + getRefPlanId() +
+            ", companyId=" + getCompanyId() +
+            ", planId=" + getPlanId() +
             "}";
     }
 }

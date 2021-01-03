@@ -20,7 +20,7 @@
       "date": "Date",
       "status": "Status",
       "type": "Type",
-      "refServiceSubscription": "Ref Service Subscription"
+      "serviceSubscription": "Service Subscription"
     }
   }
 }

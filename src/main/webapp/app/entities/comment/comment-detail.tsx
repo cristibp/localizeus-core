@@ -32,9 +32,9 @@ export const CommentDetail = (props: ICommentDetailProps) => {
           </dt>
           <dd>{commentEntity.value}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.comment.refTranslationKey">Ref Translation Key</Translate>
+            <Translate contentKey="localizeusApp.comment.translationKey">Translation Key</Translate>
           </dt>
-          <dd>{commentEntity.refTranslationKeyId ? commentEntity.refTranslationKeyId : ''}</dd>
+          <dd>{commentEntity.translationKeyId ? commentEntity.translationKeyId : ''}</dd>
         </dl>
         <Button tag={Link} to="/comment" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

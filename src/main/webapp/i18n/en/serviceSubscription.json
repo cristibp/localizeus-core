@@ -19,8 +19,8 @@
       "start": "Start",
       "end": "End",
       "paymentType": "Payment Type",
-      "refCompany": "Ref Company",
-      "refPlan": "Ref Plan"
+      "company": "Company",
+      "plan": "Plan"
     }
   }
 }

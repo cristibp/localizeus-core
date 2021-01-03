@@ -37,13 +37,13 @@ export const UserProjectPermission = (props: IUserProjectPermissionProps) => {
                   <Translate contentKey="global.field.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userProjectPermission.refUser">Ref User</Translate>
+                  <Translate contentKey="localizeusApp.userProjectPermission.user">User</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userProjectPermission.refProject">Ref Project</Translate>
+                  <Translate contentKey="localizeusApp.userProjectPermission.project">Project</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userProjectPermission.refUserPermission">Ref User Permission</Translate>
+                  <Translate contentKey="localizeusApp.userProjectPermission.userPermission">User Permission</Translate>
                 </th>
                 <th />
               </tr>
@@ -56,19 +56,17 @@ export const UserProjectPermission = (props: IUserProjectPermissionProps) => {
                       {userProjectPermission.id}
                     </Button>
                   </td>
-                  <td>{userProjectPermission.refUserId ? userProjectPermission.refUserId : ''}</td>
+                  <td>{userProjectPermission.userId ? userProjectPermission.userId : ''}</td>
                   <td>
-                    {userProjectPermission.refProjectId ? (
-                      <Link to={`project/${userProjectPermission.refProjectId}`}>{userProjectPermission.refProjectId}</Link>
+                    {userProjectPermission.projectId ? (
+                      <Link to={`project/${userProjectPermission.projectId}`}>{userProjectPermission.projectId}</Link>
                     ) : (
                       ''
                     )}
                   </td>
                   <td>
-                    {userProjectPermission.refUserPermissionId ? (
-                      <Link to={`user-permission/${userProjectPermission.refUserPermissionId}`}>
-                        {userProjectPermission.refUserPermissionId}
-                      </Link>
+                    {userProjectPermission.userPermissionId ? (
+                      <Link to={`user-permission/${userProjectPermission.userPermissionId}`}>{userProjectPermission.userPermissionId}</Link>
                     ) : (
                       ''
                     )}

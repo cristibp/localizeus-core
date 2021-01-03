@@ -11,7 +11,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "project",
       "otherEntityRelationshipName": "discussion",
-      "relationshipName": "refProject",
+      "relationshipName": "project",
       "otherEntityField": "id"
     }
   ],

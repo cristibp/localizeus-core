@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface ApiKeyRepository extends JpaRepository<ApiKey, Long> {
 
-    @Query("select apiKey from ApiKey apiKey where apiKey.refUser.login = ?#{principal.username}")
-    List<ApiKey> findByRefUserIsCurrentUser();
+    @Query("select apiKey from ApiKey apiKey where apiKey.user.login = ?#{principal.username}")
+    List<ApiKey> findByUserIsCurrentUser();
 }

@@ -38,9 +38,9 @@ export const TranslationKeyDetail = (props: ITranslationKeyDetailProps) => {
           </dt>
           <dd>{translationKeyEntity.fallbackValue}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.translationKey.refProject">Ref Project</Translate>
+            <Translate contentKey="localizeusApp.translationKey.project">Project</Translate>
           </dt>
-          <dd>{translationKeyEntity.refProjectId ? translationKeyEntity.refProjectId : ''}</dd>
+          <dd>{translationKeyEntity.projectId ? translationKeyEntity.projectId : ''}</dd>
         </dl>
         <Button tag={Link} to="/translation-key" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

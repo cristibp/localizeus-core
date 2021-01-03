@@ -93,7 +93,7 @@ export const ApiKey = (props: IApiKeyProps) => {
                   <Translate contentKey="localizeusApp.apiKey.endDate">End Date</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.apiKey.refUser">Ref User</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.apiKey.user">User</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -109,7 +109,7 @@ export const ApiKey = (props: IApiKeyProps) => {
                   <td>{apiKey.value}</td>
                   <td>{apiKey.startDate ? <TextFormat type="date" value={apiKey.startDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{apiKey.endDate ? <TextFormat type="date" value={apiKey.endDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
-                  <td>{apiKey.refUserId ? apiKey.refUserId : ''}</td>
+                  <td>{apiKey.userId ? apiKey.userId : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${apiKey.id}`} color="info" size="sm">

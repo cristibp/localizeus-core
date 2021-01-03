@@ -87,11 +87,11 @@ export const Translation = (props: ITranslationProps) => {
                   <Translate contentKey="localizeusApp.translation.value">Value</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.translation.refTranslationKey">Ref Translation Key</Translate>{' '}
+                  <Translate contentKey="localizeusApp.translation.translationKey">Translation Key</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.translation.refLanguage">Ref Language</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.translation.language">Language</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -106,15 +106,13 @@ export const Translation = (props: ITranslationProps) => {
                   </td>
                   <td>{translation.value}</td>
                   <td>
-                    {translation.refTranslationKeyId ? (
-                      <Link to={`translation-key/${translation.refTranslationKeyId}`}>{translation.refTranslationKeyId}</Link>
+                    {translation.translationKeyId ? (
+                      <Link to={`translation-key/${translation.translationKeyId}`}>{translation.translationKeyId}</Link>
                     ) : (
                       ''
                     )}
                   </td>
-                  <td>
-                    {translation.refLanguageId ? <Link to={`language/${translation.refLanguageId}`}>{translation.refLanguageId}</Link> : ''}
-                  </td>
+                  <td>{translation.languageId ? <Link to={`language/${translation.languageId}`}>{translation.languageId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${translation.id}`} color="info" size="sm">

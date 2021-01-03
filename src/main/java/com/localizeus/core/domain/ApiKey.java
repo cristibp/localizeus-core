@@ -34,7 +34,7 @@ public class ApiKey implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "apiKeys", allowSetters = true)
-    private User refUser;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -84,17 +84,17 @@ public class ApiKey implements Serializable {
         this.endDate = endDate;
     }
 
-    public User getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public ApiKey refUser(User user) {
-        this.refUser = user;
+    public ApiKey user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setRefUser(User user) {
-        this.refUser = user;
+    public void setUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

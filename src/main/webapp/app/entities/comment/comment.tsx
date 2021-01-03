@@ -106,8 +106,7 @@ export const Comment = (props: ICommentProps) => {
                     <Translate contentKey="localizeusApp.comment.value">Value</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.comment.refTranslationKey">Ref Translation Key</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="localizeusApp.comment.translationKey">Translation Key</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -122,8 +121,8 @@ export const Comment = (props: ICommentProps) => {
                     </td>
                     <td>{comment.value}</td>
                     <td>
-                      {comment.refTranslationKeyId ? (
-                        <Link to={`translation-key/${comment.refTranslationKeyId}`}>{comment.refTranslationKeyId}</Link>
+                      {comment.translationKeyId ? (
+                        <Link to={`translation-key/${comment.translationKeyId}`}>{comment.translationKeyId}</Link>
                       ) : (
                         ''
                       )}

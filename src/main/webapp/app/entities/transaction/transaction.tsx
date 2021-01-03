@@ -97,7 +97,7 @@ export const Transaction = (props: ITransactionProps) => {
                   <Translate contentKey="localizeusApp.transaction.type">Type</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.transaction.refServiceSubscription">Ref Service Subscription</Translate>{' '}
+                  <Translate contentKey="localizeusApp.transaction.serviceSubscription">Service Subscription</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
@@ -118,10 +118,8 @@ export const Transaction = (props: ITransactionProps) => {
                     <Translate contentKey={`localizeusApp.TransactionType.${transaction.type}`} />
                   </td>
                   <td>
-                    {transaction.refServiceSubscriptionId ? (
-                      <Link to={`service-subscription/${transaction.refServiceSubscriptionId}`}>
-                        {transaction.refServiceSubscriptionId}
-                      </Link>
+                    {transaction.serviceSubscriptionId ? (
+                      <Link to={`service-subscription/${transaction.serviceSubscriptionId}`}>{transaction.serviceSubscriptionId}</Link>
                     ) : (
                       ''
                     )}

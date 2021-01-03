@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {UserMapper.class})
 public interface ApiKeyMapper extends EntityMapper<ApiKeyDTO, ApiKey> {
 
-    @Mapping(source = "refUser.id", target = "refUserId")
+    @Mapping(source = "user.id", target = "userId")
     ApiKeyDTO toDto(ApiKey apiKey);
 
-    @Mapping(source = "refUserId", target = "refUser")
+    @Mapping(source = "userId", target = "user")
     ApiKey toEntity(ApiKeyDTO apiKeyDTO);
 
     default ApiKey fromId(Long id) {

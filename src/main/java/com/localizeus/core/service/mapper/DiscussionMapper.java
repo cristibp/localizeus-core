@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {ProjectMapper.class})
 public interface DiscussionMapper extends EntityMapper<DiscussionDTO, Discussion> {
 
-    @Mapping(source = "refProject.id", target = "refProjectId")
+    @Mapping(source = "project.id", target = "projectId")
     DiscussionDTO toDto(Discussion discussion);
 
-    @Mapping(source = "refProjectId", target = "refProject")
+    @Mapping(source = "projectId", target = "project")
     Discussion toEntity(DiscussionDTO discussionDTO);
 
     default Discussion fromId(Long id) {

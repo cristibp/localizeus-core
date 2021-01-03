@@ -14,7 +14,7 @@ public class TranslationKeyDTO implements Serializable {
     private String fallbackValue;
 
 
-    private Long refProjectId;
+    private Long projectId;
     
     public Long getId() {
         return id;
@@ -40,12 +40,12 @@ public class TranslationKeyDTO implements Serializable {
         this.fallbackValue = fallbackValue;
     }
 
-    public Long getRefProjectId() {
-        return refProjectId;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public void setRefProjectId(Long projectId) {
-        this.refProjectId = projectId;
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class TranslationKeyDTO implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", fallbackValue='" + getFallbackValue() + "'" +
-            ", refProjectId=" + getRefProjectId() +
+            ", projectId=" + getProjectId() +
             "}";
     }
 }

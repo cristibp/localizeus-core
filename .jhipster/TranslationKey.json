@@ -15,7 +15,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "project",
       "otherEntityRelationshipName": "translationKey",
-      "relationshipName": "refProject",
+      "relationshipName": "project",
       "otherEntityField": "id"
     }
   ],

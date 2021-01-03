@@ -5,9 +5,9 @@ export interface IProjectHistory {
   action?: ProjectActions;
   oldValue?: string;
   newValue?: string;
-  refUserId?: number;
-  refTranslationKeyId?: number;
-  refTranslationId?: number;
+  userId?: number;
+  translationKeyId?: number;
+  translationId?: number;
 }
 
 export const defaultValue: Readonly<IProjectHistory> = {};

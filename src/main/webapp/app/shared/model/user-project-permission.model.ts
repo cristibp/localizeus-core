@@ -1,8 +1,8 @@
 export interface IUserProjectPermission {
   id?: number;
-  refUserId?: number;
-  refProjectId?: number;
-  refUserPermissionId?: number;
+  userId?: number;
+  projectId?: number;
+  userPermissionId?: number;
 }
 
 export const defaultValue: Readonly<IUserProjectPermission> = {};

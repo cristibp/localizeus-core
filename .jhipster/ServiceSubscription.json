@@ -20,14 +20,14 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "company",
       "otherEntityRelationshipName": "serviceSubscription",
-      "relationshipName": "refCompany",
+      "relationshipName": "company",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "plan",
       "otherEntityRelationshipName": "serviceSubscription",
-      "relationshipName": "refPlan",
+      "relationshipName": "plan",
       "otherEntityField": "id"
     }
   ],

@@ -27,11 +27,11 @@ public class Translation implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "translations", allowSetters = true)
-    private TranslationKey refTranslationKey;
+    private TranslationKey translationKey;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "translations", allowSetters = true)
-    private Language refLanguage;
+    private Language language;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -55,30 +55,30 @@ public class Translation implements Serializable {
         this.value = value;
     }
 
-    public TranslationKey getRefTranslationKey() {
-        return refTranslationKey;
+    public TranslationKey getTranslationKey() {
+        return translationKey;
     }
 
-    public Translation refTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public Translation translationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
         return this;
     }
 
-    public void setRefTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public void setTranslationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
     }
 
-    public Language getRefLanguage() {
-        return refLanguage;
+    public Language getLanguage() {
+        return language;
     }
 
-    public Translation refLanguage(Language language) {
-        this.refLanguage = language;
+    public Translation language(Language language) {
+        this.language = language;
         return this;
     }
 
-    public void setRefLanguage(Language language) {
-        this.refLanguage = language;
+    public void setLanguage(Language language) {
+        this.language = language;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

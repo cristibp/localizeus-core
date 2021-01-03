@@ -3,8 +3,8 @@ import { PermissionType } from 'app/shared/model/enumerations/permission-type.mo
 export interface IUserPermission {
   id?: number;
   type?: PermissionType;
-  refUserId?: number;
-  refProjectId?: number;
+  userId?: number;
+  projectId?: number;
 }
 
 export const defaultValue: Readonly<IUserPermission> = {};

@@ -1,7 +1,7 @@
 export interface IKeyLabel {
   id?: number;
   value?: string;
-  refTranslationKeyId?: number;
+  translationKeyId?: number;
 }
 
 export const defaultValue: Readonly<IKeyLabel> = {};

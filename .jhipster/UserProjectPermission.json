@@ -6,21 +6,21 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
       "otherEntityRelationshipName": "userProjectPermission",
-      "relationshipName": "refUser",
+      "relationshipName": "user",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "project",
       "otherEntityRelationshipName": "userProjectPermission",
-      "relationshipName": "refProject",
+      "relationshipName": "project",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPermission",
       "otherEntityRelationshipName": "userProjectPermission",
-      "relationshipName": "refUserPermission",
+      "relationshipName": "userPermission",
       "otherEntityField": "id"
     }
   ],

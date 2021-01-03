@@ -21,9 +21,9 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IProjectHistoryUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
-  const [refUserId, setRefUserId] = useState('0');
-  const [refTranslationKeyId, setRefTranslationKeyId] = useState('0');
-  const [refTranslationId, setRefTranslationId] = useState('0');
+  const [userId, setUserId] = useState('0');
+  const [translationKeyId, setTranslationKeyId] = useState('0');
+  const [translationId, setTranslationId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { projectHistoryEntity, users, translationKeys, translations, loading, updating } = props;
@@ -115,10 +115,10 @@ export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
                 <AvField id="project-history-newValue" type="text" name="newValue" />
               </AvGroup>
               <AvGroup>
-                <Label for="project-history-refUser">
-                  <Translate contentKey="localizeusApp.projectHistory.refUser">Ref User</Translate>
+                <Label for="project-history-user">
+                  <Translate contentKey="localizeusApp.projectHistory.user">User</Translate>
                 </Label>
-                <AvInput id="project-history-refUser" type="select" className="form-control" name="refUserId">
+                <AvInput id="project-history-user" type="select" className="form-control" name="userId">
                   <option value="" key="0" />
                   {users
                     ? users.map(otherEntity => (
@@ -130,10 +130,10 @@ export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="project-history-refTranslationKey">
-                  <Translate contentKey="localizeusApp.projectHistory.refTranslationKey">Ref Translation Key</Translate>
+                <Label for="project-history-translationKey">
+                  <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>
                 </Label>
-                <AvInput id="project-history-refTranslationKey" type="select" className="form-control" name="refTranslationKeyId">
+                <AvInput id="project-history-translationKey" type="select" className="form-control" name="translationKeyId">
                   <option value="" key="0" />
                   {translationKeys
                     ? translationKeys.map(otherEntity => (
@@ -145,10 +145,10 @@ export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="project-history-refTranslation">
-                  <Translate contentKey="localizeusApp.projectHistory.refTranslation">Ref Translation</Translate>
+                <Label for="project-history-translation">
+                  <Translate contentKey="localizeusApp.projectHistory.translation">Translation</Translate>
                 </Label>
-                <AvInput id="project-history-refTranslation" type="select" className="form-control" name="refTranslationId">
+                <AvInput id="project-history-translation" type="select" className="form-control" name="translationId">
                   <option value="" key="0" />
                   {translations
                     ? translations.map(otherEntity => (

@@ -32,9 +32,9 @@ export const DiscussionDetail = (props: IDiscussionDetailProps) => {
           </dt>
           <dd>{discussionEntity.value}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.discussion.refProject">Ref Project</Translate>
+            <Translate contentKey="localizeusApp.discussion.project">Project</Translate>
           </dt>
-          <dd>{discussionEntity.refProjectId ? discussionEntity.refProjectId : ''}</dd>
+          <dd>{discussionEntity.projectId ? discussionEntity.projectId : ''}</dd>
         </dl>
         <Button tag={Link} to="/discussion" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IKeyLabelUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const KeyLabelUpdate = (props: IKeyLabelUpdateProps) => {
-  const [refTranslationKeyId, setRefTranslationKeyId] = useState('0');
+  const [translationKeyId, setTranslationKeyId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { keyLabelEntity, translationKeys, loading, updating } = props;
@@ -87,10 +87,10 @@ export const KeyLabelUpdate = (props: IKeyLabelUpdateProps) => {
                 <AvField id="key-label-value" type="text" name="value" />
               </AvGroup>
               <AvGroup>
-                <Label for="key-label-refTranslationKey">
-                  <Translate contentKey="localizeusApp.keyLabel.refTranslationKey">Ref Translation Key</Translate>
+                <Label for="key-label-translationKey">
+                  <Translate contentKey="localizeusApp.keyLabel.translationKey">Translation Key</Translate>
                 </Label>
-                <AvInput id="key-label-refTranslationKey" type="select" className="form-control" name="refTranslationKeyId">
+                <AvInput id="key-label-translationKey" type="select" className="form-control" name="translationKeyId">
                   <option value="" key="0" />
                   {translationKeys
                     ? translationKeys.map(otherEntity => (

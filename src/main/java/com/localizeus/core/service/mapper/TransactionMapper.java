@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {ServiceSubscriptionMapper.class})
 public interface TransactionMapper extends EntityMapper<TransactionDTO, Transaction> {
 
-    @Mapping(source = "refServiceSubscription.id", target = "refServiceSubscriptionId")
+    @Mapping(source = "serviceSubscription.id", target = "serviceSubscriptionId")
     TransactionDTO toDto(Transaction transaction);
 
-    @Mapping(source = "refServiceSubscriptionId", target = "refServiceSubscription")
+    @Mapping(source = "serviceSubscriptionId", target = "serviceSubscription")
     Transaction toEntity(TransactionDTO transactionDTO);
 
     default Transaction fromId(Long id) {

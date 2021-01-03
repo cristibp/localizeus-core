@@ -91,7 +91,7 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.translationKey.refProject">Ref Project</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.translationKey.project">Project</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -107,11 +107,7 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
                   <td>{translationKey.name}</td>
                   <td>{translationKey.fallbackValue}</td>
                   <td>
-                    {translationKey.refProjectId ? (
-                      <Link to={`project/${translationKey.refProjectId}`}>{translationKey.refProjectId}</Link>
-                    ) : (
-                      ''
-                    )}
+                    {translationKey.projectId ? <Link to={`project/${translationKey.projectId}`}>{translationKey.projectId}</Link> : ''}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

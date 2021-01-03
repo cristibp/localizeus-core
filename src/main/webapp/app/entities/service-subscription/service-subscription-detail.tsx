@@ -53,13 +53,13 @@ export const ServiceSubscriptionDetail = (props: IServiceSubscriptionDetailProps
           </dt>
           <dd>{serviceSubscriptionEntity.paymentType}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.serviceSubscription.refCompany">Ref Company</Translate>
+            <Translate contentKey="localizeusApp.serviceSubscription.company">Company</Translate>
           </dt>
-          <dd>{serviceSubscriptionEntity.refCompanyId ? serviceSubscriptionEntity.refCompanyId : ''}</dd>
+          <dd>{serviceSubscriptionEntity.companyId ? serviceSubscriptionEntity.companyId : ''}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.serviceSubscription.refPlan">Ref Plan</Translate>
+            <Translate contentKey="localizeusApp.serviceSubscription.plan">Plan</Translate>
           </dt>
-          <dd>{serviceSubscriptionEntity.refPlanId ? serviceSubscriptionEntity.refPlanId : ''}</dd>
+          <dd>{serviceSubscriptionEntity.planId ? serviceSubscriptionEntity.planId : ''}</dd>
         </dl>
         <Button tag={Link} to="/service-subscription" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

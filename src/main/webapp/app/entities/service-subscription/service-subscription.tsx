@@ -94,11 +94,10 @@ export const ServiceSubscription = (props: IServiceSubscriptionProps) => {
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.serviceSubscription.refCompany">Ref Company</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.serviceSubscription.company">Company</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.serviceSubscription.refPlan">Ref Plan</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="localizeusApp.serviceSubscription.plan">Plan</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -125,18 +124,14 @@ export const ServiceSubscription = (props: IServiceSubscriptionProps) => {
                     <Translate contentKey={`localizeusApp.Periodicity.${serviceSubscription.paymentType}`} />
                   </td>
                   <td>
-                    {serviceSubscription.refCompanyId ? (
-                      <Link to={`company/${serviceSubscription.refCompanyId}`}>{serviceSubscription.refCompanyId}</Link>
+                    {serviceSubscription.companyId ? (
+                      <Link to={`company/${serviceSubscription.companyId}`}>{serviceSubscription.companyId}</Link>
                     ) : (
                       ''
                     )}
                   </td>
                   <td>
-                    {serviceSubscription.refPlanId ? (
-                      <Link to={`plan/${serviceSubscription.refPlanId}`}>{serviceSubscription.refPlanId}</Link>
-                    ) : (
-                      ''
-                    )}
+                    {serviceSubscription.planId ? <Link to={`plan/${serviceSubscription.planId}`}>{serviceSubscription.planId}</Link> : ''}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

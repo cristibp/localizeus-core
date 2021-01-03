@@ -46,9 +46,9 @@ export const ApiKeyDetail = (props: IApiKeyDetailProps) => {
           </dt>
           <dd>{apiKeyEntity.endDate ? <TextFormat value={apiKeyEntity.endDate} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.apiKey.refUser">Ref User</Translate>
+            <Translate contentKey="localizeusApp.apiKey.user">User</Translate>
           </dt>
-          <dd>{apiKeyEntity.refUserId ? apiKeyEntity.refUserId : ''}</dd>
+          <dd>{apiKeyEntity.userId ? apiKeyEntity.userId : ''}</dd>
         </dl>
         <Button tag={Link} to="/api-key" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

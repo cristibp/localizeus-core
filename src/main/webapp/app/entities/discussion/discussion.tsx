@@ -106,7 +106,7 @@ export const Discussion = (props: IDiscussionProps) => {
                     <Translate contentKey="localizeusApp.discussion.value">Value</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.discussion.refProject">Ref Project</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="localizeusApp.discussion.project">Project</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -120,9 +120,7 @@ export const Discussion = (props: IDiscussionProps) => {
                       </Button>
                     </td>
                     <td>{discussion.value}</td>
-                    <td>
-                      {discussion.refProjectId ? <Link to={`project/${discussion.refProjectId}`}>{discussion.refProjectId}</Link> : ''}
-                    </td>
+                    <td>{discussion.projectId ? <Link to={`project/${discussion.projectId}`}>{discussion.projectId}</Link> : ''}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${discussion.id}`} color="info" size="sm">

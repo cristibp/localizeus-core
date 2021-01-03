@@ -8,8 +8,8 @@ export default class UserPermissionUpdatePage {
   saveButton: ElementFinder = element(by.id('save-entity'));
   cancelButton: ElementFinder = element(by.id('cancel-save'));
   typeSelect: ElementFinder = element(by.css('select#user-permission-type'));
-  refUserSelect: ElementFinder = element(by.css('select#user-permission-refUser'));
-  refProjectSelect: ElementFinder = element(by.css('select#user-permission-refProject'));
+  userSelect: ElementFinder = element(by.css('select#user-permission-user'));
+  projectSelect: ElementFinder = element(by.css('select#user-permission-project'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -26,36 +26,36 @@ export default class UserPermissionUpdatePage {
   async typeSelectLastOption() {
     await this.typeSelect.all(by.tagName('option')).last().click();
   }
-  async refUserSelectLastOption() {
-    await this.refUserSelect.all(by.tagName('option')).last().click();
+  async userSelectLastOption() {
+    await this.userSelect.all(by.tagName('option')).last().click();
   }
 
-  async refUserSelectOption(option) {
-    await this.refUserSelect.sendKeys(option);
+  async userSelectOption(option) {
+    await this.userSelect.sendKeys(option);
   }
 
-  getRefUserSelect() {
-    return this.refUserSelect;
+  getUserSelect() {
+    return this.userSelect;
   }
 
-  async getRefUserSelectedOption() {
-    return this.refUserSelect.element(by.css('option:checked')).getText();
+  async getUserSelectedOption() {
+    return this.userSelect.element(by.css('option:checked')).getText();
   }
 
-  async refProjectSelectLastOption() {
-    await this.refProjectSelect.all(by.tagName('option')).last().click();
+  async projectSelectLastOption() {
+    await this.projectSelect.all(by.tagName('option')).last().click();
   }
 
-  async refProjectSelectOption(option) {
-    await this.refProjectSelect.sendKeys(option);
+  async projectSelectOption(option) {
+    await this.projectSelect.sendKeys(option);
   }
 
-  getRefProjectSelect() {
-    return this.refProjectSelect;
+  getProjectSelect() {
+    return this.projectSelect;
   }
 
-  async getRefProjectSelectedOption() {
-    return this.refProjectSelect.element(by.css('option:checked')).getText();
+  async getProjectSelectedOption() {
+    return this.projectSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -73,8 +73,8 @@ export default class UserPermissionUpdatePage {
   async enterData() {
     await waitUntilDisplayed(this.saveButton);
     await this.typeSelectLastOption();
-    await this.refUserSelectLastOption();
-    await this.refProjectSelectLastOption();
+    await this.userSelectLastOption();
+    await this.projectSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

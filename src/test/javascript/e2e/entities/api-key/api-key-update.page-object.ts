@@ -10,7 +10,7 @@ export default class ApiKeyUpdatePage {
   valueInput: ElementFinder = element(by.css('input#api-key-value'));
   startDateInput: ElementFinder = element(by.css('input#api-key-startDate'));
   endDateInput: ElementFinder = element(by.css('input#api-key-endDate'));
-  refUserSelect: ElementFinder = element(by.css('select#api-key-refUser'));
+  userSelect: ElementFinder = element(by.css('select#api-key-user'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -40,20 +40,20 @@ export default class ApiKeyUpdatePage {
     return this.endDateInput.getAttribute('value');
   }
 
-  async refUserSelectLastOption() {
-    await this.refUserSelect.all(by.tagName('option')).last().click();
+  async userSelectLastOption() {
+    await this.userSelect.all(by.tagName('option')).last().click();
   }
 
-  async refUserSelectOption(option) {
-    await this.refUserSelect.sendKeys(option);
+  async userSelectOption(option) {
+    await this.userSelect.sendKeys(option);
   }
 
-  getRefUserSelect() {
-    return this.refUserSelect;
+  getUserSelect() {
+    return this.userSelect;
   }
 
-  async getRefUserSelectedOption() {
-    return this.refUserSelect.element(by.css('option:checked')).getText();
+  async getUserSelectedOption() {
+    return this.userSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -78,7 +78,7 @@ export default class ApiKeyUpdatePage {
     await waitUntilDisplayed(this.saveButton);
     await this.setEndDateInput('01-01-2001');
     expect(await this.getEndDateInput()).to.eq('2001-01-01');
-    await this.refUserSelectLastOption();
+    await this.userSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

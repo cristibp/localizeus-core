@@ -11,14 +11,14 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "translationKey",
       "otherEntityRelationshipName": "translation",
-      "relationshipName": "refTranslationKey",
+      "relationshipName": "translationKey",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "language",
       "otherEntityRelationshipName": "translation",
-      "relationshipName": "refLanguage",
+      "relationshipName": "language",
       "otherEntityField": "id"
     }
   ],

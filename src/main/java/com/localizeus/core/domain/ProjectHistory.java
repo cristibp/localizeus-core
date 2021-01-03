@@ -36,15 +36,15 @@ public class ProjectHistory implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "projectHistories", allowSetters = true)
-    private User refUser;
+    private User user;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "projectHistories", allowSetters = true)
-    private TranslationKey refTranslationKey;
+    private TranslationKey translationKey;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "projectHistories", allowSetters = true)
-    private Translation refTranslation;
+    private Translation translation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -94,43 +94,43 @@ public class ProjectHistory implements Serializable {
         this.newValue = newValue;
     }
 
-    public User getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public ProjectHistory refUser(User user) {
-        this.refUser = user;
+    public ProjectHistory user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setRefUser(User user) {
-        this.refUser = user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public TranslationKey getRefTranslationKey() {
-        return refTranslationKey;
+    public TranslationKey getTranslationKey() {
+        return translationKey;
     }
 
-    public ProjectHistory refTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public ProjectHistory translationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
         return this;
     }
 
-    public void setRefTranslationKey(TranslationKey translationKey) {
-        this.refTranslationKey = translationKey;
+    public void setTranslationKey(TranslationKey translationKey) {
+        this.translationKey = translationKey;
     }
 
-    public Translation getRefTranslation() {
-        return refTranslation;
+    public Translation getTranslation() {
+        return translation;
     }
 
-    public ProjectHistory refTranslation(Translation translation) {
-        this.refTranslation = translation;
+    public ProjectHistory translation(Translation translation) {
+        this.translation = translation;
         return this;
     }
 
-    public void setRefTranslation(Translation translation) {
-        this.refTranslation = translation;
+    public void setTranslation(Translation translation) {
+        this.translation = translation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

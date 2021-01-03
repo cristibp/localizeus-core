@@ -8,8 +8,8 @@ export default class TranslationUpdatePage {
   saveButton: ElementFinder = element(by.id('save-entity'));
   cancelButton: ElementFinder = element(by.id('cancel-save'));
   valueInput: ElementFinder = element(by.css('input#translation-value'));
-  refTranslationKeySelect: ElementFinder = element(by.css('select#translation-refTranslationKey'));
-  refLanguageSelect: ElementFinder = element(by.css('select#translation-refLanguage'));
+  translationKeySelect: ElementFinder = element(by.css('select#translation-translationKey'));
+  languageSelect: ElementFinder = element(by.css('select#translation-language'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -23,36 +23,36 @@ export default class TranslationUpdatePage {
     return this.valueInput.getAttribute('value');
   }
 
-  async refTranslationKeySelectLastOption() {
-    await this.refTranslationKeySelect.all(by.tagName('option')).last().click();
+  async translationKeySelectLastOption() {
+    await this.translationKeySelect.all(by.tagName('option')).last().click();
   }
 
-  async refTranslationKeySelectOption(option) {
-    await this.refTranslationKeySelect.sendKeys(option);
+  async translationKeySelectOption(option) {
+    await this.translationKeySelect.sendKeys(option);
   }
 
-  getRefTranslationKeySelect() {
-    return this.refTranslationKeySelect;
+  getTranslationKeySelect() {
+    return this.translationKeySelect;
   }
 
-  async getRefTranslationKeySelectedOption() {
-    return this.refTranslationKeySelect.element(by.css('option:checked')).getText();
+  async getTranslationKeySelectedOption() {
+    return this.translationKeySelect.element(by.css('option:checked')).getText();
   }
 
-  async refLanguageSelectLastOption() {
-    await this.refLanguageSelect.all(by.tagName('option')).last().click();
+  async languageSelectLastOption() {
+    await this.languageSelect.all(by.tagName('option')).last().click();
   }
 
-  async refLanguageSelectOption(option) {
-    await this.refLanguageSelect.sendKeys(option);
+  async languageSelectOption(option) {
+    await this.languageSelect.sendKeys(option);
   }
 
-  getRefLanguageSelect() {
-    return this.refLanguageSelect;
+  getLanguageSelect() {
+    return this.languageSelect;
   }
 
-  async getRefLanguageSelectedOption() {
-    return this.refLanguageSelect.element(by.css('option:checked')).getText();
+  async getLanguageSelectedOption() {
+    return this.languageSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -71,8 +71,8 @@ export default class TranslationUpdatePage {
     await waitUntilDisplayed(this.saveButton);
     await this.setValueInput('value');
     expect(await this.getValueInput()).to.match(/value/);
-    await this.refTranslationKeySelectLastOption();
-    await this.refLanguageSelectLastOption();
+    await this.translationKeySelectLastOption();
+    await this.languageSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

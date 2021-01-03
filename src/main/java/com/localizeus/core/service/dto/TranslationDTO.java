@@ -12,9 +12,9 @@ public class TranslationDTO implements Serializable {
     private String value;
 
 
-    private Long refTranslationKeyId;
+    private Long translationKeyId;
 
-    private Long refLanguageId;
+    private Long languageId;
     
     public Long getId() {
         return id;
@@ -32,20 +32,20 @@ public class TranslationDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getRefTranslationKeyId() {
-        return refTranslationKeyId;
+    public Long getTranslationKeyId() {
+        return translationKeyId;
     }
 
-    public void setRefTranslationKeyId(Long translationKeyId) {
-        this.refTranslationKeyId = translationKeyId;
+    public void setTranslationKeyId(Long translationKeyId) {
+        this.translationKeyId = translationKeyId;
     }
 
-    public Long getRefLanguageId() {
-        return refLanguageId;
+    public Long getLanguageId() {
+        return languageId;
     }
 
-    public void setRefLanguageId(Long languageId) {
-        this.refLanguageId = languageId;
+    public void setLanguageId(Long languageId) {
+        this.languageId = languageId;
     }
 
     @Override
@@ -71,8 +71,8 @@ public class TranslationDTO implements Serializable {
         return "TranslationDTO{" +
             "id=" + getId() +
             ", value='" + getValue() + "'" +
-            ", refTranslationKeyId=" + getRefTranslationKeyId() +
-            ", refLanguageId=" + getRefLanguageId() +
+            ", translationKeyId=" + getTranslationKeyId() +
+            ", languageId=" + getLanguageId() +
             "}";
     }
 }

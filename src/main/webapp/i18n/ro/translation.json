@@ -17,8 +17,8 @@
         "title": "Translation"
       },
       "value": "Value",
-      "refTranslationKey": "Ref Translation Key",
-      "refLanguage": "Ref Language"
+      "translationKey": "Translation Key",
+      "language": "Language"
     }
   }
 }

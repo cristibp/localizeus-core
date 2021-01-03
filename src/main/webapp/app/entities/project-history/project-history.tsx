@@ -112,15 +112,14 @@ export const ProjectHistory = (props: IProjectHistoryProps) => {
                     <Translate contentKey="localizeusApp.projectHistory.newValue">New Value</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.projectHistory.refUser">Ref User</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="localizeusApp.projectHistory.user">User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.projectHistory.refTranslationKey">Ref Translation Key</Translate>{' '}
+                    <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.projectHistory.refTranslation">Ref Translation</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="localizeusApp.projectHistory.translation">Translation</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -138,17 +137,17 @@ export const ProjectHistory = (props: IProjectHistoryProps) => {
                     </td>
                     <td>{projectHistory.oldValue}</td>
                     <td>{projectHistory.newValue}</td>
-                    <td>{projectHistory.refUserId ? projectHistory.refUserId : ''}</td>
+                    <td>{projectHistory.userId ? projectHistory.userId : ''}</td>
                     <td>
-                      {projectHistory.refTranslationKeyId ? (
-                        <Link to={`translation-key/${projectHistory.refTranslationKeyId}`}>{projectHistory.refTranslationKeyId}</Link>
+                      {projectHistory.translationKeyId ? (
+                        <Link to={`translation-key/${projectHistory.translationKeyId}`}>{projectHistory.translationKeyId}</Link>
                       ) : (
                         ''
                       )}
                     </td>
                     <td>
-                      {projectHistory.refTranslationId ? (
-                        <Link to={`translation/${projectHistory.refTranslationId}`}>{projectHistory.refTranslationId}</Link>
+                      {projectHistory.translationId ? (
+                        <Link to={`translation/${projectHistory.translationId}`}>{projectHistory.translationId}</Link>
                       ) : (
                         ''
                       )}

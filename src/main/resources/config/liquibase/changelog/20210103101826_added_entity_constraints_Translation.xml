@@ -8,15 +8,15 @@
     -->
     <changeSet id="20210103101826-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="ref_translation_key_id"
+        <addForeignKeyConstraint baseColumnNames="translation_key_id"
                                  baseTableName="translation"
-                                 constraintName="fk_translation_ref_translation_key_id"
+                                 constraintName="fk_translation_translation_key_id"
                                  referencedColumnNames="id"
                                  referencedTableName="translation_key"/>
 
-        <addForeignKeyConstraint baseColumnNames="ref_language_id"
+        <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="translation"
-                                 constraintName="fk_translation_ref_language_id"
+                                 constraintName="fk_translation_language_id"
                                  referencedColumnNames="id"
                                  referencedTableName="language"/>
 

@@ -12,14 +12,14 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
       "otherEntityRelationshipName": "userPermission",
-      "relationshipName": "refUser",
+      "relationshipName": "user",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "project",
       "otherEntityRelationshipName": "userPermission",
-      "relationshipName": "refProject",
+      "relationshipName": "project",
       "otherEntityField": "id"
     }
   ],

@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface ProjectHistoryRepository extends JpaRepository<ProjectHistory, Long> {
 
-    @Query("select projectHistory from ProjectHistory projectHistory where projectHistory.refUser.login = ?#{principal.username}")
-    List<ProjectHistory> findByRefUserIsCurrentUser();
+    @Query("select projectHistory from ProjectHistory projectHistory where projectHistory.user.login = ?#{principal.username}")
+    List<ProjectHistory> findByUserIsCurrentUser();
 }

@@ -17,7 +17,7 @@
         "title": "Comment"
       },
       "value": "Value",
-      "refTranslationKey": "Ref Translation Key"
+      "translationKey": "Translation Key"
     }
   }
 }

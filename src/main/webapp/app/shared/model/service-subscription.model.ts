@@ -6,8 +6,8 @@ export interface IServiceSubscription {
   start?: string;
   end?: string;
   paymentType?: Periodicity;
-  refCompanyId?: number;
-  refPlanId?: number;
+  companyId?: number;
+  planId?: number;
 }
 
 export const defaultValue: Readonly<IServiceSubscription> = {};

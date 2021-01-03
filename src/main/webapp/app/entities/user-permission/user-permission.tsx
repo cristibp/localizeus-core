@@ -40,10 +40,10 @@ export const UserPermission = (props: IUserPermissionProps) => {
                   <Translate contentKey="localizeusApp.userPermission.type">Type</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userPermission.refUser">Ref User</Translate>
+                  <Translate contentKey="localizeusApp.userPermission.user">User</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.userPermission.refProject">Ref Project</Translate>
+                  <Translate contentKey="localizeusApp.userPermission.project">Project</Translate>
                 </th>
                 <th />
               </tr>
@@ -59,13 +59,9 @@ export const UserPermission = (props: IUserPermissionProps) => {
                   <td>
                     <Translate contentKey={`localizeusApp.PermissionType.${userPermission.type}`} />
                   </td>
-                  <td>{userPermission.refUserId ? userPermission.refUserId : ''}</td>
+                  <td>{userPermission.userId ? userPermission.userId : ''}</td>
                   <td>
-                    {userPermission.refProjectId ? (
-                      <Link to={`project/${userPermission.refProjectId}`}>{userPermission.refProjectId}</Link>
-                    ) : (
-                      ''
-                    )}
+                    {userPermission.projectId ? <Link to={`project/${userPermission.projectId}`}>{userPermission.projectId}</Link> : ''}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
