@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TranslationKeyMapper.class})
 public interface KeyLabelMapper extends EntityMapper<KeyLabelDTO, KeyLabel> {
 
-    @Mapping(source = "translationKey.id", target = "translationKeyId")
+    @Mapping(source = "translationkey.id", target = "translationkeyId")
     KeyLabelDTO toDto(KeyLabel keyLabel);
 
-    @Mapping(source = "translationKeyId", target = "translationKey")
+    @Mapping(source = "translationkeyId", target = "translationkey")
     KeyLabel toEntity(KeyLabelDTO keyLabelDTO);
 
     default KeyLabel fromId(Long id) {

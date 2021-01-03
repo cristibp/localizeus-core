@@ -12,7 +12,7 @@ public class TranslationDTO implements Serializable {
     private String value;
 
 
-    private Long translationKeyId;
+    private Long translationkeyId;
 
     private Long languageId;
     
@@ -32,12 +32,12 @@ public class TranslationDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getTranslationKeyId() {
-        return translationKeyId;
+    public Long getTranslationkeyId() {
+        return translationkeyId;
     }
 
-    public void setTranslationKeyId(Long translationKeyId) {
-        this.translationKeyId = translationKeyId;
+    public void setTranslationkeyId(Long translationKeyId) {
+        this.translationkeyId = translationKeyId;
     }
 
     public Long getLanguageId() {
@@ -71,7 +71,7 @@ public class TranslationDTO implements Serializable {
         return "TranslationDTO{" +
             "id=" + getId() +
             ", value='" + getValue() + "'" +
-            ", translationKeyId=" + getTranslationKeyId() +
+            ", translationkeyId=" + getTranslationkeyId() +
             ", languageId=" + getLanguageId() +
             "}";
     }

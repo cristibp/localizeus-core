@@ -115,7 +115,7 @@ export const ProjectHistory = (props: IProjectHistoryProps) => {
                     <Translate contentKey="localizeusApp.projectHistory.user">User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>{' '}
+                    <Translate contentKey="localizeusApp.projectHistory.translationkey">Translationkey</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
@@ -139,8 +139,8 @@ export const ProjectHistory = (props: IProjectHistoryProps) => {
                     <td>{projectHistory.newValue}</td>
                     <td>{projectHistory.userId ? projectHistory.userId : ''}</td>
                     <td>
-                      {projectHistory.translationKeyId ? (
-                        <Link to={`translation-key/${projectHistory.translationKeyId}`}>{projectHistory.translationKeyId}</Link>
+                      {projectHistory.translationkeyId ? (
+                        <Link to={`translation-key/${projectHistory.translationkeyId}`}>{projectHistory.translationkeyId}</Link>
                       ) : (
                         ''
                       )}

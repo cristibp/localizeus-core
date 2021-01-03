@@ -20,7 +20,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "userPermission",
       "otherEntityRelationshipName": "userProjectPermission",
-      "relationshipName": "userPermission",
+      "relationshipName": "userpermission",
       "otherEntityField": "id"
     }
   ],

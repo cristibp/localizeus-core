@@ -1,7 +1,7 @@
 export interface IComment {
   id?: number;
   value?: string;
-  translationKeyId?: number;
+  translationkeyId?: number;
 }
 
 export const defaultValue: Readonly<IComment> = {};

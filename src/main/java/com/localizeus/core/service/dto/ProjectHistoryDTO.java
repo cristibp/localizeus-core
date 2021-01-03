@@ -19,7 +19,7 @@ public class ProjectHistoryDTO implements Serializable {
 
     private Long userId;
 
-    private Long translationKeyId;
+    private Long translationkeyId;
 
     private Long translationId;
     
@@ -63,12 +63,12 @@ public class ProjectHistoryDTO implements Serializable {
         this.userId = userId;
     }
 
-    public Long getTranslationKeyId() {
-        return translationKeyId;
+    public Long getTranslationkeyId() {
+        return translationkeyId;
     }
 
-    public void setTranslationKeyId(Long translationKeyId) {
-        this.translationKeyId = translationKeyId;
+    public void setTranslationkeyId(Long translationKeyId) {
+        this.translationkeyId = translationKeyId;
     }
 
     public Long getTranslationId() {
@@ -105,7 +105,7 @@ public class ProjectHistoryDTO implements Serializable {
             ", oldValue='" + getOldValue() + "'" +
             ", newValue='" + getNewValue() + "'" +
             ", userId=" + getUserId() +
-            ", translationKeyId=" + getTranslationKeyId() +
+            ", translationkeyId=" + getTranslationkeyId() +
             ", translationId=" + getTranslationId() +
             "}";
     }

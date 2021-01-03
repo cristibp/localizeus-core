@@ -32,9 +32,9 @@ export const KeyLabelDetail = (props: IKeyLabelDetailProps) => {
           </dt>
           <dd>{keyLabelEntity.value}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.keyLabel.translationKey">Translation Key</Translate>
+            <Translate contentKey="localizeusApp.keyLabel.translationkey">Translationkey</Translate>
           </dt>
-          <dd>{keyLabelEntity.translationKeyId ? keyLabelEntity.translationKeyId : ''}</dd>
+          <dd>{keyLabelEntity.translationkeyId ? keyLabelEntity.translationkeyId : ''}</dd>
         </dl>
         <Button tag={Link} to="/key-label" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

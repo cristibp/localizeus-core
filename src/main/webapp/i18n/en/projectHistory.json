@@ -20,7 +20,7 @@
       "oldValue": "Old Value",
       "newValue": "New Value",
       "user": "User",
-      "translationKey": "Translation Key",
+      "translationkey": "Translationkey",
       "translation": "Translation"
     }
   }

@@ -22,7 +22,7 @@ export interface IProjectHistoryUpdateProps extends StateProps, DispatchProps, R
 
 export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
   const [userId, setUserId] = useState('0');
-  const [translationKeyId, setTranslationKeyId] = useState('0');
+  const [translationkeyId, setTranslationkeyId] = useState('0');
   const [translationId, setTranslationId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
@@ -130,10 +130,10 @@ export const ProjectHistoryUpdate = (props: IProjectHistoryUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="project-history-translationKey">
-                  <Translate contentKey="localizeusApp.projectHistory.translationKey">Translation Key</Translate>
+                <Label for="project-history-translationkey">
+                  <Translate contentKey="localizeusApp.projectHistory.translationkey">Translationkey</Translate>
                 </Label>
-                <AvInput id="project-history-translationKey" type="select" className="form-control" name="translationKeyId">
+                <AvInput id="project-history-translationkey" type="select" className="form-control" name="translationkeyId">
                   <option value="" key="0" />
                   {translationKeys
                     ? translationKeys.map(otherEntity => (

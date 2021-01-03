@@ -11,7 +11,7 @@ export default class TransactionUpdatePage {
   dateInput: ElementFinder = element(by.css('input#transaction-date'));
   statusInput: ElementFinder = element(by.css('input#transaction-status'));
   typeSelect: ElementFinder = element(by.css('select#transaction-type'));
-  serviceSubscriptionSelect: ElementFinder = element(by.css('select#transaction-serviceSubscription'));
+  servicesubscriptionSelect: ElementFinder = element(by.css('select#transaction-servicesubscription'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -52,20 +52,20 @@ export default class TransactionUpdatePage {
   async typeSelectLastOption() {
     await this.typeSelect.all(by.tagName('option')).last().click();
   }
-  async serviceSubscriptionSelectLastOption() {
-    await this.serviceSubscriptionSelect.all(by.tagName('option')).last().click();
+  async servicesubscriptionSelectLastOption() {
+    await this.servicesubscriptionSelect.all(by.tagName('option')).last().click();
   }
 
-  async serviceSubscriptionSelectOption(option) {
-    await this.serviceSubscriptionSelect.sendKeys(option);
+  async servicesubscriptionSelectOption(option) {
+    await this.servicesubscriptionSelect.sendKeys(option);
   }
 
-  getServiceSubscriptionSelect() {
-    return this.serviceSubscriptionSelect;
+  getServicesubscriptionSelect() {
+    return this.servicesubscriptionSelect;
   }
 
-  async getServiceSubscriptionSelectedOption() {
-    return this.serviceSubscriptionSelect.element(by.css('option:checked')).getText();
+  async getServicesubscriptionSelectedOption() {
+    return this.servicesubscriptionSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {
@@ -92,7 +92,7 @@ export default class TransactionUpdatePage {
     expect(await this.getStatusInput()).to.match(/status/);
     await waitUntilDisplayed(this.saveButton);
     await this.typeSelectLastOption();
-    await this.serviceSubscriptionSelectLastOption();
+    await this.servicesubscriptionSelectLastOption();
     await this.save();
     await waitUntilHidden(this.saveButton);
     expect(await isVisible(this.saveButton)).to.be.false;

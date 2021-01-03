@@ -13,12 +13,12 @@ import org.mapstruct.*;
 public interface ProjectHistoryMapper extends EntityMapper<ProjectHistoryDTO, ProjectHistory> {
 
     @Mapping(source = "user.id", target = "userId")
-    @Mapping(source = "translationKey.id", target = "translationKeyId")
+    @Mapping(source = "translationkey.id", target = "translationkeyId")
     @Mapping(source = "translation.id", target = "translationId")
     ProjectHistoryDTO toDto(ProjectHistory projectHistory);
 
     @Mapping(source = "userId", target = "user")
-    @Mapping(source = "translationKeyId", target = "translationKey")
+    @Mapping(source = "translationkeyId", target = "translationkey")
     @Mapping(source = "translationId", target = "translation")
     ProjectHistory toEntity(ProjectHistoryDTO projectHistoryDTO);
 

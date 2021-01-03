@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
-        <addForeignKeyConstraint baseColumnNames="translation_key_id"
+        <addForeignKeyConstraint baseColumnNames="translationkey_id"
                                  baseTableName="project_history"
-                                 constraintName="fk_project_history_translation_key_id"
+                                 constraintName="fk_project_history_translationkey_id"
                                  referencedColumnNames="id"
                                  referencedTableName="translation_key"/>
 

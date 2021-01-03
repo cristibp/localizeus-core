@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface ITransactionUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const TransactionUpdate = (props: ITransactionUpdateProps) => {
-  const [serviceSubscriptionId, setServiceSubscriptionId] = useState('0');
+  const [servicesubscriptionId, setServicesubscriptionId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { transactionEntity, serviceSubscriptions, loading, updating } = props;
@@ -114,10 +114,10 @@ export const TransactionUpdate = (props: ITransactionUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="transaction-serviceSubscription">
-                  <Translate contentKey="localizeusApp.transaction.serviceSubscription">Service Subscription</Translate>
+                <Label for="transaction-servicesubscription">
+                  <Translate contentKey="localizeusApp.transaction.servicesubscription">Servicesubscription</Translate>
                 </Label>
-                <AvInput id="transaction-serviceSubscription" type="select" className="form-control" name="serviceSubscriptionId">
+                <AvInput id="transaction-servicesubscription" type="select" className="form-control" name="servicesubscriptionId">
                   <option value="" key="0" />
                   {serviceSubscriptions
                     ? serviceSubscriptions.map(otherEntity => (

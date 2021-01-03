@@ -11,7 +11,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "translationKey",
       "otherEntityRelationshipName": "keyLabel",
-      "relationshipName": "translationKey",
+      "relationshipName": "translationkey",
       "otherEntityField": "id"
     }
   ],

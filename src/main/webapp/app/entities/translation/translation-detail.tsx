@@ -32,9 +32,9 @@ export const TranslationDetail = (props: ITranslationDetailProps) => {
           </dt>
           <dd>{translationEntity.value}</dd>
           <dt>
-            <Translate contentKey="localizeusApp.translation.translationKey">Translation Key</Translate>
+            <Translate contentKey="localizeusApp.translation.translationkey">Translationkey</Translate>
           </dt>
-          <dd>{translationEntity.translationKeyId ? translationEntity.translationKeyId : ''}</dd>
+          <dd>{translationEntity.translationkeyId ? translationEntity.translationkeyId : ''}</dd>
           <dt>
             <Translate contentKey="localizeusApp.translation.language">Language</Translate>
           </dt>

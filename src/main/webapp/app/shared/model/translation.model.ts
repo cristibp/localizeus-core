@@ -1,7 +1,7 @@
 export interface ITranslation {
   id?: number;
   value?: string;
-  translationKeyId?: number;
+  translationkeyId?: number;
   languageId?: number;
 }
 

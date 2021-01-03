@@ -20,9 +20,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="project"/>
 
-        <addForeignKeyConstraint baseColumnNames="user_permission_id"
+        <addForeignKeyConstraint baseColumnNames="userpermission_id"
                                  baseTableName="user_project_permission"
-                                 constraintName="fk_user_project_permission_user_permission_id"
+                                 constraintName="fk_user_project_permission_userpermission_id"
                                  referencedColumnNames="id"
                                  referencedTableName="user_permission"/>
 

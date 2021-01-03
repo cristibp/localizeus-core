@@ -87,7 +87,7 @@ export const Translation = (props: ITranslationProps) => {
                   <Translate contentKey="localizeusApp.translation.value">Value</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="localizeusApp.translation.translationKey">Translation Key</Translate>{' '}
+                  <Translate contentKey="localizeusApp.translation.translationkey">Translationkey</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
@@ -106,8 +106,8 @@ export const Translation = (props: ITranslationProps) => {
                   </td>
                   <td>{translation.value}</td>
                   <td>
-                    {translation.translationKeyId ? (
-                      <Link to={`translation-key/${translation.translationKeyId}`}>{translation.translationKeyId}</Link>
+                    {translation.translationkeyId ? (
+                      <Link to={`translation-key/${translation.translationkeyId}`}>{translation.translationkeyId}</Link>
                     ) : (
                       ''
                     )}

@@ -14,12 +14,12 @@ public interface UserProjectPermissionMapper extends EntityMapper<UserProjectPer
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "project.id", target = "projectId")
-    @Mapping(source = "userPermission.id", target = "userPermissionId")
+    @Mapping(source = "userpermission.id", target = "userpermissionId")
     UserProjectPermissionDTO toDto(UserProjectPermission userProjectPermission);
 
     @Mapping(source = "userId", target = "user")
     @Mapping(source = "projectId", target = "project")
-    @Mapping(source = "userPermissionId", target = "userPermission")
+    @Mapping(source = "userpermissionId", target = "userpermission")
     UserProjectPermission toEntity(UserProjectPermissionDTO userProjectPermissionDTO);
 
     default UserProjectPermission fromId(Long id) {
