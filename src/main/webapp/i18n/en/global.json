@@ -49,6 +49,9 @@
       "language": "Language"
     },
     "form": {
+      "tenant.label": "Company Identifier",
+      "tenant.placeholder": "Your company Identifier",
+      "new-company" : "Create a new company",
       "username.label": "Username",
       "username.placeholder": "Your username",
       "currentpassword.label": "Current password",
@@ -73,7 +76,7 @@
         }
       },
       "error": {
-        "dontmatch": "The password and its confirmation do not match!"
+        "dontmatch": "The password and its confirmation do not match! "
       },
       "validate": {
         "newpassword": {

@@ -2,9 +2,12 @@ package com.localizeus.core.repository;
 
 import com.localizeus.core.config.Constants;
 import com.localizeus.core.config.audit.AuditEventConverter;
+import com.localizeus.core.config.multitenant.MultiTenantContext;
 import com.localizeus.core.domain.PersistentAuditEvent;
 import java.time.Instant;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;
@@ -23,7 +26,7 @@ public class CustomAuditEventRepository implements AuditEventRepository {
     /**
      * Should be the same as in Liquibase migration.
      */
-    protected static final int EVENT_DATA_COLUMN_MAX_LENGTH = 255;
+    public static final int EVENT_DATA_COLUMN_MAX_LENGTH = 255;
 
     private final PersistenceAuditEventRepository persistenceAuditEventRepository;
 
@@ -52,14 +55,19 @@ public class CustomAuditEventRepository implements AuditEventRepository {
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void add(AuditEvent event) {
-        if (!AUTHORIZATION_FAILURE.equals(event.getType()) && !Constants.ANONYMOUS_USER.equals(event.getPrincipal())) {
-            PersistentAuditEvent persistentAuditEvent = new PersistentAuditEvent();
-            persistentAuditEvent.setPrincipal(event.getPrincipal());
-            persistentAuditEvent.setAuditEventType(event.getType());
-            persistentAuditEvent.setAuditEventDate(event.getTimestamp());
-            Map<String, String> eventData = auditEventConverter.convertDataToStrings(event.getData());
-            persistentAuditEvent.setData(truncate(eventData));
-            persistenceAuditEventRepository.save(persistentAuditEvent);
+        String tenantId = MultiTenantContext.getTenantId();
+        if(tenantId != null && !MultiTenantContext.SUPER_USER_TENANT.equalsIgnoreCase(tenantId)) {
+            if (!AUTHORIZATION_FAILURE.equals(event.getType()) && !Constants.ANONYMOUS_USER.equals(event.getPrincipal())) {
+                PersistentAuditEvent persistentAuditEvent = new PersistentAuditEvent();
+                persistentAuditEvent.setPrincipal(event.getPrincipal());
+                persistentAuditEvent.setAuditEventType(event.getType());
+                persistentAuditEvent.setAuditEventDate(event.getTimestamp());
+                Map<String, String> eventData = auditEventConverter.convertDataToStrings(event.getData());
+                persistentAuditEvent.setData(truncate(eventData));
+                persistenceAuditEventRepository.save(persistentAuditEvent);
+            }
+        } else {
+            log.warn("Missing tenant id when trying to persist audit event");
         }
     }
 

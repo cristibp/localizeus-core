@@ -1,8 +1,8 @@
 import React from 'react';
-import { Translate, translate } from 'react-jhipster';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Alert, Row, Col } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput } from 'availity-reactstrap-validation';
-import { Link } from 'react-router-dom';
+import {Translate, translate} from 'react-jhipster';
+import {Alert, Button, Col, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row} from 'reactstrap';
+import {AvField, AvForm, AvGroup, AvInput} from 'availity-reactstrap-validation';
+import {Link} from 'react-router-dom';
 
 export interface ILoginModalProps {
   showModal: boolean;
@@ -12,9 +12,9 @@ export interface ILoginModalProps {
 }
 
 class LoginModal extends React.Component<ILoginModalProps> {
-  handleSubmit = (event, errors, { username, password, rememberMe }) => {
+  handleSubmit = (event, errors, { username, password, tenant, rememberMe }) => {
     const { handleLogin } = this.props;
-    handleLogin(username, password, rememberMe);
+    handleLogin(username, password, tenant, rememberMe);
   };
 
   render() {
@@ -39,12 +39,19 @@ class LoginModal extends React.Component<ILoginModalProps> {
               </Col>
               <Col md="12">
                 <AvField
+                  name="tenant"
+                  label={translate('global.form.tenant.label')}
+                  placeholder={translate('global.form.tenant.placeholder')}
+                  required
+                  errorMessage="The company identifier cannot be empty!"
+                  autoFocus
+                />
+                <AvField
                   name="username"
                   label={translate('global.form.username.label')}
                   placeholder={translate('global.form.username.placeholder')}
                   required
                   errorMessage="Username cannot be empty!"
-                  autoFocus
                 />
                 <AvField
                   name="password"
@@ -65,14 +72,6 @@ class LoginModal extends React.Component<ILoginModalProps> {
             <Alert color="warning">
               <Link to="/account/reset/request">
                 <Translate contentKey="login.password.forgot">Did you forget your password?</Translate>
-              </Link>
-            </Alert>
-            <Alert color="warning">
-              <span>
-                <Translate contentKey="global.messages.info.register.noaccount">You don&apos;t have an account yet?</Translate>
-              </span>{' '}
-              <Link to="/account/register">
-                <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
           </ModalBody>

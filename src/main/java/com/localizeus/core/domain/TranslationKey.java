@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "translation_key")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class TranslationKey implements Serializable {
+public class TranslationKey extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

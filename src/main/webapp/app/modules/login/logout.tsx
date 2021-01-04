@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import { IRootState } from 'app/shared/reducers';
 import { logout } from 'app/shared/reducers/authentication';
+import {Translate} from "react-jhipster";
+import {Alert} from 'reactstrap';
+import {Link} from "react-router-dom";
 
 export interface ILogoutProps extends StateProps, DispatchProps {
   idToken: string;
@@ -22,9 +25,17 @@ export const Logout = (props: ILogoutProps) => {
   });
 
   return (
-    <div className="p-5">
-      <h4>Logged out successfully!</h4>
+    <div className="text-center">
+      <Alert color="warning">
+        <span>Successfully logged out!</span><br/>
+        <Link to="/login" className="alert-link">
+
+          <Translate contentKey="global.messages.info.authenticated.link"> sign in?</Translate>
+        </Link>
+      </Alert>
+
     </div>
+
   );
 };
 

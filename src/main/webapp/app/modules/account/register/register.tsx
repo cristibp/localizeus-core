@@ -21,7 +21,7 @@ export const RegisterPage = (props: IRegisterProps) => {
   );
 
   const handleValidSubmit = (event, values) => {
-    props.handleRegister(values.username, values.email, values.firstPassword, props.currentLocale);
+    props.handleRegister(values.tenant,values.username, values.email, values.firstPassword, props.currentLocale);
     event.preventDefault();
   };
 
@@ -39,6 +39,20 @@ export const RegisterPage = (props: IRegisterProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <AvForm id="register-form" onValidSubmit={handleValidSubmit}>
+            <AvField
+              name="tenant"
+              label={translate('global.form.tenant.label')}
+              placeholder={translate('global.form.tenant.placeholder')}
+              validate={{
+                required: { value: true, errorMessage: translate('register.messages.validate.tenant.required') },
+                pattern: {
+                  value: '^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$',
+                  errorMessage: translate('register.messages.validate.tenant.pattern'),
+                },
+                minLength: { value: 1, errorMessage: translate('register.messages.validate.tenant.minlength') },
+                maxLength: { value: 50, errorMessage: translate('register.messages.validate.tenant.maxlength') },
+              }}
+            />
             <AvField
               name="username"
               label={translate('global.form.username.label')}
@@ -93,22 +107,6 @@ export const RegisterPage = (props: IRegisterProps) => {
               <Translate contentKey="register.form.button">Register</Translate>
             </Button>
           </AvForm>
-          <p>&nbsp;</p>
-          <Alert color="warning">
-            <span>
-              <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
-            </span>
-            <a className="alert-link">
-              <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
-            </a>
-            <span>
-              <Translate contentKey="global.messages.info.authenticated.suffix">
-                , you can try the default accounts:
-                <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;)
-                <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
-              </Translate>
-            </span>
-          </Alert>
         </Col>
       </Row>
     </div>

@@ -223,7 +223,7 @@ describe('Authentication reducer tests', () => {
           locale: 'en',
         },
       ];
-      await store.dispatch(login('test', 'test'));
+      await store.dispatch(login('test', 'test', '123'));
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -238,7 +238,7 @@ describe('Authentication reducer tests', () => {
       const loginResponse = { headers: { authorization: 'Bearer TestToken' } };
       axios.post = sinon.stub().returns(Promise.resolve(loginResponse));
 
-      await store.dispatch(login('test', 'test'));
+      await store.dispatch(login('test', 'test','123'));
       expect(Storage.session.get(AUTH_TOKEN_KEY)).toBe('TestToken');
       expect(Storage.local.get(AUTH_TOKEN_KEY)).toBe(undefined);
       clearAuthToken();
@@ -250,7 +250,7 @@ describe('Authentication reducer tests', () => {
       const loginResponse = { headers: { authorization: 'Bearer TestToken' } };
       axios.post = sinon.stub().returns(Promise.resolve(loginResponse));
 
-      await store.dispatch(login('user', 'user', true));
+      await store.dispatch(login('user', 'user', '123',true));
       expect(Storage.session.get(AUTH_TOKEN_KEY)).toBe(undefined);
       expect(Storage.local.get(AUTH_TOKEN_KEY)).toBe('TestToken');
       clearAuthToken();

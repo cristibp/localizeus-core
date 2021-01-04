@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "language")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Language implements Serializable {
+public class Language extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

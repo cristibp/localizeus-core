@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "project")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Project implements Serializable {
+public class Project extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

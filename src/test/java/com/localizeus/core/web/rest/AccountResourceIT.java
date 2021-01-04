@@ -82,6 +82,7 @@ public class AccountResourceIT {
     }
 
     @Test
+    @Transactional
     public void testGetExistingAccount() throws Exception {
         Set<String> authorities = new HashSet<>();
         authorities.add(AuthoritiesConstants.ADMIN);

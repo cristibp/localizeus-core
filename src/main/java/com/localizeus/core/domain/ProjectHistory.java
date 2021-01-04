@@ -16,7 +16,7 @@ import com.localizeus.core.domain.enumeration.ProjectActions;
 @Entity
 @Table(name = "project_history")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class ProjectHistory implements Serializable {
+public class ProjectHistory extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

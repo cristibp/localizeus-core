@@ -11,6 +11,12 @@
           "minlength": "Your username is required to be at least 1 character.",
           "maxlength": "Your username cannot be longer than 50 characters.",
           "pattern": "Your username is invalid."
+        },
+        "tenant": {
+          "required": "The company identifier is required.",
+          "pattern": "The company identifier is invalid.",
+          "minlength": "Your company identifier is required to be at least 1 character..",
+          "maxlength": "Your company identifier cannot be longer than 50 characters."
         }
       },
       "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",

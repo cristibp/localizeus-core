@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "api_key")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class ApiKey implements Serializable {
+public class ApiKey extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

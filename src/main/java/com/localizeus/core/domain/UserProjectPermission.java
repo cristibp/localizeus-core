@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "user_project_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserProjectPermission implements Serializable {
+public class UserProjectPermission extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

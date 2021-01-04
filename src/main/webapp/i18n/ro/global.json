@@ -58,6 +58,8 @@
       "language": "Limbă"
     },
     "form": {
+      "tenant.label": "Companie",
+      "tenant.placeholder": "Identificatorul companiei",
       "username.label": "Utilizator",
       "username.placeholder": "Numele de utilizator",
       "currentpassword.label": "Current password",

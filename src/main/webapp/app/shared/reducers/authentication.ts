@@ -112,13 +112,13 @@ export const getSession: () => void = () => async (dispatch, getState) => {
   }
 };
 
-export const login: (username: string, password: string, rememberMe?: boolean) => void = (username, password, rememberMe = false) => async (
+export const login: (username: string, password: string, tenant: string, rememberMe?: boolean) => void = (username, password, tenant, rememberMe = false) => async (
   dispatch,
   getState
 ) => {
   const result = await dispatch({
     type: ACTION_TYPES.LOGIN,
-    payload: axios.post('api/authenticate', { username, password, rememberMe }),
+    payload: axios.post('api/authenticate', { username, password, tenant, rememberMe }),
   });
   const bearerToken = result.value.headers.authorization;
   if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {
@@ -129,6 +129,8 @@ export const login: (username: string, password: string, rememberMe?: boolean) =
       Storage.session.set(AUTH_TOKEN_KEY, jwt);
     }
   }
+  Storage.local.set("username", username);
+  Storage.local.set("tenant", tenant);
   await dispatch(getSession());
 };
 

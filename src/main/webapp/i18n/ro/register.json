@@ -4,6 +4,12 @@
     "form": {
       "button": "Înregistrare"
     },
+    "tenant": {
+      "required": "Identificatorul companiei este necesar.",
+      "pattern": "Identificatorul companiei este invalid.",
+      "minlength": "Identificatorul companiei trebuie sa aiba minim 1 caracter.",
+      "maxlength": "Identificatorul companiei trebuie sa aiba maxim 50 de caractere."
+    },
     "messages": {
       "validate": {
         "login": {

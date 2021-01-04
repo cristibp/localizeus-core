@@ -1,16 +1,16 @@
 import React from 'react';
 import MenuItem from 'app/shared/layout/menus/menu-item';
-import { DropdownItem } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink as Link } from 'react-router-dom';
-import { NavDropdown } from './menu-components';
-import { Translate, translate } from 'react-jhipster';
+import {NavDropdown} from './menu-components';
+import {Translate, translate} from 'react-jhipster';
 
-const adminMenuItems = (
-  <>
+const userManagementMenuItem = (<>
     <MenuItem icon="user" to="/admin/user-management">
       <Translate contentKey="global.menu.admin.userManagement">User management</Translate>
     </MenuItem>
+  </>
+)
+const adminMenuItems = (
+  <>
     <MenuItem icon="tachometer-alt" to="/admin/metrics">
       <Translate contentKey="global.menu.admin.metrics">Metrics</Translate>
     </MenuItem>
@@ -36,8 +36,9 @@ const swaggerItem = (
   </MenuItem>
 );
 
-export const AdminMenu = ({ showSwagger }) => (
+export const AdminMenu = ({ showSwagger, showUserManagement }) => (
   <NavDropdown icon="user-plus" name={translate('global.menu.admin.main')} style={{ width: '140%' }} id="admin-menu">
+    {showUserManagement && userManagementMenuItem}
     {adminMenuItems}
     {showSwagger && swaggerItem}
   </NavDropdown>

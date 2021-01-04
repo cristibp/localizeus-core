@@ -11,7 +11,7 @@ import { IRootState } from 'app/shared/reducers';
 export type IHomeProp = StateProps;
 
 export const Home = (props: IHomeProp) => {
-  const { account } = props;
+  const {account} = props;
 
   return (
     <Row>
@@ -33,7 +33,7 @@ export const Home = (props: IHomeProp) => {
         ) : (
           <div>
             <Alert color="warning">
-              <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
+              <Translate contentKey="global.messages.info.authenticated.prefix">Do you want to </Translate>
               <Link to="/login" className="alert-link">
                 <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
               </Link>
@@ -48,6 +48,7 @@ export const Home = (props: IHomeProp) => {
               <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
               <Link to="/account/register" className="alert-link">
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
+                <Translate contentKey="global.messages.info.authenticated.link"> sign in?</Translate>
               </Link>
             </Alert>
           </div>

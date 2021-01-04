@@ -1,0 +1,2 @@
+id;tenant_id;user;password;db_name;host;port;activation_key
+1;local;localizeus;localizeus;localizeus_local;localhost;3306;

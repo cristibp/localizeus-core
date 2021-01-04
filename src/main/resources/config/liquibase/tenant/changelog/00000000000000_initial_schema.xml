@@ -77,7 +77,7 @@
                                 columnDataType="varchar(60)"
                                 tableName="jhi_user"/>
         <loadData
-                  file="config/liquibase/data/user.csv"
+                  file="data/user.csv" relativeToChangelogFile="true"
                   separator=";"
                   tableName="jhi_user">
             <column name="activated" type="boolean"/>
@@ -85,14 +85,14 @@
         </loadData>
         <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
         <loadData
-                  file="config/liquibase/data/authority.csv"
+                  file="data/authority.csv" relativeToChangelogFile="true"
                   separator=";"
                   tableName="jhi_authority">
             <column name="name" type="string"/>
         </loadData>
 
         <loadData
-                  file="config/liquibase/data/user_authority.csv"
+                  file="data/user_authority.csv" relativeToChangelogFile="true"
                   separator=";"
                   tableName="jhi_user_authority">
             <column name="user_id" type="numeric"/>

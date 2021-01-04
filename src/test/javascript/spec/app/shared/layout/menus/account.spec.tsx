@@ -1,15 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
-import { NavDropdown } from 'app/shared/layout/menus/menu-components';
-import { AccountMenu } from 'app/shared/layout/menus';
+import {NavDropdown} from 'app/shared/layout/menus/menu-components';
+import {AccountMenu} from 'app/shared/layout/menus';
 
 describe('AccountMenu', () => {
   let mountedWrapper;
 
   const authenticatedWrapper = () => {
     if (!mountedWrapper) {
-      mountedWrapper = shallow(<AccountMenu isAuthenticated />);
+      mountedWrapper = shallow(<AccountMenu isAuthenticated isSuperUser />);
     }
     return mountedWrapper;
   };

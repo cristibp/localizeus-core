@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "key_label")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class KeyLabel implements Serializable {
+public class KeyLabel extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

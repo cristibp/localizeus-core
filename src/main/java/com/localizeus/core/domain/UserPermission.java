@@ -16,7 +16,7 @@ import com.localizeus.core.domain.enumeration.PermissionType;
 @Entity
 @Table(name = "user_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserPermission implements Serializable {
+public class UserPermission extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
