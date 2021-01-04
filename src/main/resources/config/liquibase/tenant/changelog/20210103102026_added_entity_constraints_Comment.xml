@@ -7,10 +7,10 @@
         Added the constraints for entity Comment.
     -->
     <changeSet id="20210103102026-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="translation_key_id"
+
+        <addForeignKeyConstraint baseColumnNames="translationKey_id"
                                  baseTableName="comment"
-                                 constraintName="fk_comment_translation_key_id"
+                                 constraintName="fk_comment_translationKey_id"
                                  referencedColumnNames="id"
                                  referencedTableName="translation_key"/>
 

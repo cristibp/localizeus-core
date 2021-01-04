@@ -12,6 +12,16 @@ export const BrandIcon = props => (
     <img src="content/images/logo-jhipster.png" alt="Logo" />
   </div>
 );
+export const CreateNewCompany = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/account/register" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="folder-open"/>
+      <span>
+        <Translate contentKey="global.menu.new-company">New Company</Translate>
+      </span>
+    </NavLink>
+  </NavItem>
+);
 
 export const Brand = props => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
@@ -29,6 +39,18 @@ export const Home = props => (
       <FontAwesomeIcon icon="home" />
       <span>
         <Translate contentKey="global.menu.home">Home</Translate>
+      </span>
+    </NavLink>
+  </NavItem>
+);
+
+
+export const Project = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/project" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="folder-open"/>
+      <span>
+        <Translate contentKey="global.menu.project">Project</Translate>
       </span>
     </NavLink>
   </NavItem>

@@ -9,21 +9,36 @@
         <property name="autoIncrement" value="true"/>
 
     <!--
-        Added the entity Language.
+        Added the entity TranslationKey.
     -->
-    <changeSet id="20210103101926-1" author="jhipster">
-        <createTable tableName="language">
+    <changeSet id="20210103101726-1" author="jhipster">
+        <createTable tableName="translation_key">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="language_name" type="varchar(255)">
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fallback_value" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="project_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
 
-    <changeSet id="20210103101926-1-relations" author="jhipster">
+    <changeSet id="20201206203300-2" author="cribat">
+        <addColumn tableName="translation_key">
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="20201206203459-1-relations" author="jhipster">
 
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
@@ -36,13 +51,14 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20210103101926-1-data" author="jhipster" context="faker">
+    <changeSet id="20210103101726-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/language.csv"
+                  file="fake-data/translation_key.csv" relativeToChangelogFile="true"
                   separator=";"
-                  tableName="language">
+                  tableName="translation_key">
             <column name="id" type="numeric"/>
-            <column name="language_name" type="string"/>
+            <column name="name" type="string"/>
+            <column name="fallback_value" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

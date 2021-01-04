@@ -1,5 +1,7 @@
 package com.localizeus.core.security.jwt;
 
+import com.localizeus.core.config.multitenant.MultiTenantContext;
+import com.localizeus.core.web.rest.vm.LoginVM;
 import io.github.jhipster.config.JHipsterProperties;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -57,7 +59,9 @@ public class TokenProvider {
             1000 * jHipsterProperties.getSecurity().getAuthentication().getJwt().getTokenValidityInSecondsForRememberMe();
     }
 
-    public String createToken(Authentication authentication, boolean rememberMe) {
+    public String createToken(Authentication authentication, LoginVM loginVM) {
+        boolean rememberMe = (loginVM.isRememberMe() == null) ? false : loginVM.isRememberMe();
+        String tenant = loginVM.getTenant();
         String authorities = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(","));
 
         long now = (new Date()).getTime();
@@ -71,6 +75,7 @@ public class TokenProvider {
         return Jwts
             .builder()
             .setSubject(authentication.getName())
+            .setHeaderParam(MultiTenantContext.TENANT_ID, tenant)
             .claim(AUTHORITIES_KEY, authorities)
             .signWith(key, SignatureAlgorithm.HS512)
             .setExpiration(validity)
@@ -99,5 +104,16 @@ public class TokenProvider {
             log.trace("Invalid JWT token trace.", e);
         }
         return false;
+    }
+
+    public String getTenantId(String jwt) {
+        try {
+            return Jwts.parserBuilder().setSigningKey(key).build()
+                .parse(jwt).getHeader().get(MultiTenantContext.TENANT_ID).toString();
+        } catch (JwtException | IllegalArgumentException e) {
+            log.info("Invalid JWT token or it doesn't include tenantId header.");
+            log.trace("Invalid JWT token or it doesn't include tenantId header.", e);
+        }
+        throw new IllegalArgumentException("Invalid JWT token.");
     }
 }

@@ -50,7 +50,7 @@
     -->
     <changeSet id="20210103102926-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/service_subscription.csv"
+                  file="fake-data/service_subscription.csv" relativeToChangelogFile="true"
                   separator=";"
                   tableName="service_subscription">
             <column name="id" type="numeric"/>

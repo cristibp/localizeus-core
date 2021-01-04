@@ -15,6 +15,10 @@ public class LoginVM {
     @Size(min = 4, max = 100)
     private String password;
 
+    @NotNull
+    @Size(min = 2, max = 20)
+    private String tenant;
+
     private Boolean rememberMe;
 
     public String getUsername() {
@@ -41,11 +45,20 @@ public class LoginVM {
         this.rememberMe = rememberMe;
     }
 
+    public String getTenant() {
+        return tenant;
+    }
+
+    public void setTenant(String tenant) {
+        this.tenant = tenant;
+    }
+
     // prettier-ignore
     @Override
     public String toString() {
         return "LoginVM{" +
             "username='" + username + '\'' +
+            "tenant='" + tenant + '\'' +
             ", rememberMe=" + rememberMe +
             '}';
     }

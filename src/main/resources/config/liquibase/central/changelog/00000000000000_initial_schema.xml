@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <property name="autoIncrement" value="true"/>
+    <changeSet id="00000000000001" author="cribat">
+        <createTable tableName="tenant_config">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tenant_id" type="varchar(50)"/>
+            <column name="user" type="varchar(50)">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_user_tenant_db"/>
+            </column>
+            <column name="password" type="varchar(60)"/>
+            <column name="db_name" type="varchar(60)"/>
+            <column name="host" type="varchar(50)"/>
+            <column name="port" type="varchar(50)"/>
+            <column name="activation_key" type="varchar(20)"/>
+        </createTable>
+        <loadData
+            file="data/tenant_config.csv" relativeToChangelogFile="true"
+            separator=";"
+            tableName="tenant_config">
+        </loadData>
+    </changeSet>
+    <changeSet id="00000000000002" author="cribat">
+        <createTable tableName="user_config">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="login" type="varchar(50)">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_user_login"/>
+            </column>
+            <column name="password" type="varchar(60)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="00000000000003" author="cribat">
+        <sql>CREATE SCHEMA IF NOT EXISTS localizeus_local</sql>
+    </changeSet>
+</databaseChangeLog>

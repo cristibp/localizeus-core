@@ -1,6 +1,7 @@
 package com.localizeus.core.web.rest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.localizeus.core.config.multitenant.MultiTenantContext;
 import com.localizeus.core.security.jwt.JWTFilter;
 import com.localizeus.core.security.jwt.TokenProvider;
 import com.localizeus.core.web.rest.vm.LoginVM;
@@ -35,11 +36,10 @@ public class UserJWTController {
             loginVM.getUsername(),
             loginVM.getPassword()
         );
-
+        MultiTenantContext.setTenantId(loginVM.getTenant());
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        boolean rememberMe = (loginVM.isRememberMe() == null) ? false : loginVM.isRememberMe();
-        String jwt = tokenProvider.createToken(authentication, rememberMe);
+        String jwt = tokenProvider.createToken(authentication, loginVM);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);

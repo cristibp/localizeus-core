@@ -23,7 +23,7 @@ management:
   endpoint:
     health:
       show-details: when_authorized
-      roles: 'ROLE_ADMIN'
+      roles: ['ROLE_ADMIN','ROLE_SU']
     jhimetrics:
       enabled: true
   info:
@@ -58,6 +58,11 @@ management:
             enabled: true
 
 spring:
+  exclude:
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+    #- org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+
   application:
     name: localizeus
   profiles:
@@ -93,6 +98,7 @@ spring:
     hibernate:
       ddl-auto: none
       naming:
+        #physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
   messages:
@@ -115,6 +121,8 @@ spring:
   output:
     ansi:
       console-available: true
+  liquibase:
+    enabled: false
 
 server:
   servlet:

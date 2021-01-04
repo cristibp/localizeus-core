@@ -4,8 +4,12 @@ import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.localizeus.core.LocalizeusApp;
+import com.localizeus.core.config.TenantConfiguration;
+import com.localizeus.core.config.multitenant.MultiTenantDataSourceService;
 import com.localizeus.core.repository.timezone.DateTimeWrapper;
 import com.localizeus.core.repository.timezone.DateTimeWrapperRepository;
+
+import java.sql.SQLException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,13 +35,16 @@ public class HibernateTimeZoneIT {
     @Value("${spring.jpa.properties.hibernate.jdbc.time_zone:UTC}")
     private String zoneId;
 
+    @Autowired
+    private MultiTenantDataSourceService dataSources;
+
     private DateTimeWrapper dateTimeWrapper;
     private DateTimeFormatter dateTimeFormatter;
     private DateTimeFormatter timeFormatter;
     private DateTimeFormatter dateFormatter;
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws SQLException {
         dateTimeWrapper = new DateTimeWrapper();
         dateTimeWrapper.setInstant(Instant.parse("2014-11-12T05:50:00.0Z"));
         dateTimeWrapper.setLocalDateTime(LocalDateTime.parse("2014-11-12T07:50:00.0"));
@@ -52,6 +59,7 @@ public class HibernateTimeZoneIT {
         timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss").withZone(ZoneId.of(zoneId));
 
         dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        jdbcTemplate.setDataSource(dataSources.getDataSourceMap().get(TenantConfiguration.TEST_TENANT));
     }
 
     @Test

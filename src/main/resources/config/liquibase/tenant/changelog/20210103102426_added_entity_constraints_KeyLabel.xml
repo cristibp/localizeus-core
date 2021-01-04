@@ -7,10 +7,10 @@
         Added the constraints for entity KeyLabel.
     -->
     <changeSet id="20210103102426-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="translation_key_id"
+
+        <addForeignKeyConstraint baseColumnNames="translationKey_id"
                                  baseTableName="key_label"
-                                 constraintName="fk_key_label_translation_key_id"
+                                 constraintName="fk_key_label_translationKey_id"
                                  referencedColumnNames="id"
                                  referencedTableName="translation_key"/>
 

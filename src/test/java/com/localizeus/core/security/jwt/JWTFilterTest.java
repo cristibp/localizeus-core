@@ -1,5 +1,6 @@
 package com.localizeus.core.security.jwt;
 
+import static com.localizeus.core.domain.MultiTenantData.aLoginVM;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.localizeus.core.security.AuthoritiesConstants;
@@ -47,7 +48,7 @@ public class JWTFilterTest {
             "test-password",
             Collections.singletonList(new SimpleGrantedAuthority(AuthoritiesConstants.USER))
         );
-        String jwt = tokenProvider.createToken(authentication, false);
+        String jwt = tokenProvider.createToken(authentication, aLoginVM());
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.addHeader(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         request.setRequestURI("/api/test");
@@ -102,7 +103,7 @@ public class JWTFilterTest {
             "test-password",
             Collections.singletonList(new SimpleGrantedAuthority(AuthoritiesConstants.USER))
         );
-        String jwt = tokenProvider.createToken(authentication, false);
+        String jwt = tokenProvider.createToken(authentication, aLoginVM());
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.addHeader(JWTFilter.AUTHORIZATION_HEADER, "Basic " + jwt);
         request.setRequestURI("/api/test");

@@ -1,6 +1,7 @@
 package com.localizeus.core.service;
 
 import com.localizeus.core.config.Constants;
+import com.localizeus.core.config.multitenant.MultiTenantContext;
 import com.localizeus.core.domain.Authority;
 import com.localizeus.core.domain.User;
 import com.localizeus.core.repository.AuthorityRepository;
@@ -9,10 +10,6 @@ import com.localizeus.core.security.AuthoritiesConstants;
 import com.localizeus.core.security.SecurityUtils;
 import com.localizeus.core.service.dto.UserDTO;
 import io.github.jhipster.security.RandomUtil;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -22,6 +19,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Service class for managing users.
@@ -133,8 +135,11 @@ public class UserService {
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
-        newUser.setActivationKey(RandomUtil.generateActivationKey());
+
+        String activationKey = MultiTenantContext.encode();
+        newUser.setActivationKey(activationKey);
         Set<Authority> authorities = new HashSet<>();
+        authorityRepository.findById(AuthoritiesConstants.ADMIN).ifPresent(authorities::add);
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
@@ -169,7 +174,7 @@ public class UserService {
         }
         String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
-        user.setResetKey(RandomUtil.generateResetKey());
+        user.setResetKey(MultiTenantContext.encode());
         user.setResetDate(Instant.now());
         user.setActivated(true);
         if (userDTO.getAuthorities() != null) {
@@ -322,6 +327,7 @@ public class UserService {
 
     /**
      * Gets a list of all the authorities.
+     *
      * @return a list of all the authorities.
      */
     @Transactional(readOnly = true)

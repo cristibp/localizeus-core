@@ -1,7 +1,10 @@
 package com.localizeus.core.web.rest;
 
+import com.localizeus.core.service.LiquibaseTenantChangelog;
+import com.localizeus.core.service.MultiTenancyService;
 import com.localizeus.core.domain.User;
 import com.localizeus.core.repository.UserRepository;
+import com.localizeus.core.security.AuthoritiesConstants;
 import com.localizeus.core.security.SecurityUtils;
 import com.localizeus.core.service.MailService;
 import com.localizeus.core.service.UserService;
@@ -10,13 +13,23 @@ import com.localizeus.core.service.dto.UserDTO;
 import com.localizeus.core.web.rest.errors.*;
 import com.localizeus.core.web.rest.vm.KeyAndPasswordVM;
 import com.localizeus.core.web.rest.vm.ManagedUserVM;
+
+import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.DataSource;
 import javax.validation.Valid;
+
+import com.localizeus.core.config.multitenant.MultiTenantContext;
+import com.localizeus.core.config.multitenant.TenantConfiguration;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -41,26 +54,53 @@ public class AccountResource {
 
     private final MailService mailService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    private final MultiTenancyService multitenancyService;
+
+    private final LiquibaseTenantChangelog tenantChangelog;
+
+    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, MultiTenancyService multitenancyService, LiquibaseTenantChangelog tenantChangelog) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.multitenancyService = multitenancyService;
+        this.tenantChangelog = tenantChangelog;
     }
 
     /**
      * {@code POST  /register} : register the user.
+     * <p>
+     * when registering a new user we are actually have to perform the following actions:
+     * 1. create a new database
+     * 2. create a new user for that database
+     * 3. include a new row in database config
+     * 4. create the jhi_user for the newly created database with admin role
+     * 5. apply liquibase for the new database
+     * 6. send the activation email
      *
      * @param managedUserVM the managed user View Model.
-     * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
+     * @throws InvalidPasswordException  {@code 400 (Bad Request)} if the password is incorrect.
      * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
      * @throws LoginAlreadyUsedException {@code 400 (Bad Request)} if the login is already used.
      */
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.SUPER_USER + "\")")
+    public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) throws SQLException {
         if (!checkPasswordLength(managedUserVM.getPassword())) {
             throw new InvalidPasswordException();
         }
+        String tenant = managedUserVM.getTenant();
+
+        multitenancyService.createDatabase(tenant);
+
+        Pair<String, String> dbCredentials = multitenancyService.createDatabaseUser(tenant);
+
+        TenantConfiguration tenantConfiguration = multitenancyService.addDatabaseConfig(tenant, dbCredentials.getLeft(), dbCredentials.getRight());
+
+        DataSource dataSource = multitenancyService.addNewConnection(tenantConfiguration);
+        //do the rest
+        MultiTenantContext.setTenantId(tenant);
+        tenantChangelog.applyChangelog(dataSource.getConnection());
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         mailService.sendActivationEmail(user);
     }
@@ -73,6 +113,8 @@ public class AccountResource {
      */
     @GetMapping("/activate")
     public void activateAccount(@RequestParam(value = "key") String key) {
+        String tenantId = MultiTenantContext.decode(key);
+        MultiTenantContext.setTenantId(tenantId);
         Optional<User> user = userService.activateRegistration(key);
         if (!user.isPresent()) {
             throw new AccountResourceException("No user was found for this activation key");
@@ -99,6 +141,15 @@ public class AccountResource {
      */
     @GetMapping("/account")
     public UserDTO getAccount() {
+        if (MultiTenantContext.SUPER_USER_TENANT.equalsIgnoreCase(MultiTenantContext.getTenantId())) {
+            UserDTO userDTO = new UserDTO();
+            userDTO.setLogin("admin");
+            userDTO.setActivated(true);
+            userDTO.setLangKey("en");
+            userDTO.setAuthorities(Stream.of(AuthoritiesConstants.SUPER_USER, AuthoritiesConstants.ADMIN).collect(Collectors.toSet()));
+            return userDTO;
+
+        }
         return userService
             .getUserWithAuthorities()
             .map(UserDTO::new)
@@ -110,7 +161,7 @@ public class AccountResource {
      *
      * @param userDTO the current user information.
      * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
-     * @throws RuntimeException {@code 500 (Internal Server Error)} if the user login wasn't found.
+     * @throws RuntimeException          {@code 500 (Internal Server Error)} if the user login wasn't found.
      */
     @PostMapping("/account")
     public void saveAccount(@Valid @RequestBody UserDTO userDTO) {
@@ -170,14 +221,17 @@ public class AccountResource {
      *
      * @param keyAndPassword the generated key and the new password.
      * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
-     * @throws RuntimeException {@code 500 (Internal Server Error)} if the password could not be reset.
+     * @throws RuntimeException         {@code 500 (Internal Server Error)} if the password could not be reset.
      */
     @PostMapping(path = "/account/reset-password/finish")
     public void finishPasswordReset(@RequestBody KeyAndPasswordVM keyAndPassword) {
         if (!checkPasswordLength(keyAndPassword.getNewPassword())) {
             throw new InvalidPasswordException();
         }
-        Optional<User> user = userService.completePasswordReset(keyAndPassword.getNewPassword(), keyAndPassword.getKey());
+        String key = keyAndPassword.getKey();
+        String tenantId = MultiTenantContext.decode(key);
+        MultiTenantContext.setTenantId(tenantId);
+        Optional<User> user = userService.completePasswordReset(keyAndPassword.getNewPassword(), key);
 
         if (!user.isPresent()) {
             throw new AccountResourceException("No user was found for this reset key");

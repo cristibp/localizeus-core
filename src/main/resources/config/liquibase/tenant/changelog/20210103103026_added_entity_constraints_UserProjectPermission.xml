@@ -7,7 +7,7 @@
         Added the constraints for entity UserProjectPermission.
     -->
     <changeSet id="20210103103026-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="user_project_permission"
                                  constraintName="fk_user_project_permission_user_id"
@@ -20,7 +20,7 @@
                                  referencedColumnNames="id"
                                  referencedTableName="project"/>
 
-        <addForeignKeyConstraint baseColumnNames="user_permission_id"
+        <addForeignKeyConstraint baseColumnNames="userPermission_id"
                                  baseTableName="user_project_permission"
                                  constraintName="fk_user_project_permission_user_permission_id"
                                  referencedColumnNames="id"

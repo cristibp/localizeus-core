@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.localizeus.core.LocalizeusApp;
+import com.localizeus.core.domain.MultiTenantData;
 import com.localizeus.core.domain.User;
 import com.localizeus.core.repository.UserRepository;
 import com.localizeus.core.web.rest.vm.LoginVM;
@@ -49,7 +50,7 @@ public class UserJWTControllerIT {
 
         userRepository.saveAndFlush(user);
 
-        LoginVM login = new LoginVM();
+        LoginVM login = MultiTenantData.aLoginVM();
         login.setUsername("user-jwt-controller");
         login.setPassword("test");
         mockMvc
@@ -72,7 +73,7 @@ public class UserJWTControllerIT {
 
         userRepository.saveAndFlush(user);
 
-        LoginVM login = new LoginVM();
+        LoginVM login = MultiTenantData.aLoginVM();
         login.setUsername("user-jwt-controller-remember-me");
         login.setPassword("test");
         login.setRememberMe(true);
@@ -87,7 +88,7 @@ public class UserJWTControllerIT {
 
     @Test
     public void testAuthorizeFails() throws Exception {
-        LoginVM login = new LoginVM();
+        LoginVM login = MultiTenantData.aLoginVM();
         login.setUsername("wrong-user");
         login.setPassword("wrong password");
         mockMvc
