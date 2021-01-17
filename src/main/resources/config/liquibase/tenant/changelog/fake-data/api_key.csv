@@ -1,11 +1,2 @@
-id;value;start_date;end_date
-1;Handcrafted;2021-01-02;2021-01-03
-2;New Hampshire Lempira Rustic;2021-01-02;2021-01-03
-3;Principal Planner;2021-01-03;2021-01-03
-4;XML Borders;2021-01-03;2021-01-03
-5;wireless Money Market Account Group;2021-01-03;2021-01-03
-6;Books Concrete France;2021-01-02;2021-01-02
-7;National Investment Account;2021-01-02;2021-01-02
-8;green Rustic;2021-01-02;2021-01-03
-9;AI Avon parse;2021-01-02;2021-01-03
-10;harness SQL grow;2021-01-03;2021-01-03
+id;value;start_date;end_date;user_id;created_by;created_date;last_modified_by;last_modified_date
+1;555demokey555;2021-01-02;2021-01-03;4;admin;2021-01-10 19:55:16;admin;2021-01-10 19:55:16

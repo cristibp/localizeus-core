@@ -1,11 +1,5 @@
-id;value
-1;revolutionize Coordinator
-2;Personal Loan Account
-3;Fantastic
-4;Intelligent Granite Towels Soft JSON
-5;Regional
-6;Brook Tasty Metal Car Shoes
-7;ivory
-8;Arkansas Metal
-9;Fork PNG
-10;repurpose Cambridgeshire Grass-roots
+id;value;translationKey_id;language_id;created_by;created_date;last_modified_by;last_modified_date
+11;Prima cheie;1;1;admin;2021-01-05 23:05:50;admin;2021-01-05 23:05:50
+12;Primera llave;1;2;admin;2021-01-05 23:06:50;admin;2021-01-05 23:06:50
+13;A doua cheie;2;1;admin;2021-01-05 23:07:05;admin;2021-01-05 23:07:05
+14;La deuxième clé;2;4;admin;2021-01-05 23:08:32;admin;2021-01-05 23:08:32

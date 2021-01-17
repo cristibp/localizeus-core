@@ -1,11 +1,5 @@
-id;type
-1;CREATE
-2;DELETE
-3;READ
-4;CREATE
-5;READ
-6;READ
-7;CREATE
-8;READ
-9;DELETE
-10;DELETE
+id;type;user_id;project_id;created_by;created_date;last_modified_by;last_modified_date
+1;CREATE;4;1;admin;2021-01-05 23:11:51;admin;2021-01-05 23:11:51
+2;DELETE;4;1;admin;2021-01-05 23:12:03;admin;2021-01-05 23:12:03
+3;READ;4;1;admin;2021-01-05 23:12:17;admin;2021-01-05 23:12:17
+4;UPDATE;4;1;admin;2021-01-05 23:13:09;admin;2021-01-05 23:13:09
