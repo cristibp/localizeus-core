@@ -1,33 +1,25 @@
+import './login.scss';
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, RouteComponentProps } from 'react-router-dom';
 
 import { IRootState } from 'app/shared/reducers';
 import { login } from 'app/shared/reducers/authentication';
-import LoginModal from './login-modal';
+import LoginComponent from './login-component';
+import {getEntities} from "app/entities/project/project.reducer";
 
 export interface ILoginProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export const Login = (props: ILoginProps) => {
-  const [showModal, setShowModal] = useState(props.showModal);
-
-  useEffect(() => {
-    setShowModal(true);
-  }, []);
-
   const handleLogin = (username, password, tenant, rememberMe = false) => props.login(username, password, tenant, rememberMe);
-
-  const handleClose = () => {
-    setShowModal(false);
-    props.history.push('/');
-  };
 
   const { location, isAuthenticated } = props;
   const { from } = (location.state as any) || { from: { pathname: '/', search: location.search } };
   if (isAuthenticated) {
     return <Redirect to={from} />;
   }
-  return <LoginModal showModal={showModal} handleLogin={handleLogin} handleClose={handleClose} loginError={props.loginError} />;
+
+  return <LoginComponent handleLogin={handleLogin} loginError={props.loginError} />;
 };
 
 const mapStateToProps = ({ authentication }: IRootState) => ({
@@ -36,7 +28,7 @@ const mapStateToProps = ({ authentication }: IRootState) => ({
   showModal: authentication.showModalLogin,
 });
 
-const mapDispatchToProps = { login };
+const mapDispatchToProps = { login, getEntities };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

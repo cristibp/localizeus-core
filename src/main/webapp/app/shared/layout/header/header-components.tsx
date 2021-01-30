@@ -50,7 +50,7 @@ export const Project = props => (
     <NavLink tag={Link} to="/project" className="d-flex align-items-center">
       <FontAwesomeIcon icon="folder-open"/>
       <span>
-        <Translate contentKey="global.menu.project">Project</Translate>
+        <Translate contentKey="global.menu.entities.project">Project</Translate>
       </span>
     </NavLink>
   </NavItem>

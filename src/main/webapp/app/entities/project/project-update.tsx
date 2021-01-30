@@ -67,14 +67,6 @@ export const ProjectUpdate = (props: IProjectUpdateProps) => {
             <p>Loading...</p>
           ) : (
             <AvForm model={isNew ? {} : projectEntity} onSubmit={saveEntity}>
-              {!isNew ? (
-                <AvGroup>
-                  <Label for="project-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </Label>
-                  <AvInput id="project-id" type="text" className="form-control" name="id" required readOnly />
-                </AvGroup>
-              ) : null}
               <AvGroup>
                 <Label id="nameLabel" for="project-name">
                   <Translate contentKey="localizeusApp.project.name">Name</Translate>

@@ -80,9 +80,6 @@ export const Project = (props: IProjectProps) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('name')}>
                   <Translate contentKey="localizeusApp.project.name">Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -92,11 +89,6 @@ export const Project = (props: IProjectProps) => {
             <tbody>
               {projectList.map((project, i) => (
                 <tr key={`entity-${i}`}>
-                  <td>
-                    <Button tag={Link} to={`${match.url}/${project.id}`} color="link" size="sm">
-                      {project.id}
-                    </Button>
-                  </td>
                   <td>{project.name}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
