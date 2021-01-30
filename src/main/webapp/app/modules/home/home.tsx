@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {Alert, Col, Row} from 'reactstrap';
 import {getEntities as getProjects} from "app/entities/project/project.reducer";
 import {Redirect} from "react-router-dom";
+import ProjectsSummary from "app/modules/home/projects-summary";
 
 export interface IHomeProp extends StateProps, DispatchProps {
 }
@@ -17,12 +18,6 @@ export const Home = (props: IHomeProp) => {
     const { login } ={ login: { pathname: '/login' } };
     return <Redirect to={login} />;
   }
-  const renderProjectsAsAnchors = () => {
-    return projects.map((project) => {
-      const link = './project/' + project.id;
-      return <a key={project.id} href={link}>{project.name}</a>
-    })
-  };
   useEffect(() => {
     props.getProjects();
   }, []);
@@ -37,9 +32,7 @@ export const Home = (props: IHomeProp) => {
                 {account.login}
               </Translate>
             </Alert>
-            Pick one of your projects:
-            <br/>
-            {renderProjectsAsAnchors()}
+            <ProjectsSummary projects = {projects} />
           </div>
         ) : (
           <div>
