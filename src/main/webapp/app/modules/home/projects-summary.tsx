@@ -1,5 +1,6 @@
 import React from "react";
 import {IProject} from "app/shared/model/project.model";
+import {Link} from "react-router-dom";
 
 export interface IProjectsSummaryProps {
   projects: IProject[];
@@ -12,10 +13,10 @@ class ProjectsSummary extends React.Component<IProjectsSummaryProps> {
       <div>
         {
           projects?.length ? projects.map((project, i) => (
-              <a key={project.id} href={'./project/' + project.id}>{project.name}</a>
+              <Link key={project.id} to={`project/${+ project.id}`}>{project.name}</Link>
             ))
             :
-            <span>Create a new project <a href='./project/new'>here</a></span>
+            <span>Create a new project <a href='/project/new'>here</a></span>
         }
       </div>
     );

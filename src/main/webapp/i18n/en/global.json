@@ -66,7 +66,8 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "If you want to "
+          "prefix": "If you want to ",
+          "link" : " Sign in"
         },
         "register": {
           "noaccount": "You don't have an account yet?",

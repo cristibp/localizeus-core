@@ -63,6 +63,7 @@
     "messages": {
       "info": {
         "authenticated": {
+          "link" : " Sign in",
           "prefix": "Si desea "
         },
         "register": {

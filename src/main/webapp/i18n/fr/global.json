@@ -63,7 +63,8 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "Si vous voulez vous "
+          "prefix": "Si vous voulez vous ",
+          "link" : "Sign in"
         },
         "register": {
           "noaccount": "Vous n'avez pas encore de compte ?",
