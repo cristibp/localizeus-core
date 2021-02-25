@@ -1,6 +1,7 @@
 // Override Boostrap variables
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
+
 body {
   background: #fafafa;
   margin: 0;
@@ -14,6 +15,7 @@ a {
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
   &:after,
   &::before {
     -moz-box-sizing: border-box;
@@ -25,20 +27,25 @@ a {
   width: 50%;
   margin: 0 auto;
 }
+
 .app-container {
   box-sizing: border-box;
+
   .view-container {
     width: 100%;
     height: calc(100% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 1rem;
+
     .card {
       padding: 1rem;
       min-height: 700px;
     }
+
     .view-routes {
       height: 100%;
+
       > div {
         height: 100%;
       }
@@ -77,10 +84,12 @@ Custom button styles
   border-color: transparent;
   padding: 0.5rem;
   line-height: 1rem;
+
   &:hover {
     background-color: transparent;
     border-color: transparent;
   }
+
   &:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -227,6 +236,7 @@ Generic styles
 .no-margin {
   margin: 0px;
 }
+
 @mixin voffset($size) {
   @if $size== '' {
     .voffset {
@@ -312,6 +322,21 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 
 .width-min {
   width: 1% !important;
+}
+
+.table-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-actions-search {
+  margin-top: auto;
+}
+
+.table-actions-search input {
+  border-radius: 0.25em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-bottom: 1rem;
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

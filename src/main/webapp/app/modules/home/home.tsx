@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {Alert, Col, Row} from 'reactstrap';
 import {getEntities as getProjects} from "app/entities/project/project.reducer";
 import {Redirect} from "react-router-dom";
-import ProjectsSummary from "app/modules/home/projects-summary";
+import ProjectsSummary from "app/entities/project/projects-summary";
 
 export interface IHomeProp extends StateProps, DispatchProps {
 }

@@ -28,14 +28,7 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
-    <changeSet id="20201206203300-2" author="cribat">
-        <addColumn tableName="project_history">
-            <column name="created_by" type="varchar(50)"/>
-            <column name="created_date" type="timestamp"/>
-            <column name="last_modified_by" type="varchar(50)"/>
-            <column name="last_modified_date" type="timestamp"/>
-        </addColumn>
-    </changeSet>
+
     <changeSet id="20210103103026-1-relations" author="jhipster">
 
     </changeSet>

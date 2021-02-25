@@ -41,6 +41,8 @@
     <include file="changelog/20210103102726_added_entity_constraints_Transaction.xml" relativeToChangelogFile="true"/>
     <include file="changelog/20210103102926_added_entity_constraints_ServiceSubscription.xml" relativeToChangelogFile="true"/>
     <include file="changelog/20210103103026_added_entity_constraints_UserProjectPermission.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/20210103103026_added_entity_constraints_UserProjectPermission.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/logical-deletion/addColumn.xml" relativeToChangelogFile="true"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

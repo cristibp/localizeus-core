@@ -1,0 +1,10 @@
+{
+  "localizeusApp": {
+    "keyManagement": {
+      "home": {
+        "title": "List of keys",
+        "notFound": "No translation key found"
+      }
+    }
+  }
+}

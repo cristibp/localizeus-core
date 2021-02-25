@@ -13,10 +13,10 @@ class ProjectsSummary extends React.Component<IProjectsSummaryProps> {
       <div>
         {
           projects?.length ? projects.map((project, i) => (
-              <Link key={project.id} to={`project/${+ project.id}`}>{project.name}</Link>
+              <Link key={project.id} to={`key-management/${+ project.id}`}>{project.name}</Link>
             ))
             :
-            <span>Create a new project <a href='/project/new'>here</a></span>
+            <span>Create a new project <Link to='/project/new'>here</Link></span>
         }
       </div>
     );

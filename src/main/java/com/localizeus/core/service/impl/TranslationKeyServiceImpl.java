@@ -5,8 +5,10 @@ import com.localizeus.core.domain.TranslationKey;
 import com.localizeus.core.repository.TranslationKeyRepository;
 import com.localizeus.core.service.dto.TranslationKeyDTO;
 import com.localizeus.core.service.mapper.TranslationKeyMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -45,8 +47,15 @@ public class TranslationKeyServiceImpl implements TranslationKeyService {
     @Transactional(readOnly = true)
     public Page<TranslationKeyDTO> findAll(Pageable pageable) {
         log.debug("Request to get all TranslationKeys");
-        return translationKeyRepository.findAll(pageable)
-            .map(translationKeyMapper::toDto);
+        return translationKeyRepository.findAll(pageable).map(translationKeyMapper::toDto);
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<TranslationKeyDTO> findAllByProjectId(Long projectId, Pageable pageable) {
+        log.debug("Request to get all TranslationKeys");
+        return translationKeyRepository.findAllByProjectId(projectId, pageable).map(translationKeyMapper::toDto);
     }
 
 

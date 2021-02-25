@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
+import {ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction, ICrudSearchAction} from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
@@ -8,6 +8,7 @@ import { ITranslationKey, defaultValue } from 'app/shared/model/translation-key.
 
 export const ACTION_TYPES = {
   FETCH_TRANSLATIONKEY_LIST: 'translationKey/FETCH_TRANSLATIONKEY_LIST',
+  FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST: 'translationKey/FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST',
   FETCH_TRANSLATIONKEY: 'translationKey/FETCH_TRANSLATIONKEY',
   CREATE_TRANSLATIONKEY: 'translationKey/CREATE_TRANSLATIONKEY',
   UPDATE_TRANSLATIONKEY: 'translationKey/UPDATE_TRANSLATIONKEY',
@@ -32,6 +33,7 @@ export type TranslationKeyState = Readonly<typeof initialState>;
 export default (state: TranslationKeyState = initialState, action): TranslationKeyState => {
   switch (action.type) {
     case REQUEST(ACTION_TYPES.FETCH_TRANSLATIONKEY_LIST):
+    case REQUEST(ACTION_TYPES.FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST):
     case REQUEST(ACTION_TYPES.FETCH_TRANSLATIONKEY):
       return {
         ...state,
@@ -49,6 +51,7 @@ export default (state: TranslationKeyState = initialState, action): TranslationK
         updating: true,
       };
     case FAILURE(ACTION_TYPES.FETCH_TRANSLATIONKEY_LIST):
+    case FAILURE(ACTION_TYPES.FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST):
     case FAILURE(ACTION_TYPES.FETCH_TRANSLATIONKEY):
     case FAILURE(ACTION_TYPES.CREATE_TRANSLATIONKEY):
     case FAILURE(ACTION_TYPES.UPDATE_TRANSLATIONKEY):
@@ -61,6 +64,7 @@ export default (state: TranslationKeyState = initialState, action): TranslationK
         errorMessage: action.payload,
       };
     case SUCCESS(ACTION_TYPES.FETCH_TRANSLATIONKEY_LIST):
+    case SUCCESS(ACTION_TYPES.FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST):
       return {
         ...state,
         loading: false,
@@ -100,6 +104,14 @@ export default (state: TranslationKeyState = initialState, action): TranslationK
 const apiUrl = 'api/translation-keys';
 
 // Actions
+
+export const getEntitiesForProject: ICrudSearchAction<ITranslationKey> = ( projectId, page, size, sort) => {
+  const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST,
+    payload: axios.get<ITranslationKey>(`${requestUrl}${sort ? '&' : '?'}projectId=${projectId}&cacheBuster=${new Date().getTime()}`),
+  };
+};
 
 export const getEntities: ICrudGetAllAction<ITranslationKey> = (page, size, sort) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;

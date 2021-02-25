@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <property name="autoIncrement" value="true"/>
+    <changeSet id="13022212343-1" author="cribat">
+        <addColumn tableName="api_key">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-2" author="cribat">
+        <addColumn tableName="comment">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-3" author="cribat">
+        <addColumn tableName="discussion">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-4" author="cribat">
+        <addColumn tableName="key_label">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-5" author="cribat">
+        <addColumn tableName="language">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-6" author="cribat">
+        <addColumn tableName="project">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-7" author="cribat">
+        <addColumn tableName="translation">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-8" author="cribat">
+        <addColumn tableName="translation_key">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-9" author="cribat">
+        <addColumn tableName="user_permission">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="13022212343-10" author="cribat">
+        <addColumn tableName="jhi_user">
+            <column name="deleted" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

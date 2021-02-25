@@ -18,6 +18,7 @@
       },
       "name": "Name",
       "fallbackValue": "Fallback Value",
+      "value" : "Value",
       "project": "Project"
     }
   }
