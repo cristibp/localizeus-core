@@ -5,8 +5,6 @@ services:
     # volumes:
     #     - ~/volumes/jhipster/localizeus/mysql/:/var/lib/mysql/
     environment:
-      - MYSQL_USER=localizeus
-      - MYSQL_PASSWORD=localizeus
       - MYSQL_ROOT_PASSWORD=localizeus
       - MYSQL_DATABASE=localizeus
     ports:
