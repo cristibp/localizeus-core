@@ -9,6 +9,7 @@ import {IRootState} from 'app/shared/reducers';
 import {getEntitiesForProject} from 'app/entities/translation-key/translation-key.reducer';
 import {ITEMS_PER_PAGE} from 'app/shared/util/pagination.constants';
 import {overridePaginationStateWithQueryParams} from 'app/shared/util/entity-utils';
+import { Multiselect } from 'multiselect-react-dropdown';
 
 export interface IKeyManagementProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
@@ -63,7 +64,7 @@ export const KeyManagement = (props: IKeyManagementProps) => {
       activePage: currentPage,
     });
 
-  const {translationKeyList, match, loading, totalItems} = props;
+  const {translationKeyList, match, loading, totalItems, selectedLanguages, languages} = props;
   return (
     <div>
       <h2 id="translationKey-heading">
@@ -90,6 +91,7 @@ export const KeyManagement = (props: IKeyManagementProps) => {
                 />
               </div>
             </div>
+            <div className="key-container">
             <Table responsive>
               <thead>
               <tr>
@@ -121,19 +123,18 @@ export const KeyManagement = (props: IKeyManagementProps) => {
               ))}
               </tbody>
             </Table>
-            {/* TODO INTERNATIONALIZE*/}
-            <div className="form-check form-check-inline">
-              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-              <label className="form-check-label" htmlFor="inlineCheckbox1">1</label>
+              {/* <div style={{display: "none"}}>Discussions:</div>*/}
             </div>
-            <div className="form-check form-check-inline">
-              <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label className="form-check-label" htmlFor="inlineCheckbox2">2</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled/>
-              <label className="form-check-label" htmlFor="inlineCheckbox3">3 (disabled)</label>
-            </div>
+            {/* TODO INTERNATIONALIZE*/}here:
+            <Multiselect
+              options={languages} // Options to display in the dropdown
+              selectedValues={selectedLanguages} // Preselected value to persist in dropdown
+              onSelect={()=>{}} // Function will trigger on select event
+              onRemove={()=>{}} // Function will trigger on remove event
+              displayValue="name" // Property name to display in the dropdown options
+              showCheckbox={true}
+            />
+
             <div className="list-group">
               <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
                 <div className="d-flex w-100 justify-content-between">
@@ -169,7 +170,6 @@ export const KeyManagement = (props: IKeyManagementProps) => {
           )
         )}
       </div>
-
     </div>
   );
 };
@@ -178,6 +178,9 @@ const mapStateToProps = ({translationKey}: IRootState) => ({
   translationKeyList: translationKey.entities,
   loading: translationKey.loading,
   totalItems: translationKey.totalItems,
+  selectedLanguages: [],
+  /*  TODO ADD real languages available */
+  languages: [{name: "ro", id: "1"},{name:"en",id:"1"}]
 });
 
 const mapDispatchToProps = {
