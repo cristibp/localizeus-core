@@ -347,4 +347,13 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .optionListContainer {
   z-index: 99 !important;
 }
+
+.search {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 5px;
+  min-height: 22px;
+  position: relative;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */

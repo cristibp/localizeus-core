@@ -13,7 +13,7 @@ import Discussion from './discussion';
 import ProjectHistory from './project-history';
 import ApiKey from './api-key';
 import KeyLabel from './key-label';
-import KeyManagement from '../custom-views/key-management';
+import KeyManagementView from '../custom-views/key-management-view';
 import UserPermission from './user-permission';
 import Company from './company';
 import Transaction from './transaction';
@@ -41,7 +41,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}plan`} component={Plan} />
       <ErrorBoundaryRoute path={`${match.url}service-subscription`} component={ServiceSubscription} />
       <ErrorBoundaryRoute path={`${match.url}user-project-permission`} component={UserProjectPermission} />
-      <ErrorBoundaryRoute path={`${match.url}key-management`} component={KeyManagement} />
+      <ErrorBoundaryRoute path={`${match.url}key-management`} component={KeyManagementView} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

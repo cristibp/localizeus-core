@@ -14,7 +14,7 @@ import { Multiselect } from 'multiselect-react-dropdown';
 export interface IKeyManagementProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
 
-export const KeyManagement = (props: IKeyManagementProps) => {
+export const KeyManagementView = (props: IKeyManagementProps) => {
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -71,13 +71,12 @@ export const KeyManagement = (props: IKeyManagementProps) => {
         <Translate contentKey="localizeusApp.keyManagement.home.title">List of keys </Translate>
       </h2>
       <div className="table-responsive">
-
         {translationKeyList && translationKeyList.length > 0 ? (
           <div>
             <div className="table-actions">
               <div className="table-actions-search">
                 {/* TODO INTERNATIONALIZE*/}
-                <input type="text" placeholder="Search.." name="search"/>
+                <input type="text" className="search" placeholder="Search for a specific key.." name="search"/>
               </div>
               <div>
                 <JhiItemCount page={paginationState.activePage} total={totalItems}
@@ -125,7 +124,7 @@ export const KeyManagement = (props: IKeyManagementProps) => {
             </Table>
               {/* <div style={{display: "none"}}>Discussions:</div>*/}
             </div>
-            {/* TODO INTERNATIONALIZE*/}here:
+            {/* TODO INTERNATIONALIZE*/}
             <Multiselect
               options={languages} // Options to display in the dropdown
               selectedValues={selectedLanguages} // Preselected value to persist in dropdown
@@ -134,7 +133,7 @@ export const KeyManagement = (props: IKeyManagementProps) => {
               displayValue="name" // Property name to display in the dropdown options
               showCheckbox={true}
             />
-
+            <br/>
             <div className="list-group">
               <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
                 <div className="d-flex w-100 justify-content-between">
@@ -190,4 +189,4 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(KeyManagement);
+export default connect(mapStateToProps, mapDispatchToProps)(KeyManagementView);

@@ -72,6 +72,9 @@ import serviceSubscription, {
 import userProjectPermission, {
   UserProjectPermissionState
 } from 'app/entities/user-project-permission/user-project-permission.reducer';
+import keyManagementView,
+{KeyManagementViewState}
+  from "app/custom-views/key-management-view/key-management-view.reducer";
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -100,6 +103,7 @@ export interface IRootState {
   readonly plan: PlanState;
   readonly serviceSubscription: ServiceSubscriptionState;
   readonly userProjectPermission: UserProjectPermissionState;
+  readonly keyManagementView: KeyManagementViewState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -130,6 +134,7 @@ const rootReducer = combineReducers<IRootState>({
   plan,
   serviceSubscription,
   userProjectPermission,
+  keyManagementView,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });
