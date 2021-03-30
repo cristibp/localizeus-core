@@ -1,24 +1,28 @@
-import {log, Storage} from "react-jhipster";
+import {Storage} from "react-jhipster";
 
- const getLSKey = (bucketTypes) => {
-  const username = Storage.local.get("username");
-  const tenant = Storage.local.get("tenant");
-  return tenant + "_" + username + "_" + bucketTypes;
-};
+export default class StorageHelper {
+  private static getLSKey = (bucketTypes) => {
+    const username = Storage.local.get("username");
+    const tenant = Storage.local.get("tenant");
+    return tenant + "_" + username + "_" + bucketTypes;
+  };
 
-export const getLSItems = (bucketTypes) : any [] => {
-  if (Storage.local.get(getLSKey(bucketTypes)) === undefined) {
-    Storage.local.set(getLSKey(bucketTypes), []);
+  static getLSItems = (bucketTypes): any [] => {
+    const value = Storage.local.get(StorageHelper.getLSKey(bucketTypes));
+    if (!value) {
+      Storage.local.set(StorageHelper.getLSKey(bucketTypes), []);
+      return [];
+    }
+    return JSON.parse(value);
+  };
+
+  static syncStateToLS = (storeItems: Readonly<any>, bucketTypes) => {
+    Storage.local.set(StorageHelper.getLSKey(bucketTypes), JSON.stringify(storeItems));
+    return storeItems;
+  };
+
+
+  static resetLSItems = (bucketTypes) => {
+    Storage.local.set(StorageHelper.getLSKey(bucketTypes), undefined);
   }
-  return Storage.local.get(getLSKey(bucketTypes));
-};
-
-export const syncStateToLS = (storeItems: Readonly<any>, bucketTypes) => {
-  Storage.local.set(getLSKey(bucketTypes), storeItems);
-  return storeItems;
-};
-
-
-export const resetLSItems = (bucketTypes) => {
-  Storage.local.set(getLSKey(bucketTypes), undefined);
-};
+}

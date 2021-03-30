@@ -1,8 +1,10 @@
 package com.localizeus.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.localizeus.core.domain.annotation.LogicalDeletion;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
@@ -15,6 +17,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "api_key")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@LogicalDeletion
+@Where(clause = "deleted=false")
 public class ApiKey extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

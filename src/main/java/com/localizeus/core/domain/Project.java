@@ -1,7 +1,9 @@
 package com.localizeus.core.domain;
 
+import com.localizeus.core.domain.annotation.LogicalDeletion;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
@@ -13,6 +15,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "project")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@LogicalDeletion
+@Where(clause = "deleted=false")
 public class Project extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

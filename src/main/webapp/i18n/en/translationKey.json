@@ -3,7 +3,7 @@
     "translationKey": {
       "home": {
         "title": "Translation Keys",
-        "createLabel": "Create a new Translation Key",
+        "createLabel": "New translation key",
         "createOrEditLabel": "Create or edit a Translation Key",
         "notFound": "No Translation Keys found"
       },

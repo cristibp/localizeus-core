@@ -13,7 +13,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing {@link Translation}.
@@ -47,6 +49,12 @@ public class TranslationServiceImpl implements TranslationService {
         log.debug("Request to get all Translations");
         return translationRepository.findAll(pageable)
             .map(translationMapper::toDto);
+    }
+
+    @Override
+    public List<TranslationDTO> findAll(Long translationKeyId) {
+        return translationRepository.findAllByTranslationKeyId(translationKeyId).stream()
+            .map(translationMapper::toDto).collect(Collectors.toList());
     }
 
 

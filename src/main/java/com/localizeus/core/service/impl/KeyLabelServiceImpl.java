@@ -13,7 +13,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing {@link KeyLabel}.
@@ -49,6 +51,13 @@ public class KeyLabelServiceImpl implements KeyLabelService {
             .map(keyLabelMapper::toDto);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<KeyLabelDTO> findAllForTranslationKey(Long translationKeyId) {
+        log.debug("Request to get all KeyLabels");
+        return keyLabelRepository.findAllByTranslationKeyId(translationKeyId).stream()
+            .map(keyLabelMapper::toDto).collect(Collectors.toList());
+    }
 
     @Override
     @Transactional(readOnly = true)

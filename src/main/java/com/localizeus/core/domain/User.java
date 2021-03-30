@@ -12,10 +12,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.localizeus.core.domain.annotation.LogicalDeletion;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Where;
 
 /**
  * A user.
@@ -23,6 +26,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "jhi_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@LogicalDeletion
+@Where(clause = "deleted=false")
 public class User extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

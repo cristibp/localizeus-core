@@ -1,5 +1,8 @@
 package com.localizeus.core.domain;
 
+import com.localizeus.core.domain.annotation.LogicalDeletion;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

@@ -65,21 +65,21 @@ public class LogicalDeletionJpaRepositoryImpl<T, ID extends Serializable> extend
 
     @Override
     public List<T> findAllNotMarkedAsDeleted() {
-        Specification<T> spec = (Specification<T>) (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
+        Specification<T> spec = (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
         return super.findAll(spec);
     }
 
     @Override
     public Page<T> findAllNotMarkedAsDeleted(Pageable pageable) {
-        Specification<T> spec = (Specification<T>) (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
+        Specification<T> spec = (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
         return super.findAll(spec, pageable);
     }
 
     @Override
     public Page<T> findAllNotMarkedAsDeleted(Specification<T> spec, Pageable pageable) {
-        Specification<T> logicalDeletionSpec = (Specification<T>) (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
+        Specification<T> logicalDeletionSpec = (root, query, criteriaBuilder) -> root.get(BaseEntity.LOGICAL_DELETION_COLUMN).in(Boolean.FALSE);
         logicalDeletionSpec.and(spec);
-        return super.findAll(spec.and(spec), pageable);
+        return super.findAll(logicalDeletionSpec, pageable);
     }
 
     @Override

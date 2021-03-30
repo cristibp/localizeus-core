@@ -12,12 +12,12 @@ export interface IHomeProp extends StateProps, DispatchProps {
 }
 
 export const Home = (props: IHomeProp) => {
+  if (!props.isAuthenticated) {
+    const {login} = {login: {pathname: '/login'}};
+    return <Redirect to={login}/>;
+  }
   const {account} = props;
   const projects = props.projects;
-  if (!props.isAuthenticated) {
-    const { login } ={ login: { pathname: '/login' } };
-    return <Redirect to={login} />;
-  }
   useEffect(() => {
     props.getProjects();
   }, []);
@@ -32,7 +32,7 @@ export const Home = (props: IHomeProp) => {
                 {account.login}
               </Translate>
             </Alert>
-            <ProjectsSummary projects = {projects} />
+            <ProjectsSummary projects={projects}/>
           </div>
         ) : (
           <div>

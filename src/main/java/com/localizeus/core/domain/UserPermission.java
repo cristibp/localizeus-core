@@ -1,6 +1,7 @@
 package com.localizeus.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.localizeus.core.domain.annotation.LogicalDeletion;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 import com.localizeus.core.domain.enumeration.PermissionType;
+import org.hibernate.annotations.Where;
 
 /**
  * A UserPermission.
@@ -16,6 +18,8 @@ import com.localizeus.core.domain.enumeration.PermissionType;
 @Entity
 @Table(name = "user_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@LogicalDeletion
+@Where(clause = "deleted=false")
 public class UserPermission extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

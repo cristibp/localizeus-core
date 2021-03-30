@@ -4,7 +4,9 @@ import com.localizeus.core.service.dto.KeyLabelDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -28,6 +30,9 @@ public interface KeyLabelService {
      */
     Page<KeyLabelDTO> findAll(Pageable pageable);
 
+
+    @Transactional(readOnly = true)
+    List<KeyLabelDTO> findAllForTranslationKey(Long translationKeyId);
 
     /**
      * Get the "id" keyLabel.

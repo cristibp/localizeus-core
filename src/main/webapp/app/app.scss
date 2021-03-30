@@ -327,10 +327,17 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .table-actions {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.table-actions-left {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .table-actions-search {
-  margin-top: auto;
+  margin-right: 1rem;
 }
 
 .table-actions-search input {
@@ -355,5 +362,48 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   min-height: 22px;
   position: relative;
 }
+
+.table {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table tr:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.no-hover, .no-hover:hover {
+  cursor: default !important;
+  color: black !important;
+  background: #fff !important;
+}
+
+.table .rowSelected {
+  background-color: #0096fb;
+  color: #fff;
+}
+
+.label-badges {
+  margin-left: 5px;
+}
+
+#search_input {
+  width: 100%;
+}
+
+//multiselect style
+.optionContainer li {
+  padding: 0 10px !important;
+  list-style: none !important;
+  border-radius: 4px !important;
+}
+
+.optionContainer {
+  display: flex !important;
+  padding: 5px !important;
+  flex-direction: row !important;
+  border-radius: 4px !important;
+}
+//end of multiselect style
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

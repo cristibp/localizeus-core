@@ -1,10 +1,12 @@
 package com.localizeus.core.service;
 
+import com.localizeus.core.domain.TranslationKey;
 import com.localizeus.core.service.dto.TranslationDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,6 +29,14 @@ public interface TranslationService {
      * @return the list of entities.
      */
     Page<TranslationDTO> findAll(Pageable pageable);
+
+    /**
+     * Get all the translations for a specific translation key identifier.
+     *
+     * @param translationKeyId the translation key identifier.
+     * @return the list of entities.
+     */
+    List<TranslationDTO> findAll(Long translationKeyId);
 
 
     /**

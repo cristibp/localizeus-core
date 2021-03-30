@@ -1,10 +1,13 @@
 package com.localizeus.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.localizeus.core.domain.annotation.LogicalDeletion;
+import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import java.io.Serializable;
 
@@ -14,6 +17,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "comment")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@LogicalDeletion
+@Where(clause = "deleted=false")
 public class Comment extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

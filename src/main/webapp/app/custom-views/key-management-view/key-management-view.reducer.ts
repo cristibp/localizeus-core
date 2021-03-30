@@ -3,6 +3,7 @@ import {ICrudSearchAction} from 'react-jhipster';
 import {FAILURE, REQUEST, SUCCESS} from 'app/shared/reducers/action-type.util';
 
 import {defaultValue, IKeyManagementView} from "app/shared/model/key-management.model";
+import {ITranslation} from "app/shared/model/translation.model";
 
 export const ACTION_TYPES = {
   FETCH_KEY_MANAGEMENT_VIEW_LIST: 'keyManagementView/FETCH_KEY_MANAGEMENT_VIEW_LIST',
@@ -16,6 +17,7 @@ const initialState = {
   updating: false,
   totalItems: 0,
   updateSuccess: false,
+  translations: [] as ITranslation[]
 };
 
 export type KeyManagementViewState = Readonly<typeof initialState>;
@@ -39,13 +41,17 @@ export default (state: KeyManagementViewState = initialState, action): KeyManage
         updateSuccess: false,
         errorMessage: action.payload,
       };
-    case SUCCESS(ACTION_TYPES.FETCH_KEY_MANAGEMENT_VIEW_LIST):
+    case SUCCESS(ACTION_TYPES.FETCH_KEY_MANAGEMENT_VIEW_LIST): {
+      const data = action.payload.data[0];
+      const translations = !data ? [] : data;
       return {
         ...state,
         loading: false,
         entities: action.payload.data,
         totalItems: parseInt(action.payload.headers['x-total-count'], 10),
+        translations
       };
+    }
     default:
       return state;
   }

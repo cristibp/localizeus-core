@@ -1,8 +1,10 @@
 package com.localizeus.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.localizeus.core.domain.annotation.LogicalDeletion;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
@@ -14,6 +16,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "translation_key")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@LogicalDeletion
 public class TranslationKey extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
