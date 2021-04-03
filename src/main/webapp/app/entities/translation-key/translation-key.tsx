@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction, getSortState, IPaginationBaseState, JhiPagination, JhiItemCount } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import {Link, RouteComponentProps} from 'react-router-dom';
+import {Button, Row, Table} from 'reactstrap';
+import {getSortState, JhiItemCount, JhiPagination, Translate} from 'react-jhipster';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import { IRootState } from 'app/shared/reducers';
-import { getEntities } from './translation-key.reducer';
-import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
-import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
+import {IRootState} from 'app/shared/reducers';
+import {getEntities} from './translation-key.reducer';
+import {ITEMS_PER_PAGE} from 'app/shared/util/pagination.constants';
+import {overridePaginationStateWithQueryParams} from 'app/shared/util/entity-utils';
 
-export interface ITranslationKeyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
+export interface ITranslationKeyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {
+}
 
 export const TranslationKey = (props: ITranslationKeyProps) => {
   const [paginationState, setPaginationState] = useState(
@@ -62,13 +63,13 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
       activePage: currentPage,
     });
 
-  const { translationKeyList, match, loading, totalItems } = props;
+  const {translationKeyList, match, loading, totalItems} = props;
   return (
     <div>
       <h2 id="translation-key-heading">
         <Translate contentKey="localizeusApp.translationKey.home.title">Translation Keys</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-          <FontAwesomeIcon icon="plus" />
+          <FontAwesomeIcon icon="plus"/>
           &nbsp;
           <Translate contentKey="localizeusApp.translationKey.home.createLabel">Create new Translation Key</Translate>
         </Link>
@@ -77,70 +78,73 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
         {translationKeyList && translationKeyList.length > 0 ? (
           <Table responsive>
             <thead>
-              <tr>
-                <th className="hand" onClick={sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('name')}>
-                  <Translate contentKey="localizeusApp.translationKey.name">Name</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('fallbackValue')}>
-                  <Translate contentKey="localizeusApp.translationKey.fallbackValue">Fallback Value</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
-                </th>
-                <th>
-                  <Translate contentKey="localizeusApp.translationKey.project">Project</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th />
-              </tr>
+            <tr>
+              <th className="hand" onClick={sort('id')}>
+                <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort"/>
+              </th>
+              <th className="hand" onClick={sort('name')}>
+                <Translate contentKey="localizeusApp.translationKey.name">Name</Translate> <FontAwesomeIcon
+                icon="sort"/>
+              </th>
+              <th className="hand" onClick={sort('fallbackValue')}>
+                <Translate contentKey="localizeusApp.translationKey.fallbackValue">Fallback Value</Translate>{' '}
+                <FontAwesomeIcon icon="sort"/>
+              </th>
+              <th>
+                <Translate contentKey="localizeusApp.translationKey.project">Project</Translate> <FontAwesomeIcon
+                icon="sort"/>
+              </th>
+              <th/>
+            </tr>
             </thead>
             <tbody>
-              {translationKeyList.map((translationKey, i) => (
-                <tr key={`entity-${i}`}>
-                  <td>
-                    <Button tag={Link} to={`${match.url}/${translationKey.id}`} color="link" size="sm">
-                      {translationKey.id}
-                    </Button>
-                  </td>
-                  <td>{translationKey.name}</td>
-                  <td>{translationKey.fallbackValue}</td>
-                  <td>
-                    {translationKey.projectId ? <Link to={`project/${translationKey.projectId}`}>{translationKey.projectId}</Link> : ''}
-                  </td>
-                  <td className="text-right">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${translationKey.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" />{' '}
-                        <span className="d-none d-md-inline">
+            {translationKeyList.map((translationKey, i) => (
+              <tr key={`entity-${i}`}>
+                <td>
+                  <Button tag={Link} to={`${match.url}/${translationKey.id}`} color="link" size="sm">
+                    {translationKey.id}
+                  </Button>
+                </td>
+                <td>{translationKey.name}</td>
+                <td>{translationKey.fallbackValue}</td>
+                <td>
+                  {translationKey.projectId ?
+                    <Link to={`project/${translationKey.projectId}`}>{translationKey.projectId}</Link> : ''}
+                </td>
+                <td className="text-right">
+                  <div className="btn-group flex-btn-group-container">
+                    <Button tag={Link} to={`${match.url}/${translationKey.id}`} color="info" size="sm">
+                      <FontAwesomeIcon icon="eye"/>{' '}
+                      <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
-                      </Button>
-                      <Button
-                        tag={Link}
-                        to={`${match.url}/${translationKey.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="primary"
-                        size="sm"
-                      >
-                        <FontAwesomeIcon icon="pencil-alt" />{' '}
-                        <span className="d-none d-md-inline">
+                    </Button>
+                    <Button
+                      tag={Link}
+                      to={`${match.url}/${translationKey.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
+                      color="primary"
+                      size="sm"
+                    >
+                      <FontAwesomeIcon icon="pencil-alt"/>{' '}
+                      <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
                         </span>
-                      </Button>
-                      <Button
-                        tag={Link}
-                        to={`${match.url}/${translationKey.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="danger"
-                        size="sm"
-                      >
-                        <FontAwesomeIcon icon="trash" />{' '}
-                        <span className="d-none d-md-inline">
+                    </Button>
+                    <Button
+                      tag={Link}
+                      to={`${match.url}/${translationKey.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
+                      color="danger"
+                      size="sm"
+                    >
+                      <FontAwesomeIcon icon="trash"/>{' '}
+                      <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.delete">Delete</Translate>
                         </span>
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </Button>
+                  </div>
+                </td>
+              </tr>
+            ))}
             </tbody>
           </Table>
         ) : (
@@ -154,7 +158,8 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
       {props.totalItems ? (
         <div className={translationKeyList && translationKeyList.length > 0 ? '' : 'd-none'}>
           <Row className="justify-content-center">
-            <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} i18nEnabled />
+            <JhiItemCount page={paginationState.activePage} total={totalItems}
+                          itemsPerPage={paginationState.itemsPerPage} i18nEnabled/>
           </Row>
           <Row className="justify-content-center">
             <JhiPagination
@@ -173,7 +178,7 @@ export const TranslationKey = (props: ITranslationKeyProps) => {
   );
 };
 
-const mapStateToProps = ({ translationKey }: IRootState) => ({
+const mapStateToProps = ({translationKey}: IRootState) => ({
   translationKeyList: translationKey.entities,
   loading: translationKey.loading,
   totalItems: translationKey.totalItems,

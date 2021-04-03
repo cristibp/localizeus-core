@@ -1,10 +1,10 @@
 import axios from 'axios';
-import {ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction, ICrudSearchAction} from 'react-jhipster';
+import {ICrudDeleteAction, ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudSearchAction} from 'react-jhipster';
 
-import { cleanEntity } from 'app/shared/util/entity-utils';
-import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
+import {cleanEntity} from 'app/shared/util/entity-utils';
+import {FAILURE, REQUEST, SUCCESS} from 'app/shared/reducers/action-type.util';
 
-import { ITranslationKey, defaultValue } from 'app/shared/model/translation-key.model';
+import {defaultValue, ITranslationKey} from 'app/shared/model/translation-key.model';
 
 export const ACTION_TYPES = {
   FETCH_TRANSLATIONKEY_LIST: 'translationKey/FETCH_TRANSLATIONKEY_LIST',
@@ -105,7 +105,7 @@ const apiUrl = 'api/translation-keys';
 
 // Actions
 
-export const getEntitiesForProject: ICrudSearchAction<ITranslationKey> = ( projectId, page, size, sort) => {
+export const getEntitiesForProject: ICrudSearchAction<ITranslationKey> = (projectId, page, size, sort) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   return {
     type: ACTION_TYPES.FETCH_TRANSLATIONKEY_FOR_PROJECT_LIST,

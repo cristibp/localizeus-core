@@ -7,8 +7,8 @@ import com.localizeus.core.service.TranslationService;
 import com.localizeus.core.service.dto.KeyManagementViewDTO;
 import com.localizeus.core.service.dto.TranslationDTO;
 import com.localizeus.core.service.dto.TranslationKeyDTO;
-import io.github.jhipster.web.util.PageUtil;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +38,6 @@ public class KeyManagementViewFacadeImpl implements KeyManagementViewFacade {
             keyManagementViewDTO.setLabels(keyLabelService.findAllForTranslationKey(translationKeyDTO.getId()));
             keyManagementViewDTOList.add(keyManagementViewDTO);
         }
-        return PageUtil.createPageFromList(keyManagementViewDTOList, pageable);
+        return new PageImpl<>(keyManagementViewDTOList, pageable, allTranslationKeysByProjectId.getTotalElements());
     }
 }
