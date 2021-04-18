@@ -30,8 +30,8 @@ const accountMenuItems = (
   </>
 );
 
-export const AccountMenu = ({isAuthenticated = false, isSuperUser = false}) => (
-  <NavDropdown icon="user" name={translate('global.menu.account.main')} id="account-menu">
+export const AccountMenu = ({isAuthenticated = false, isSuperUser = false, username = ""}) => (
+  <NavDropdown icon="user" name={username} id="account-menu">
     {isAuthenticated ? isSuperUser ? (accountMenuItemsAuthenticated) :
       <React.Fragment>{accountMenuItemsAuthenticated}{additionalAccountMenuItems}</React.Fragment> : accountMenuItems}
   </NavDropdown>

@@ -15,5 +15,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface TranslationKeyRepository extends JpaRepository<TranslationKey, Long> {
-    Page<TranslationKey> findAllByProjectIdAndDeletedIsFalse(Long id, Pageable pageable);
+    Page<TranslationKey> findAllByProjectIdAndNameContainsAndDeletedIsFalse(Long id, String name, Pageable pageable);
 }

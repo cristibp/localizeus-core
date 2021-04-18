@@ -29,9 +29,9 @@ public class KeyManagementViewFacadeImpl implements KeyManagementViewFacade {
     }
 
     @Override
-    public Page<KeyManagementViewDTO> getKeyManagementView(Long projectId, Pageable pageable) {
+    public Page<KeyManagementViewDTO> getKeyManagementView(Long projectId, String translationKey, Pageable pageable) {
         List<KeyManagementViewDTO> keyManagementViewDTOList = new ArrayList<>();
-        Page<TranslationKeyDTO> allTranslationKeysByProjectId = translationKeyService.findAllByProjectId(projectId, pageable);
+        Page<TranslationKeyDTO> allTranslationKeysByProjectId = translationKeyService.findAllByProjectIdAndTranslationKey(projectId, translationKey, pageable);
         for (TranslationKeyDTO translationKeyDTO : allTranslationKeysByProjectId.getContent()) {
             List<TranslationDTO> allTranslationsForKey = translationService.findAll(translationKeyDTO.getId());
             KeyManagementViewDTO keyManagementViewDTO = new KeyManagementViewDTO(translationKeyDTO, allTranslationsForKey);

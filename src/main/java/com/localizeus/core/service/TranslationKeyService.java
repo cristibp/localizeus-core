@@ -33,10 +33,11 @@ public interface TranslationKeyService {
      * Get all the translationKeys.
      *
      * @param projectId the project id
+     * @param translationKey the translation key to search for
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<TranslationKeyDTO> findAllByProjectId(Long projectId, Pageable pageable);
+    Page<TranslationKeyDTO> findAllByProjectIdAndTranslationKey(Long projectId, String translationKey, Pageable pageable);
 
     /**
      * Get the "id" translationKey.

@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 import {getEntities} from "app/entities/language/language.reducer";
 import ArrayHelper from "app/shared/util/array-utils";
 import StorageHelper from "app/shared/util/storage/custom-storage-utils";
+import ApiUtils from "app/shared/util/api-utils";
 
 export interface IKeyManagementProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
@@ -27,7 +28,7 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [localTranslations, setLocalTranslations] = useState([]);
   const [selectedRow, setSelectedRow] = useState(0);
-  const [searchTranslationKeyTerm, setSearchTranslationKeyTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const {
     keyManagementViewList,
@@ -37,9 +38,17 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
     allLanguages
   } = props;
 
-  const getAllEntities = () => {
-    props.getEntitiesForProject(props.match.params.id, paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
-  };
+  const getAllEntities = (translationKey?: string) => {
+    if (!translationKey) {
+      translationKey = '';
+    }
+    const searchCriteria = {
+      projectId: props.match.params.id,
+      translationKey
+    };
+    const criteria = ApiUtils.stringifyCriteria(searchCriteria, true);
+    props.getEntitiesForProject(criteria, paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
+  }
 
   const getAllLanguages = () => {
     props.getEntities();
@@ -77,7 +86,7 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
   function setDefaultLanguageSelection() {
     const lsItems = StorageHelper.getLSItems(LANGUAGES_BUCKET);
     if (lsItems) {
-      setSelectedLanguages(lsItems )
+      setSelectedLanguages(lsItems)
     } else {
       setSelectedLanguages(allLanguagesToMultiselectLanguages());
     }
@@ -160,10 +169,10 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
       setLocalTranslations(translationsForLanguage);
     }
   }
+  const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
-  function searchTranslations(e: React.ChangeEvent<HTMLInputElement>) {
-    const keyword = e.target.value;
-    setSearchTranslationKeyTerm(keyword);
+  function searchTranslations() {
+    getAllEntities(searchTerm);
   }
 
   return (
@@ -171,61 +180,64 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
       <h2 id="translationKey-heading">
         <Translate contentKey="localizeusApp.keyManagement.home.title">List of keys </Translate>
       </h2>
-      <div className="table-responsive">
-        {keyManagementViewList && keyManagementViewList.length > 0 ? (
-          <div>
-            <div className="table-actions">
-              <div className="table-actions-left">
-                <div className="table-actions-search">
-                  {/* TODO INTERNATIONALIZE*/}
-                  <input type="text" onChange={e => searchTranslations(e)} className="search"
-                         placeholder="Search for a specific key.." name="search"/>
+      <div className="table-actions-search">
+        {/* TODO INTERNATIONALIZE*/}
+        <input type="text" value={searchTerm} onChange={handleSearchChange} className="search"
+               placeholder="Search for a specific key.." name="search"/>
+        <Button onClick={searchTranslations}>
+          <Translate contentKey="localizeusApp.keyManagement.search.text">Search</Translate>
+        </Button>
+      </div>
+      {keyManagementViewList && keyManagementViewList.length > 0 ? (
+        <div>
+          <div className="table-responsive">
+
+            <div>
+              <div className="table-actions">
+                <div className="table-actions-left">
+                  <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity"
+                        id="jh-create-entity">
+                    <FontAwesomeIcon icon="plus"/>
+                    &nbsp;
+                    <Translate contentKey="localizeusApp.translationKey.home.createLabel">Create new Translation
+                      Key</Translate>
+                  </Link>
                 </div>
-                <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity"
-                      id="jh-create-entity">
-                  <FontAwesomeIcon icon="plus"/>
-                  &nbsp;
-                  <Translate contentKey="localizeusApp.translationKey.home.createLabel">Create new Translation
-                    Key</Translate>
-                </Link>
+                <div>
+                  <JhiItemCount page={paginationState.activePage} total={totalItems}
+                                itemsPerPage={paginationState.itemsPerPage} i18nEnabled/>
+                  <JhiPagination
+                    activePage={paginationState.activePage}
+                    onSelect={handlePagination}
+                    maxButtons={2}
+                    itemsPerPage={paginationState.itemsPerPage}
+                    totalItems={props.totalItems}
+                  />
+                </div>
               </div>
-              <div>
-                <JhiItemCount page={paginationState.activePage} total={totalItems}
-                              itemsPerPage={paginationState.itemsPerPage} i18nEnabled/>
-                <JhiPagination
-                  activePage={paginationState.activePage}
-                  onSelect={handlePagination}
-                  maxButtons={2}
-                  itemsPerPage={paginationState.itemsPerPage}
-                  totalItems={props.totalItems}
-                />
-              </div>
-            </div>
-            <div className="key-container">
-              <Table responsive>
-                <thead>
-                <tr className="no-hover">
-                  <th className="hand" onClick={sort('name')}>
-                    <Translate contentKey="localizeusApp.translationKey.name">Name</Translate> <FontAwesomeIcon
-                    icon="sort"/>
-                  </th>
-                  <th className="hand" onClick={sort('fallbackValue')}>
-                    <Translate contentKey="localizeusApp.translationKey.fallbackValue">Fallback value</Translate>
-                    <FontAwesomeIcon
+              <div className="key-container">
+                <Table responsive>
+                  <thead>
+                  <tr className="no-hover">
+                    <th className="hand" onClick={sort('name')}>
+                      <Translate contentKey="localizeusApp.translationKey.name">Name</Translate> <FontAwesomeIcon
                       icon="sort"/>
-                  </th>
-                  <th>
-                    Labels
-                  </th>
-                  <th>
-                    Actions
-                  </th>
-                </tr>
-                </thead>
-                <tbody>
-                {keyManagementViewList.filter(keyManagementView => searchTranslationKeyTerm !== '' && keyManagementView.translationKey.name.startsWith(searchTranslationKeyTerm) ||
-                  searchTranslationKeyTerm === '')
-                  .map((keyManagementView, i) => (
+                    </th>
+                    <th className="hand" onClick={sort('fallbackValue')}>
+                      <Translate contentKey="localizeusApp.translationKey.fallbackValue">Fallback value</Translate>
+                      <FontAwesomeIcon
+                        icon="sort"/>
+                    </th>
+                    <th>
+                      Labels
+                    </th>
+                    <th>
+                      Actions
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {keyManagementViewList.map((keyManagementView, i) => (
                     <tr className={selectedRow === i ? 'hand rowSelected' : 'hand'} key={`entity-${i}`}
                         onClick={(event) => showTranslations(keyManagementView.translationKey.id, event, i)}>
                       <td>{keyManagementView.translationKey.name}</td>
@@ -240,8 +252,7 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
                           tag={Link}
                           to={`${/translation-key/}${keyManagementView.translationKey.id}/delete`}
                           color="danger"
-                          size="sm"
-                        >
+                          size="sm">
                           <FontAwesomeIcon icon="trash"/>{' '}
                           <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -250,53 +261,56 @@ export const KeyManagementView = (props: IKeyManagementProps) => {
                       </td>
                     </tr>
                   ))}
-                </tbody>
-              </Table>
-              {/* <div style={{display: "none"}}>Discussions:</div>*/}
+                  </tbody>
+                </Table>
+                {/* <div style={{display: "none"}}>Discussions:</div>*/}
+              </div>
             </div>
           </div>
-        ) : (
-          !loading && (
-            <div className="alert alert-warning">
-              <Translate contentKey="localizeusApp.translationKey.home.notFound">No Translations found</Translate>
+          {/* https://www.npmjs.com/package/multiselect-react-dropdown */}
+          <Multiselect
+            options={allLanguagesToMultiselectLanguages()} // Options to display in the dropdown
+            selectedValues={selectedLanguages} // Preselected value to persist in dropdown
+            onSelect={(selectedList, selectedItem) => onSelectLanguageEvent(selectedList, selectedItem)} // Function will trigger on select event
+            onRemove={(selectedList, selectedItem) => onRemoveLanguageEvent(selectedList, selectedItem)} // Function will trigger on remove event
+            displayValue="languageName" // Property name to display in the dropdown options
+            // TODO i18n
+            placeholder="Pick one or more languages"
+            // TODO i18n
+            emptyRecordMsg="No options available"
+            closeOnSelect={false}
+            showCheckbox={true}
+            avoidHighlightFirstOption={true}
+          />
+          <br/>
+          {translations && translations.length > 0 ? (
+            <div className="translations-container">
+              <div className="list-group">
+                {translations.map((translation, i) => (
+                  <a href="#" className="list-group-item list-group-item-action" aria-current="true" key={i}>
+                    <div className="d-flex w-100 justify-content-between">
+                      <h5 className="mb-1">{allLanguages.find(x => x.id === translation.languageId).languageName}</h5>
+                      <small>3 days ago</small>
+                    </div>
+                    <p className="mb-1">{translation.value}</p>
+                    <small>And some small print.</small>
+                  </a>
+                ))}
+              </div>
             </div>
-          ))
-        }
-      </div>
-      {/* https://www.npmjs.com/package/multiselect-react-dropdown */}
-      <Multiselect
-        options={allLanguagesToMultiselectLanguages()} // Options to display in the dropdown
-        selectedValues={selectedLanguages} // Preselected value to persist in dropdown
-        onSelect={(selectedList, selectedItem) => onSelectLanguageEvent(selectedList, selectedItem)} // Function will trigger on select event
-        onRemove={(selectedList, selectedItem) => onRemoveLanguageEvent(selectedList, selectedItem)} // Function will trigger on remove event
-        displayValue="languageName" // Property name to display in the dropdown options
-        // TODO i18n
-        placeholder="Pick one or more languages"
-        // TODO i18n
-        emptyRecordMsg="No options available"
-        closeOnSelect={false}
-        showCheckbox={true}
-        avoidHighlightFirstOption={true}
-      />
-      <br/>
-      {translations && translations.length > 0 ? (
-        <div className="translations-container">
-          <div className="list-group">
-            {translations.map((translation, i) => (
-              <a href="#" className="list-group-item list-group-item-action" aria-current="true" key={i}>
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{allLanguages.find(x => x.id === translation.languageId).languageName}</h5>
-                  <small>3 days ago</small>
-                </div>
-                <p className="mb-1">{translation.value}</p>
-                <small>And some small print.</small>
-              </a>
-            ))}
-          </div>
+          ) : ''}
         </div>
-      ) : ''}
+      ) : (
+        !loading && (
+          <div className="alert alert-warning">
+            <Translate contentKey="localizeusApp.translationKey.home.notFound">No Translations found</Translate>
+          </div>
+        ))
+      }
     </div>
+
   );
+
 };
 
 const mapStateToProps = ({keyManagementView, language}: IRootState) => ({

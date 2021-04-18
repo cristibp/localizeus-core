@@ -17,6 +17,7 @@ export interface IHeaderProps {
   isInProduction: boolean;
   isSwaggerEnabled: boolean;
   currentLocale: string;
+  username: string;
   onLocaleChange: Function;
 }
 
@@ -59,7 +60,7 @@ const Header = (props: IHeaderProps) => {
               <AdminMenu showSwagger={props.isSwaggerEnabled} showUserManagement={!props.isSuperUser}/>
             )}
             <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange}/>
-            <AccountMenu isAuthenticated={props.isAuthenticated} isSuperUser={props.isSuperUser}/>
+            <AccountMenu isAuthenticated={props.isAuthenticated} isSuperUser={props.isSuperUser} username={props.username}/>
 
           </Nav>
         </Collapse>

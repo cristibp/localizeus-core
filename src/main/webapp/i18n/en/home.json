@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "Welcome, {{username}}",
+    "title": "The following projects are available to manage:",
     "subtitle": "This is your homepage",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."

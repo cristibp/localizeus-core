@@ -27,11 +27,9 @@ export const Home = (props: IHomeProp) => {
       <Col md="9">
         {account && account.login ? (
           <div>
-            <Alert color="success">
-              <Translate contentKey="home.title" interpolate={{username: account.login}}>
-                {account.login}
-              </Translate>
-            </Alert>
+            <Translate contentKey="home.title"/>
+            <br/>
+            <br/>
             <ProjectsSummary projects={projects}/>
           </div>
         ) : (

@@ -11,13 +11,19 @@ class ProjectsSummary extends React.Component<IProjectsSummaryProps> {
     const {projects} = this.props;
     return (
       <div>
-        {
-          projects?.length ? projects.map((project, i) => (
-              <Link key={project.id} to={`key-management/${+ project.id}`}>{project.name}</Link>
-            ))
-            :
-            <span>Create a new project <Link to='/project/new'>here</Link></span>
-        }
+        <ul className="list-group">
+          {
+            projects?.length ? projects.map((project, i) => (
+                (
+                  <li className="list-group-item list-group-item-action">
+                    <Link key={project.id} to={`key-management/${+project.id}`}>{project.name}</Link>
+                  </li>
+                )
+              ))
+              :
+              <span>Create a new project <Link to='/project/new'>here</Link></span>
+          }
+        </ul>
       </div>
     );
   }

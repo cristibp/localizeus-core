@@ -1,6 +1,9 @@
 {
   "localizeusApp": {
     "keyManagement": {
+      "search": {
+        "text": "Search"
+      },
       "home": {
         "title": "Key management",
         "notFound": "No translation key found"

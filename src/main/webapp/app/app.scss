@@ -343,7 +343,10 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .table-actions-search input {
   border-radius: 0.25em;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  margin-bottom: 1rem;
+}
+.table-actions-search .btn {
+  margin-left: 1rem;
+  vertical-align: inherit;
 }
 
 .key-container {

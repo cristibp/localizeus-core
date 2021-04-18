@@ -40,13 +40,16 @@ public class KeyManagementViewResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of translationKeys in body.
      */
     @GetMapping("/key-management-view")
-    public ResponseEntity<List<KeyManagementViewDTO>> listKeyManagementView(@RequestParam(name = "projectId") String projectId, Pageable pageable) {
+    public ResponseEntity<List<KeyManagementViewDTO>> listKeyManagementView(
+        @RequestParam(name = "projectId") String projectId,
+        @RequestParam(name = "translationKey") String translationKey,
+        Pageable pageable) {
         Page<KeyManagementViewDTO> page;
         if (StringUtils.isBlank(projectId)) {
             throw new IllegalArgumentException("Missing projectId");
         } else {
             log.debug("REST request to get a page of TranslationKeys");
-            page = keyManagementViewFacade.getKeyManagementView(Long.parseLong(projectId), pageable);
+            page = keyManagementViewFacade.getKeyManagementView(Long.parseLong(projectId), translationKey, pageable);
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

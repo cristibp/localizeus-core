@@ -61,11 +61,11 @@ const apiUrl = 'api/key-management-view';
 
 // Actions
 
-export const getEntitiesForProject: ICrudSearchAction<IKeyManagementView> = (projectId, page, size, sort) => {
+export const getEntitiesForProject: ICrudSearchAction<IKeyManagementView> = (search, page, size, sort) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   return {
     type: ACTION_TYPES.FETCH_KEY_MANAGEMENT_VIEW_LIST,
-    payload: axios.get<IKeyManagementView>(`${requestUrl}${sort ? '&' : '?'}projectId=${projectId}&cacheBuster=${new Date().getTime()}`),
+    payload: axios.get<IKeyManagementView>(`${requestUrl}${sort ? '&' : '?'}${search}cacheBuster=${new Date().getTime()}`),
   };
 };
 

@@ -53,9 +53,9 @@ public class TranslationKeyServiceImpl implements TranslationKeyService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<TranslationKeyDTO> findAllByProjectId(Long projectId, Pageable pageable) {
+    public Page<TranslationKeyDTO> findAllByProjectIdAndTranslationKey(Long projectId, String translationKey, Pageable pageable) {
         log.debug("Request to get all TranslationKeys");
-        return translationKeyRepository.findAllByProjectIdAndDeletedIsFalse(projectId, pageable)
+        return translationKeyRepository.findAllByProjectIdAndNameContainsAndDeletedIsFalse(projectId, translationKey, pageable)
             .map(translationKeyMapper::toDto);
     }
 

@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "Bienvenue, {{username}}",
+    "title": "The following projects are available to manage:",
     "subtitle": "Ceci est votre page d'accueil",
     "logged": {
       "message": "Vous êtes connecté en tant que \"{{username}}\"."
