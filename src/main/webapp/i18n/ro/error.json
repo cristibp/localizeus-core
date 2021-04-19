@@ -3,6 +3,7 @@
     "title": "Pagină eroare!",
     "http": {
       "400": "Bad request.",
+      "401": "You are not authorized to access this page.",
       "403": "Nu sunteți autorizat pentru accesarea acestei pagini.",
       "404": "Pagina nu există.",
       "405": "The HTTP verb you used is not supported for this URL.",
