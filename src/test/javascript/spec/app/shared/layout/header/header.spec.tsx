@@ -24,12 +24,14 @@ describe('Header', () => {
     ribbonEnv: 'dev',
     isInProduction: false,
     isSwaggerEnabled: true,
+    username: 'admin'
   };
   const prodProps = {
     ...devProps,
     ribbonEnv: 'prod',
     isInProduction: true,
     isSwaggerEnabled: false,
+    username: 'admin'
   };
   const userProps = {
     ...prodProps,

@@ -320,7 +320,7 @@
         <!-- jhipster-needle-maven-add-dependency -->
         <dependency>
             <groupId>com.localizeus</groupId>
-            <artifactId>liquibaseRunner</artifactId>
+            <artifactId>liquibase-runner</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

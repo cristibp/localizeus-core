@@ -15,7 +15,7 @@ class ProjectsSummary extends React.Component<IProjectsSummaryProps> {
           {
             projects?.length ? projects.map((project, i) => (
                 (
-                  <li className="list-group-item list-group-item-action">
+                  <li key={project.id} className="list-group-item list-group-item-action">
                     <Link key={project.id} to={`key-management/${+project.id}`}>{project.name}</Link>
                   </li>
                 )
